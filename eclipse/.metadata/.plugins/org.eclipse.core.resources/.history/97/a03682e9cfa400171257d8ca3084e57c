@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>個人アカウント作成画面</title>
+</head>
+<body>
+	<h1>アカウント作成</h1>
+	<form action="" method="post">
+		名前:<input type = "text" name = "name"><br>
+		ID: <input type="text" name="id"><br>
+		PW:<input type="text" name="pw"><br>
+		<input type="submit"value="OK">
+	</form>
+</body>
+</html>
