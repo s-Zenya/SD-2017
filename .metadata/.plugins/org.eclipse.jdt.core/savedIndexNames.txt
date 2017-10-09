@@ -5,7 +5,6 @@ INDEX VERSION 1.130+C:\Users\Zenya\Desktop\Work\SD-2017\.metadata\.plugins\org.e
 3591393829.index
 1864026804.index
 2159689118.index
-409346545.index
 2049541946.index
 263272523.index
 3606731039.index
