@@ -8,12 +8,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.DbConnection;
 import model.Personal;
+
 public class PersonalDAO {
 	//DB接続パス
-	private String connectionString = DbConnection.getPass();
-
+	private String connectionString = "jdbc:h2:file:C:/Users/K/Desktop/work/SD-2017/H2DB/sd-2017db";
+	
 	public List<Personal> findAll() {
 
 		Connection conn = null;
@@ -62,7 +62,7 @@ public class PersonalDAO {
 		}
 		return personalList;
 	}
-
+	
 	//ID指定で参照
 	public List<Personal> findSearch(String searchId) {
 
@@ -80,7 +80,7 @@ public class PersonalDAO {
 			// SELECT文を準備
 			String sql = "SELECT * FROM PERSONALTABLE WHERE ID=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-
+			
 			//指定したIDで
 			pStmt.setString(1, searchId);
 
@@ -115,7 +115,7 @@ public class PersonalDAO {
 		}
 		return personalList;
 	}
-
+	
 	//データ削除
 	public boolean remove(String removeId) {
 		Connection conn = null;
@@ -151,7 +151,7 @@ public class PersonalDAO {
 			}
 		}
 	}
-
+	
 	//データ追加
 	public boolean add(String id, String pw, String name, String groupId) {
 		Connection conn = null;
