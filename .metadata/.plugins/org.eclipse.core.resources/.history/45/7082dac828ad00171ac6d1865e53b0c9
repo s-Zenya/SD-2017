@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.DbConnection;
 import model.Personal;
+import model.DbConnection;
 public class PersonalDAO {
 	//DB接続パス
 	private String connectionString = DbConnection.getPass();
