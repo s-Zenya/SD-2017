@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item value="C:\Users\Zenya\Desktop\Work\SD-2017\CFT\lib_jar" key="org.eclipse.jdt.ui.lastextjar"/>
-	<section name="org.eclipse.ltk.ui.refactoring.settings">
-		<item value="false" key="updateQualifiedNames"/>
-		<item value="*" key="patterns"/>
-		<item value="false" key="updateSimilarElements"/>
-		<item value="1" key="updateSimilarElementsMatchStrategy"/>
-		<item value="false" key="updateTextualMatches"/>
+	<section name="javadoc">
+		<item value="-encoding UTF-8&#x0D;&#x0A;-charset UTF-8" key="additionalparam"/>
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item value="1" key="layout"/>
@@ -21,23 +17,6 @@
 	</section>
 	<section name="OptionalMessageDialog.hide.">
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
-	</section>
-	<section name="RefactoringWizard.preview">
-		<item value="600" key="width"/>
-		<item value="400" key="height"/>
-	</section>
-	<section name="javadoc">
-		<item value="-encoding UTF-8&#x0D;&#x0A;-charset UTF-8" key="additionalparam"/>
-	</section>
-	<section name="org.eclipse.jdt.internal.ui.wizards.buildpaths.NewVariableEntryDialog">
-		<item value="569" key="DIALOG_WIDTH"/>
-		<item value="1|Yu Gothic UI|9.0|0|WINDOWS|1|-21|0|0|0|400|0|0|0|1|0|0|0|0|Yu Gothic UI" key="DIALOG_FONT_NAME"/>
-		<item value="377" key="DIALOG_HEIGHT"/>
-		<item value="72" key="DIALOG_X_ORIGIN"/>
-		<item value="18" key="DIALOG_Y_ORIGIN"/>
-	</section>
-	<section name="ClasspathContainerSelectionPage">
-		<item value="7" key="index"/>
 	</section>
 	<section name="NewPackageWizardPage">
 		<item value="false" key="create_package_info_java"/>

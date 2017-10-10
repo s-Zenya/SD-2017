@@ -10,5 +10,5 @@
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="4"/>
 </listAttribute>
-<stringAttribute key="server-id" value="ローカル・ホスト の Tomcat v7.0 サーバー"/>
+<stringAttribute key="server-id" value="ローカル・ホスト の Tomcat7 (Java7)"/>
 </launchConfiguration>
