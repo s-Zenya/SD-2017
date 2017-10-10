@@ -1,0 +1,39 @@
+package model;
+
+public class Group {
+	private String groupId;
+	private String groupPw;
+	private String groupName;
+
+	public Group( String groupId, String groupPw, String groupName){
+		this.groupId=groupId;
+		this.groupPw=groupPw;
+		this.groupName=groupName;
+	}
+
+	public String getGroupId(){
+		return GroupId;
+	}
+
+	public void setGroupId(String groupId){
+		this.groupId = groupId;
+	}
+
+	public String getPw(){
+		return pw;
+	}
+
+	public void setPw(String pw){
+		this.pw = pw;
+	}
+
+	public String getName(){
+		return name;
+	}
+
+	public void setName(String name){
+		this.name = name;
+	}
+
+
+}
