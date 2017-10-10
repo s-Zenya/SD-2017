@@ -1,0 +1,28 @@
+
+
+console.log("js_ok");
+function hoge(){
+	console.log("hoge");
+    	fetch('http://localhost:8080/CFT/SampleServlet?id="hoge"&pass="aaa"', {
+    		  method: 'GET'
+
+
+    	})
+
+
+    	  .then(response => {
+    		  console.log(response.status);
+    	    return response.text();
+    	  })
+
+
+
+
+
+    	  .then((text) => {
+    		  var data = text;
+    		  var obj = (new Function("return " + data))();
+    		  console.dir(obj);
+    		  });
+
+}
