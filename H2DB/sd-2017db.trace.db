@@ -837,3 +837,19 @@ DELETE FROM TODOTABLE WEHRE GROUPID = '0001' [42000-196]
 org.h2.jdbc.JdbcSQLException: SQLステートメントに文法エラーがあります "DELETE FROM TODOTABLE WEHRE GROUPID[*] = '0001'"
 Syntax error in SQL statement "DELETE FROM TODOTABLE WEHRE GROUPID[*] = '0001'"; SQL statement:
 DELETE FROM TODOTABLE WEHRE GROUPID = '0001' [42000-196]
+2017-10-10 16:33:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: SQLステートメントに文法エラーがあります "SHOW COLUMNS PERSONALTABLE[*] "; 期待されるステートメント "FROM"
+Syntax error in SQL statement "SHOW COLUMNS PERSONALTABLE[*] "; expected "FROM"; SQL statement:
+show columns PERSONALTABLE [42001-196]
+2017-10-10 16:33:50 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: SQLステートメントに文法エラーがあります "ALTER TBALE[*] CALENDARTABLE ADD NAME VARCHAR(30) "; 期待されるステートメント "TABLE, USER, INDEX, SCHEMA, SEQUENCE, VIEW"
+Syntax error in SQL statement "ALTER TBALE[*] CALENDARTABLE ADD NAME VARCHAR(30) "; expected "TABLE, USER, INDEX, SCHEMA, SEQUENCE, VIEW"; SQL statement:
+ALTER TBALE CALENDARTABLE ADD NAME varchar(30) [42001-196]
+2017-10-10 16:35:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: SQLステートメントに文法エラーがあります "ALTER TBALE[*] CALENDARTABLE ADD NAME VARCHAR(30) "; 期待されるステートメント "TABLE, USER, INDEX, SCHEMA, SEQUENCE, VIEW"
+Syntax error in SQL statement "ALTER TBALE[*] CALENDARTABLE ADD NAME VARCHAR(30) "; expected "TABLE, USER, INDEX, SCHEMA, SEQUENCE, VIEW"; SQL statement:
+ALTER TBALE CALENDARTABLE ADD NAME varchar(30) [42001-196]
+2017-10-10 16:35:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: SQLステートメントに文法エラーがあります "ALTER TBALE[*] CALENDARTABLE ADD NAME VARCHAR(30) "; 期待されるステートメント "TABLE, USER, INDEX, SCHEMA, SEQUENCE, VIEW"
+Syntax error in SQL statement "ALTER TBALE[*] CALENDARTABLE ADD NAME VARCHAR(30) "; expected "TABLE, USER, INDEX, SCHEMA, SEQUENCE, VIEW"; SQL statement:
+ALTER TBALE CALENDARTABLE ADD NAME varchar(30) [42001-196]
