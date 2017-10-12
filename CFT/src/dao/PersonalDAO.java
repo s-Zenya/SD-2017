@@ -10,8 +10,9 @@ import java.util.List;
 
 import model.DbConnection;
 import model.Personal;
+
 public class PersonalDAO {
-	//DB接続パス
+	// DB接続パス
 	private String connectionString = DbConnection.getPass();
 
 	public List<Personal> findAll() {
@@ -63,7 +64,7 @@ public class PersonalDAO {
 		return personalList;
 	}
 
-	//ID指定で参照
+	// ID指定で参照
 	public List<Personal> findSearch(String searchId) {
 
 		Connection conn = null;
@@ -81,7 +82,7 @@ public class PersonalDAO {
 			String sql = "SELECT * FROM PERSONALTABLE WHERE ID=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			//指定したIDで
+			// 指定したIDで
 			pStmt.setString(1, searchId);
 
 			// SELECTを実行し、結果表を取得
@@ -116,7 +117,7 @@ public class PersonalDAO {
 		return personalList;
 	}
 
-	//データ削除
+	// データ削除
 	public boolean remove(String removeId) {
 		Connection conn = null;
 
@@ -152,7 +153,7 @@ public class PersonalDAO {
 		}
 	}
 
-	//データ追加
+	// データ追加
 	public boolean add(String id, String pw, String name, String groupId) {
 		Connection conn = null;
 
@@ -190,5 +191,64 @@ public class PersonalDAO {
 				}
 			}
 		}
+	}
+
+	// IDとPWを貰って合致するか確認　戻り値boolean
+	public boolean loginCheck(String searchId,String searchPw) {
+		//System.out.println(searchId+":"+searchPw+":in dao>PersonalDAO>loginCheck()");
+
+		Connection conn = null;
+		List<Personal> personalList = new ArrayList<Personal>();
+
+		try {
+
+			// JDBC Driver Read
+			Class.forName("org.h2.Driver");
+
+			// データベースへ接続
+			conn = DriverManager.getConnection(connectionString, "sa", "");
+
+			// SELECT文を準備
+			String sql = "SELECT * FROM PERSONALTABLE WHERE ID=? AND PW=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// 指定したIDで
+			pStmt.setString(1, searchId);
+			pStmt.setString(2, searchPw);
+
+			// SELECTを実行し、結果表を取得
+			ResultSet rs = pStmt.executeQuery();
+			
+			while (rs.next()) {
+				String id = rs.getString("ID");
+				String pw = rs.getString("PW");
+				String name = rs.getString("NAME");
+				String groupId = rs.getString("GROUPID");
+				Personal personal = new Personal(id, pw, name, groupId);
+				personalList.add(personal);
+				System.out.println("loginCheck OK");
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+
+			// データベース切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return false;
+				}
+			}
+		}
+		System.out.println("loginCheck NG");
+		return false;
 	}
 }
