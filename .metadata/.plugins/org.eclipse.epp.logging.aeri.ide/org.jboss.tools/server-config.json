@@ -1,7 +1,11 @@
 {
   "version": "v1",
   "title": "JBoss Tools",
+<<<<<<< HEAD
   "timestamp": 1507790983234,
+=======
+  "timestamp": 1507789372257,
+>>>>>>> 9713895ea524853ae369bfbc174bf4f7899b1786
   "ttl": 0,
   "helpUrl": "https://aer.ctrlflow.com/redhat/help",
   "feedbackUrl": "https://www.codetrails.com/error-analytics/",
