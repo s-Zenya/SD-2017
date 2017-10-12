@@ -29,14 +29,10 @@ public class DbTest {
 		// System.out.println(box2);
 
 		// personalテーブルの値をID指定で取得
-		personalList = personalDAO.findSearch("00001");
+		// personalList = personalDAO.findSearch("00001");
 
-		// 取得したレコードの内容を出力
-		for (Personal personal : personalList) {
-			System.out.println("ID:" + personal.getId());
-			System.out.println("PW:" + personal.getPw());
-			System.out.println("NAME:" + personal.getName());
-			System.out.println("GROUPID:" + personal.getGroupId() + "\n");
-		}
+		// personalDAO idPwCheck(ID,PW) return boolean
+		boolean box = personalDAO.loginCheck("00001", "oic");
+		System.out.println(box);
 	}
 }
