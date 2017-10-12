@@ -1,0 +1,13 @@
+table {
+	border-collapse: collapse;
+}
+
+td {
+	border: solid 1px;
+	padding: 0.5em;
+}
+
+.sunday{
+	background-color : #ffff00;
+	color : #00ff00;
+}
