@@ -65,11 +65,11 @@ public class PersonalDAO {
 	}
 
 	// ID指定で参照
-	public List<Personal> findSearch(String searchId) {
+	public Personal findSearch(String searchId) {
 
 		Connection conn = null;
 		List<Personal> personalList = new ArrayList<Personal>();
-
+		Personal personal = new Personal();
 		try {
 
 			// JDBC Driver Read
@@ -88,14 +88,15 @@ public class PersonalDAO {
 			// SELECTを実行し、結果表を取得
 			ResultSet rs = pStmt.executeQuery();
 
-			while (rs.next()) {
+//			while (rs.next()) {
+			rs.next();
 				String id = rs.getString("ID");
 				String pw = rs.getString("PW");
 				String name = rs.getString("NAME");
 				String groupId = rs.getString("GROUPID");
-				Personal personal = new Personal(id, pw, name, groupId);
-				personalList.add(personal);
-			}
+				personal = new Personal(id, pw, name, groupId);
+//				personalList.add(personal);
+//			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
@@ -114,7 +115,7 @@ public class PersonalDAO {
 				}
 			}
 		}
-		return personalList;
+		return personal;
 	}
 
 	// データ削除
@@ -218,7 +219,7 @@ public class PersonalDAO {
 
 			// SELECTを実行し、結果表を取得
 			ResultSet rs = pStmt.executeQuery();
-			
+
 			while (rs.next()) {
 				String id = rs.getString("ID");
 				String pw = rs.getString("PW");
@@ -229,7 +230,7 @@ public class PersonalDAO {
 				System.out.println("loginCheck OK");
 				return true;
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;

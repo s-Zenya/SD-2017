@@ -6,6 +6,8 @@ public class Calendar {
 	private String date;
 	private String contents;
 
+	public Calendar(){};
+
 	public Calendar(String calendarId, String groupId, String date, String contents){
 		this.calendarId=calendarId;
 		this.groupId=groupId;
