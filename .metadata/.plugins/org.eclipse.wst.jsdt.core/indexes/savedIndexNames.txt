@@ -1,7 +1,6 @@
-INDEX VERSION 1.3+C:\Users\Zenya\Desktop\Work\SD-2017\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2626813874.index
-3500361540.index
-4123800370.index
-3882666099.index
-3513447363.index
+INDEX VERSION 1.3+C:\Users\yu_an\Desktop\Work\SD-2017\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 409346545.index
+1759718991.index
+3931865292.index
+2478460776.index
+1823737573.index
