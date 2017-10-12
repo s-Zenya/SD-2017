@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 public class Entrance extends HttpServlet  {
 	private static final long serialVersionUID = 1L;
 
+	@Override
 	protected void doGet(HttpServletRequest request,
 		      HttpServletResponse response)
 		      throws ServletException, IOException {
@@ -22,7 +23,8 @@ public class Entrance extends HttpServlet  {
 		if(session != null){//セッションがあればTopにページ遷移
 			response.sendRedirect("/CFT/html/top/top.html");
 		}else{//セッションがなければLogin画面へ遷移
-			response.sendRedirect("/CFT/html/personalLogin/personalLogin.html");
+			response.sendRedirect("/CFT/html/personal/personalLogin.html");
 		}
 	}
+
 }

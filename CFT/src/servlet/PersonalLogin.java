@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,11 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/Top")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/PersonalLogin")
+public class PersonalLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	HttpSession session;
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// HttpSession session;
@@ -38,11 +40,15 @@ public class LoginServlet extends HttpServlet {
 			response.sendRedirect("/CFT/html/top/top.html");
 
 		} else {
-			response.sendRedirect("/CFT/html/personalLogin/personalLogin.html");
+
+			response.sendRedirect("/CFT/html/personal/personalLogin.html");
+			PrintWriter out = response.getWriter();
+			out.print("ログインに失敗しました");
 		}
 
 	}
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.sendError(HttpServletResponse.SC_NOT_FOUND);
