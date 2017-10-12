@@ -5,10 +5,14 @@ import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import dao.PersonalDAO;
+import model.Personal;
 
 @WebServlet("/PersonalLogin")
 public class PersonalLogin extends HttpServlet {
@@ -26,16 +30,29 @@ public class PersonalLogin extends HttpServlet {
 		}
 
 		String id = request.getParameter("id");
-		String pass = request.getParameter("pass");
+		String pw = request.getParameter("pw");
 
 		// response.sendError(HttpServletResponse.SC_OK);
-		// String responseJson = "{\"id\" : "+id+",\"pass\":"+pass+"}";
+		// String responseJson = "{\"id\" : "+id+",\"pw\":"+pw+"}";
 		// response.setContentType("application/json;charset=UTF-8");
 		// PrintWriter out = response.getWriter();
 		// out.print(responseJson);
 
 		// ログイン成功
-		if (id.equals("idid") && pass.equals("passpass")) {
+		PersonalDAO personalDAO = new PersonalDAO();
+
+		if (personalDAO.loginCheck(id,pw)) {
+			//cookieに追加
+			Personal personal = new Personal();
+			personal = personalDAO.findSearch(id);
+			Cookie cookie = new Cookie("id", id);
+			response.addCookie(cookie);
+			cookie = new Cookie("name", personal.getName());
+			response.addCookie(cookie);
+			cookie = new Cookie("groupId", personal.getGroupId());
+			response.addCookie(cookie);
+			System.out.println(personal.getGroupId()+"+"+personal.getId()+"+"+personal.getName());
+			//セッションを開始
 			session = request.getSession(true);
 			response.sendRedirect("/CFT/html/top/top.html");
 
@@ -52,12 +69,6 @@ public class PersonalLogin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.sendError(HttpServletResponse.SC_NOT_FOUND);
-
-		// session = request.getSession(false);
-		// if(session != null){
-		// response.sendRedirect("/CFT/html/top/top.html");
-		// }
-
 	}
 
 }

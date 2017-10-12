@@ -8,6 +8,8 @@ public class Shopping {
 	private String date;
 	private String groupId;
 
+	public Shopping(){}
+
 	public Shopping(String contents,String done, String date, String shoppingId, String groupId){
 		this.contents=contents;
 		this.date=date;

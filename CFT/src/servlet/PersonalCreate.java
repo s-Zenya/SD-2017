@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.PersonalDAO;
+
 @WebServlet("/PersonalCreate")
 public class PersonalCreate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -19,10 +21,11 @@ public class PersonalCreate extends HttpServlet {
 
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-
+		String name = request.getParameter("name");
 
 		// ユーザー作成成功
-		if (true) {
+		PersonalDAO personalDAO = new PersonalDAO();
+		if (personalDAO.add(id, pw, name, null)) {
 			response.sendRedirect("/CFT/Login");
 
 		} else {
