@@ -1,3 +1,4 @@
 /build/
 /src/model/DbConnection.java
 /.metadata/*
+.metadata/*
