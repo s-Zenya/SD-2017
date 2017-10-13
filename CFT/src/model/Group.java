@@ -5,6 +5,8 @@ public class Group {
 	private String groupPw;
 	private String groupName;
 
+	public Group(){}
+
 	public Group( String groupId, String groupPw, String groupName){
 		this.groupId=groupId;
 		this.groupPw=groupPw;

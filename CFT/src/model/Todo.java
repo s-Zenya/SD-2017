@@ -7,6 +7,8 @@ public class Todo {
 	private String date;
 	private String groupId;
 
+	public Todo(){}
+
 	public Todo(String contents,String done, String date, String todoId, String groupId){
 		this.contents=contents;
 		this.date=date;
