@@ -1,20 +1,49 @@
 package model;
 
+import java.util.Date;
+
 public class Todo {
-	private String contents;
-	private String done;
-	private String todoId;
-	private String date;
+	private Integer todoId;
 	private String groupId;
+	private Date date;
+	private String contents;
+	private boolean done;
+
 
 	public Todo(){}
 
-	public Todo(String contents,String done, String date, String todoId, String groupId){
-		this.contents=contents;
-		this.date=date;
+	public Todo( Integer todoId,String groupId, Date date,String contents,boolean done){
 		this.todoId = todoId;
-		this.done=done;
 		this.groupId=groupId;
+		this.date=date;
+		this.contents=contents;
+		this.done=done;
+
+	}
+
+	public Integer getTodoId(){
+		return todoId;
+	}
+
+	public void setTodoId(Integer todoId){
+		this.todoId = todoId;
+	}
+
+	public String getGroupId(){
+		return groupId;
+	}
+
+	public void setGroupId(String groupId){
+		this.groupId = groupId;
+	}
+
+
+	public Date getDate(){
+		return date;
+	}
+
+	public void setDate(Date date){
+		this.date = date;
 	}
 
 	public String getContents(){
@@ -25,36 +54,12 @@ public class Todo {
 		this.contents = contents;
 	}
 
-	public String getDate(){
-		return date;
-	}
-
-	public void setDate(String date){
-		this.date = date;
-	}
-
-	public String getTodoId(){
-		return todoId;
-	}
-
-	public void setTodoId(String todoId){
-		this.todoId = todoId;
-	}
-
-	public String getDone(){
+	public boolean getDone(){
 		return done;
 	}
 
-	public void setDone(String done){
+	public void setDone(boolean done){
 		this.done = done;
-	}
-
-	public String getGroupId(){
-		return groupId;
-	}
-
-	public void setGroupId(String groupId){
-		this.groupId = groupId;
 	}
 
 }

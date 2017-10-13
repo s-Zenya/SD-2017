@@ -1,22 +1,52 @@
 package model;
 
+import java.util.Date;
+
 public class Shopping {
 
-	private String contents;
-	private String done;
-	private String shoppingId;
-	private String date;
+	private Integer shoppingId;
 	private String groupId;
+	private Date date;
+	private String contents;
+	private boolean done;
+
 
 	public Shopping(){}
 
-	public Shopping(String contents,String done, String date, String shoppingId, String groupId){
-		this.contents=contents;
-		this.date=date;
+	public Shopping( Integer shoppingId,String groupId, Date date,String contents,boolean done){
 		this.shoppingId = shoppingId;
-		this.done=done;
 		this.groupId=groupId;
+		this.date=date;
+		this.contents=contents;
+		this.done=done;
+
 	}
+
+
+	public Integer getShoppingId(){
+		return shoppingId;
+	}
+
+	public void setShoppingId(Integer shoppingId){
+		this.shoppingId = shoppingId;
+	}
+
+	public String getGroupId(){
+		return groupId;
+	}
+
+	public void setGroupId(String groupId){
+		this.groupId = groupId;
+	}
+
+	public Date getDate(){
+		return date;
+	}
+
+	public void setDate(Date date){
+		this.date = date;
+	}
+
 
 	public String getContents(){
 		return contents;
@@ -26,36 +56,12 @@ public class Shopping {
 		this.contents = contents;
 	}
 
-	public String getDate(){
-		return date;
-	}
-
-	public void setDate(String date){
-		this.date = date;
-	}
-
-	public String getShoppingId(){
-		return shoppingId;
-	}
-
-	public void setShoppingId(String shoppingId){
-		this.shoppingId = shoppingId;
-	}
-
-	public String getDone(){
+	public boolean getDone(){
 		return done;
 	}
 
-	public void setDone(String done){
+	public void setDone(boolean done){
 		this.done = done;
-	}
-
-	public String getGroupId(){
-		return groupId;
-	}
-
-	public void setGroupId(String groupId){
-		this.groupId = groupId;
 	}
 
 }
