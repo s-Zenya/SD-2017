@@ -3,21 +3,26 @@ package model;
 public class Personal {
 
 	private String id;
+	private String groupId;
 	private String pw;
 	private String name;
-	private String groupId;
+
 
 	public Personal(){};
 
-	public Personal(String id, String pw, String name, String groupId){
+	public Personal(String id, String groupId, String pw, String name){
 		this.id=id;
+		this.groupId=groupId;
 		this.pw=pw;
 		this.name=name;
-		this.groupId=groupId;
 	}
 
 	public String getId(){
 		return id;
+	}
+
+	public String getGroupId(){
+		return groupId;
 	}
 
 	public String getPw(){
@@ -28,7 +33,4 @@ public class Personal {
 		return name;
 	}
 
-	public String getGroupId(){
-		return groupId;
-	}
 }

@@ -2,28 +2,33 @@ package model;
 
 import java.util.Date;
 
-public class Calendar {
-	private Integer calendarId;
+public class Shopping {
+
+	private Integer shoppingId;
 	private String groupId;
 	private Date date;
 	private String contents;
-	private String name;
+	private boolean done;
 
-	public Calendar(){};
 
-	public Calendar( Integer calendarId, String groupId,Date date, String contents,String name){
-		this.calendarId=calendarId;
+	public Shopping(){}
+
+	public Shopping( Integer shoppingId,String groupId, Date date,String contents,boolean done){
+		this.shoppingId = shoppingId;
 		this.groupId=groupId;
 		this.date=date;
 		this.contents=contents;
+		this.done=done;
+
 	}
 
-	public Integer getCalendarId(){
-		return calendarId;
+
+	public Integer getShoppingId(){
+		return shoppingId;
 	}
 
-	public void setCalendarId(Integer calendarId){
-		this.calendarId = calendarId;
+	public void setShoppingId(Integer shoppingId){
+		this.shoppingId = shoppingId;
 	}
 
 	public String getGroupId(){
@@ -42,6 +47,7 @@ public class Calendar {
 		this.date = date;
 	}
 
+
 	public String getContents(){
 		return contents;
 	}
@@ -50,11 +56,12 @@ public class Calendar {
 		this.contents = contents;
 	}
 
-	public String getName(){
-		return name;
+	public boolean getDone(){
+		return done;
 	}
 
-	public void setName(String name){
-		this.name = name;
+	public void setDone(boolean done){
+		this.done = done;
 	}
+
 }
