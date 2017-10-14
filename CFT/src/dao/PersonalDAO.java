@@ -193,6 +193,44 @@ public class PersonalDAO {
 			}
 		}
 	}
+	
+	// 指定されたIDにgroupIDをセット　戻り値boolean
+	public boolean setGroupId(String id, String groupId) {
+		Connection conn = null;
+
+		try {
+			Class.forName("org.h2.Driver");
+
+			// データベースへ接続
+			conn = DriverManager.getConnection(connectionString, "sa", "");
+
+			// DELETE文を準備
+			String sql = "update PERSONALTABLE set groupid = ? where id = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			pStmt.setString(1, groupId);
+			pStmt.setString(2, id);
+
+			int r = pStmt.executeUpdate();
+
+			return (r > 0);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+
+		} finally {
+			// データベース切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return false;
+				}
+			}
+		}
+	}
 
 	// IDとPWを貰って合致するか確認　戻り値boolean
 	public boolean loginCheck(String searchId,String searchPw) {
