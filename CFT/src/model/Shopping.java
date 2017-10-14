@@ -2,15 +2,15 @@ package model;
 
 public class Shopping {
 
+	private String shoppingId;
+	private String groupId;
 	private String contents;
 	private String done;
-	private String shoppingId;
 	private String date;
-	private String groupId;
 
 	public Shopping(){}
 
-	public Shopping(String contents,String done, String date, String shoppingId, String groupId){
+	public Shopping(String shoppingId, String groupId, String contents,String done, String date){
 		this.contents=contents;
 		this.date=date;
 		this.shoppingId = shoppingId;

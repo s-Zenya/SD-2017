@@ -906,3 +906,119 @@ No data is available [2000-196]
 2017-10-12 21:58:39 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: 有効なデータがありません
 No data is available [2000-196]
+2017-10-15 05:51:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: SQLステートメントに文法エラーがあります "INSERT INTO PERSONALTABLE (GROUPID) VALUES ('test') WHERE[*] ID = 'hoge' "
+Syntax error in SQL statement "INSERT INTO PERSONALTABLE (GROUPID) VALUES ('test') WHERE[*] ID = 'hoge' "; SQL statement:
+insert into PERSONALTABLE (groupid) values ('test') where id = 'hoge' [42000-196]
+2017-10-15 05:52:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: SQLステートメントに文法エラーがあります "INSERT INTO PERSONALTABLE (GROUPID) VALUES ('test') WHERE[*] ID = 'hoge' "
+Syntax error in SQL statement "INSERT INTO PERSONALTABLE (GROUPID) VALUES ('test') WHERE[*] ID = 'hoge' "; SQL statement:
+insert into PERSONALTABLE (GROUPID) values ('test') where id = 'hoge' [42000-196]
+2017-10-15 05:56:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: SQLステートメントに文法エラーがあります "update PERSONALTABLE  set groupid = '0001' w'here id = 'hoge[*]'"
+Syntax error in SQL statement "update PERSONALTABLE  set groupid = '0001' w'here id = 'hoge[*]'"; SQL statement:
+update PERSONALTABLE  set groupid = '0001' w'here id = 'hoge' [42000-196]
+2017-10-15 05:59:31 database: flush
+org.h2.message.DbException: 一般エラー: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/K/Desktop/work/SD-2017/H2DB/sd-2017db.mv.db [1.4.196/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/K/Desktop/work/SD-2017/H2DB/sd-2017db.mv.db [1.4.196/7]" [50000-196]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:378)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:361)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2930)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:155)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:100)
+	at org.h2.engine.Database.getPageStore(Database.java:2476)
+	at org.h2.engine.Database.open(Database.java:697)
+	at org.h2.engine.Database.openDatabase(Database.java:276)
+	at org.h2.engine.Database.<init>(Database.java:270)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:354)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:116)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:100)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at dao.PersonalDAO.findAll(PersonalDAO.java:29)
+	at servlet.DbTest.main(DbTest.java:13)
+Caused by: org.h2.jdbc.JdbcSQLException: 一般エラー: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/K/Desktop/work/SD-2017/H2DB/sd-2017db.mv.db [1.4.196/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/K/Desktop/work/SD-2017/H2DB/sd-2017db.mv.db [1.4.196/7]" [50000-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/K/Desktop/work/SD-2017/H2DB/sd-2017db.mv.db [1.4.196/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
+	at org.h2.mvstore.FileStore.open(FileStore.java:173)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
+	... 20 more
+2017-10-15 05:59:34 database: flush
+org.h2.message.DbException: 一般エラー: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/K/Desktop/work/SD-2017/H2DB/sd-2017db.mv.db [1.4.196/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/K/Desktop/work/SD-2017/H2DB/sd-2017db.mv.db [1.4.196/7]" [50000-196]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convert(DbException.java:295)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:378)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:361)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2930)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:155)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:100)
+	at org.h2.engine.Database.getPageStore(Database.java:2476)
+	at org.h2.engine.Database.open(Database.java:697)
+	at org.h2.engine.Database.openDatabase(Database.java:276)
+	at org.h2.engine.Database.<init>(Database.java:270)
+	at org.h2.engine.Engine.openSession(Engine.java:64)
+	at org.h2.engine.Engine.openSession(Engine.java:176)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:154)
+	at org.h2.engine.Engine.createSession(Engine.java:137)
+	at org.h2.engine.Engine.createSession(Engine.java:27)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:354)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:116)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:100)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at dao.PersonalDAO.findAll(PersonalDAO.java:29)
+	at servlet.DbTest.main(DbTest.java:13)
+Caused by: org.h2.jdbc.JdbcSQLException: 一般エラー: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/K/Desktop/work/SD-2017/H2DB/sd-2017db.mv.db [1.4.196/7]"
+General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/K/Desktop/work/SD-2017/H2DB/sd-2017db.mv.db [1.4.196/7]" [50000-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 25 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/K/Desktop/work/SD-2017/H2DB/sd-2017db.mv.db [1.4.196/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
+	at org.h2.mvstore.FileStore.open(FileStore.java:173)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
+	... 20 more
+2017-10-15 06:02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: パラメータ "parameterIndex" に対する値 "1" が不正です
+Invalid value "1" for parameter "parameterIndex" [90008-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:228)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1444)
+	at org.h2.jdbc.JdbcPreparedStatement.setString(JdbcPreparedStatement.java:363)
+	at dao.PersonalDAO.setGroupId(PersonalDAO.java:211)
+	at servlet.DbTest.main(DbTest.java:25)
+2017-10-15 06:03:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: パラメータ "parameterIndex" に対する値 "1" が不正です
+Invalid value "1" for parameter "parameterIndex" [90008-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:228)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1444)
+	at org.h2.jdbc.JdbcPreparedStatement.setString(JdbcPreparedStatement.java:363)
+	at dao.PersonalDAO.setGroupId(PersonalDAO.java:211)
+	at servlet.DbTest.main(DbTest.java:25)
+2017-10-15 06:04:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: パラメータ "parameterIndex" に対する値 "1" が不正です
+Invalid value "1" for parameter "parameterIndex" [90008-196]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.getInvalidValueException(DbException.java:228)
+	at org.h2.jdbc.JdbcPreparedStatement.setParameter(JdbcPreparedStatement.java:1444)
+	at org.h2.jdbc.JdbcPreparedStatement.setString(JdbcPreparedStatement.java:363)
+	at dao.PersonalDAO.setGroupId(PersonalDAO.java:211)
+	at servlet.DbTest.main(DbTest.java:25)
