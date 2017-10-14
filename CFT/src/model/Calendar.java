@@ -1,25 +1,28 @@
 package model;
 
+import java.util.Date;
+
 public class Calendar {
-	private String calendarId;
+	private Integer calendarId;
 	private String groupId;
-	private String date;
+	private Date date;
 	private String contents;
+	private String name;
 
 	public Calendar(){};
 
-	public Calendar(String calendarId, String groupId, String date, String contents){
+	public Calendar( Integer calendarId, String groupId,Date date, String contents,String name){
 		this.calendarId=calendarId;
 		this.groupId=groupId;
 		this.date=date;
 		this.contents=contents;
 	}
 
-	public String getCalendarId(){
+	public Integer getCalendarId(){
 		return calendarId;
 	}
 
-	public void setCalendarId(String calendarId){
+	public void setCalendarId(Integer calendarId){
 		this.calendarId = calendarId;
 	}
 
@@ -31,11 +34,11 @@ public class Calendar {
 		this.groupId = groupId;
 	}
 
-	public String getDate(){
+	public Date getDate(){
 		return date;
 	}
 
-	public void setDate(String date){
+	public void setDate(Date date){
 		this.date = date;
 	}
 
@@ -47,4 +50,11 @@ public class Calendar {
 		this.contents = contents;
 	}
 
+	public String getName(){
+		return name;
+	}
+
+	public void setName(String name){
+		this.name = name;
+	}
 }

@@ -1,21 +1,32 @@
 package model;
 
+import java.util.Date;
+
 public class Message {
 
-	private String message;
-	private String id;
-	private String messageId;
-	private String date;
 	private String groupId;
+	private String id;
+	private Integer messageId;
+	private Date date;
+	private String message;
 
 	public Message(){};
 
-	public Message(String message,String id, String date, String messageId, String groupId){
-		this.id=id;
-		this.date=date;
+	public Message( Integer messageId, String id,String groupId, Date date,String message){
 		this.messageId = messageId;
-		this.message=message;
+		this.id=id;
 		this.groupId=groupId;
+		this.date=date;
+		this.message=message;
+
+	}
+
+	public Integer getMessageId(){
+		return messageId;
+	}
+
+	public void setMessageId(Integer messageId){
+		this.messageId = messageId;
 	}
 
 	public String getId(){
@@ -26,20 +37,20 @@ public class Message {
 		this.id = id;
 	}
 
-	public String getDate(){
+	public String getGroupId(){
+		return groupId;
+	}
+
+	public void setGroupId(String groupId){
+		this.groupId = groupId;
+	}
+
+	public Date getDate(){
 		return date;
 	}
 
-	public void setDate(String date){
+	public void setDate(Date date){
 		this.date = date;
-	}
-
-	public String getMessageId(){
-		return messageId;
-	}
-
-	public void setMessageId(String messageId){
-		this.messageId = messageId;
 	}
 
 	public String getMessage(){
@@ -48,14 +59,6 @@ public class Message {
 
 	public void setMessage(String message){
 		this.message = message;
-	}
-
-	public String getGroupId(){
-		return groupId;
-	}
-
-	public void setGroupId(String groupId){
-		this.groupId = groupId;
 	}
 
 }
