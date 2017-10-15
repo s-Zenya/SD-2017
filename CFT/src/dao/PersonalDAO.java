@@ -164,7 +164,7 @@ public class PersonalDAO {
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, "sa", "");
 
-			// DELETE文を準備
+			// INSERT文を準備
 			String sql = "INSERT INTO PERSONALTABLE (ID, PW, NAME, GROUPID) VALUES (?,?,?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -204,7 +204,7 @@ public class PersonalDAO {
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, "sa", "");
 
-			// DELETE文を準備
+			// UPDATE文を準備
 			String sql = "update PERSONALTABLE set groupid = ? where id = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 

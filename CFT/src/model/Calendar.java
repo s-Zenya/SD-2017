@@ -16,6 +16,7 @@ public class Calendar {
 		this.groupId=groupId;
 		this.date=date;
 		this.contents=contents;
+		this.name=name;
 	}
 
 	public Integer getCalendarId(){
