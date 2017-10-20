@@ -41,23 +41,18 @@ public class PersonalLogin extends HttpServlet {
 			personal = personalDAO.findSearch(id);
 			Cookie cookie = new Cookie("id", id);
 			cookie.setPath("/");
-//			cookie.setDomain("localhost");
 			response.addCookie(cookie);
 			cookie = new Cookie("name", personal.getName());
 			cookie.setPath("/");
-//			cookie.setDomain("localhost");
 			response.addCookie(cookie);
 			cookie = new Cookie("groupId", personal.getGroupId());
 			cookie.setPath("/");
-//			cookie.setDomain("localhost");
 			response.addCookie(cookie);
 			//セッションを開始
 			session = request.getSession(true);
 
 			response.sendRedirect("/CFT/html/top/top.html");
-
 		} else {
-
 			response.sendRedirect("/CFT/html/personal/personalLogin.html");
 			PrintWriter out = response.getWriter();
 			out.print("ログインに失敗しました");

@@ -46,7 +46,7 @@ function groupLogin(){
     	  .then(response => {
     		  console.log(response);
 					if(response.status=="200"){
-						// location.href=response.url;
+						 location.href=response.url;
 					}
     	    return response.text();
     	  })

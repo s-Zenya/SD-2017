@@ -44,11 +44,6 @@ public class GroupCreate extends HttpServlet {
 			throws ServletException, IOException {
 		response.sendError(HttpServletResponse.SC_NOT_FOUND);
 
-		// session = request.getSession(false);
-		// if(session != null){
-		 response.sendRedirect("/CFT/html/top/top.html");
-		// }
-
 	}
 
 }

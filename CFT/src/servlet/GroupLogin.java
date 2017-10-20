@@ -12,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import dao.GroupDAO;
 import dao.PersonalDAO;
-import model.Group;
 @WebServlet("/GroupLogin")
 public class GroupLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -33,7 +32,6 @@ public class GroupLogin extends HttpServlet {
 			PersonalDAO personalDAO = new PersonalDAO();
 			System.out.println(personalDAO.setGroupId(id, gid));
 			//cookieに追加
-			Group group = new Group();
 			Cookie cookie = new Cookie("gid", gid);
 			cookie.setPath("/");
 			response.addCookie(cookie);
