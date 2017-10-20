@@ -10,7 +10,7 @@ public class Personal {
 
 	public Personal(){};
 
-	public Personal(String id, String groupId, String pw, String name){
+	public Personal(String id, String pw, String name, String groupId){
 		this.id=id;
 		this.groupId=groupId;
 		this.pw=pw;

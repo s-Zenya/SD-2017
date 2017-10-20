@@ -32,12 +32,6 @@ public class PersonalLogin extends HttpServlet {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 
-		// response.sendError(HttpServletResponse.SC_OK);
-		// String responseJson = "{\"id\" : "+id+",\"pw\":"+pw+"}";
-		// response.setContentType("application/json;charset=UTF-8");
-		// PrintWriter out = response.getWriter();
-		// out.print(responseJson);
-
 		// ログイン成功
 		PersonalDAO personalDAO = new PersonalDAO();
 
@@ -46,14 +40,20 @@ public class PersonalLogin extends HttpServlet {
 			Personal personal = new Personal();
 			personal = personalDAO.findSearch(id);
 			Cookie cookie = new Cookie("id", id);
+			cookie.setPath("/");
+//			cookie.setDomain("localhost");
 			response.addCookie(cookie);
 			cookie = new Cookie("name", personal.getName());
+			cookie.setPath("/");
+//			cookie.setDomain("localhost");
 			response.addCookie(cookie);
 			cookie = new Cookie("groupId", personal.getGroupId());
+			cookie.setPath("/");
+//			cookie.setDomain("localhost");
 			response.addCookie(cookie);
-			System.out.println(personal.getGroupId()+"+"+personal.getId()+"+"+personal.getName());
 			//セッションを開始
 			session = request.getSession(true);
+
 			response.sendRedirect("/CFT/html/top/top.html");
 
 		} else {
@@ -62,7 +62,6 @@ public class PersonalLogin extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			out.print("ログインに失敗しました");
 		}
-
 	}
 
 	@Override
@@ -70,5 +69,4 @@ public class PersonalLogin extends HttpServlet {
 			throws ServletException, IOException {
 		response.sendError(HttpServletResponse.SC_NOT_FOUND);
 	}
-
 }
