@@ -45,5 +45,4 @@ public class GroupCreate extends HttpServlet {
 		response.sendError(HttpServletResponse.SC_NOT_FOUND);
 
 	}
-
 }
