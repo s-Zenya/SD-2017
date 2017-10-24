@@ -1,31 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" type="text/css" href="../../assets/css/CalendarTopCss.css">
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<script type="text/javascript">
-		var date = new Date();
-		var day = new Date.getDate();
-	</script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/default.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/CalendarTopCss.css">
+    <title>カレンダー</title>
+    <script type="text/javascript" charset="utf-8" src="../../assets/javascript/calendarJs/holiday.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../assets/javascript/calendarJs/calendar_db_null.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../../assets/javascript/calendarJs/calendar.js"></script>
+  </head>
+  <body>
+    <h1>カレンダー</h1>
 
-	<table>
-		<tr class = "Youbi">
-			<td class="sunday">日</td>
-			<td>月</td>
-			<td>火</td>
-			<td>水</td>
-			<td>木</td>
-			<td>金</td>
-			<td class="suturday">土</td>
-		</tr>
-		<tr class = "Week_1">
+    <script type="text/javascript">
+CalendarApp.placeCalendar();
+    </script>
+    <noscript>
+      <p>JavaScriptの実行が許可されていません。動作にはJavaScriptを実行できるブラウザと実行の許可が必要です。</p>
+    </noscript>
 
-		</tr>
-
-	</table>
-
-</body>
+  </body>
 </html>

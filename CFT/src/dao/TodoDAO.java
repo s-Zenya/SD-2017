@@ -18,7 +18,7 @@ public class TodoDAO {
 	private String connectionString = DbConnection.getPass();
 
 	// 指定されたgroupIdの全データ取得
-	public  List<Todo> findGroupIdAll(String groupId) {
+	public  List<Todo> findGroupIdAll() {
 
 		Connection conn = null;
 		List<Todo> todoList = new ArrayList<Todo>();
@@ -32,10 +32,10 @@ public class TodoDAO {
 			conn = DriverManager.getConnection(connectionString, "sa", "");
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM TODOTABLE WHERE GROUPID = ?";
+			String sql = "SELECT * FROM TODOTABLE";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			pStmt.setString(1, groupId);
+//			pStmt.setString(1, groupId);
 
 			// SELECTを実行し、結果表を取得
 			ResultSet rs = pStmt.executeQuery();
@@ -66,6 +66,61 @@ public class TodoDAO {
 					return null;
 				}
 			}
+		}
+		return todoList;
+	}
+
+	// GROUPID指定で参照
+	public List<Todo>findSearch(String groupId){
+
+		Connection conn = null;
+		List<Todo> todoList = new ArrayList<Todo>();
+//		Todo todo = new Todo();
+		try{
+			// JDBC Driver Read
+			Class.forName("org.h2.Driver");
+
+			// データベースへ接続
+			conn = DriverManager.getConnection(connectionString, "sa", "");
+
+			// SELECT文を準備
+			String sql = "SELECT * FROM TODOTABLE WHERE GROUPID=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// 指定したIDで
+			pStmt.setString(1, groupId);
+
+			// SELECTを実行し、結果表を取得
+			ResultSet rs = pStmt.executeQuery();
+
+			while (rs.next()) {
+//			rs.next();
+			Integer todoId = rs.getInt("TODOID");
+			String groupId_tmp = rs.getString("GROUPID");
+			Date date = rs.getDate("DATE");
+			String contents = rs.getString("CONTENTS");
+			boolean done = rs.getBoolean("DONE");
+			Todo todo = new Todo(todoId, groupId_tmp, date, contents, done);
+			todoList.add(todo);
+									}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+
+			// データベース切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+
 		}
 		return todoList;
 	}

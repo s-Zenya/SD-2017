@@ -1,13 +1,89 @@
-table {
-	border-collapse: collapse;
+
+table.calendar-table {
+    border-collapse: collapse;
+    border: 1px solid black;
+
+    width: 100%;
+}
+table.calendar-table > tr > td {
+    border: 1px solid #808080;
+    width: 14%;
+    vertical-align: top;
+}
+table.calendar-table > tr > th {
+    border: 1px solid #808080;
+    width: 14%;
 }
 
-td {
-	border: solid 1px;
-	padding: 0.5em;
+
+
+.calendar-weekdaynames-row {
+    color: #ffffff;
+    background-color: #000000;
 }
 
-.sunday{
-	background-color : #ffff00;
-	color : #00ff00;
+.calendar-date-header-row {
+}
+
+.calendar-date-content-row {
+    height: 4em;
+}
+
+.calendar-date-content-row > td {
+    padding: 0 0 0.8em 0; /* bottom margin for new event creation */
+}
+
+.calendar-date-content-row > td > textarea {
+    margin: 0;
+}
+
+
+
+.calendar-holiday-header {
+    background-color: #ffa0a0;
+}
+
+.calendar-holiday-content {
+    background-color: #ffe0e0;
+}
+
+.calendar-pastday-header {
+    background-color: #c0c0c0;
+}
+
+.calendar-pastday-content {
+    background-color: #c0c0c0;
+}
+
+.calendar-normalday-header {
+    background-color: #d0d8f0;
+}
+
+.calendar-normalday-content {
+    background-color: #ffffff;
+}
+
+.calendar-month-name {
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #000000;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.calendar-event-item {
+    border: 1px dashed #888888;
+}
+
+/* month separation lines  */
+table.calendar-table > tr > td.calendar-last-dayweek-of-month-content {
+    border-bottom: 3px solid #505050;
+}
+
+table.calendar-table > tr > td.calendar-last-date-of-month-content {
+    border-right: 3px solid #505050;
+}
+
+table.calendar-table > tr > td.calendar-last-date-of-month-header {
+    border-right: 3px solid #505050;
 }
