@@ -3,21 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <title>グループ画面</title>
+<script type="text/javascript" src="../../assets/javascript/group.js"></script>
 </head>
 <body>
 	<h1>グループログイン</h1>
-	<form action="" method="post">
-		グループID: <input type="text" name="gid"><br>
-		グループPW:<input type="text" name="gpw"><br>
-		<input type="button" onclick="location.href='../top/top.html'" value="in">
+	<form action="" method="">
+		グループID: <input id="LoginGroupId" type="text" name="gid"><br>
+		グループPW:<input id="LoginGroupPass" type="text" name="gpw"><br>
+		<input type="button" onclick="groupLogin()" value="in">
 	    <input type="button" value="create"><br>
 	</form>
 	<h1>グループ作成</h1>
-	<form action = "" method = "post">
-		グループ名:<input type="text" name="gname"><br>
-		グループID:<input type="text" name="gid"><br>
-		グループPW:<input type="text" name="gpw"><br>
-		<input type="submit"value="OK">
+	<form action="" method="">
+		グループ名:<input id="createGroupName" type="text" name="gname"><br>
+		グループID:<input id="createGroupId" type="text" name="gid"><br>
+		グループPW:<input id="createGroupPass" type="text" name="gpw"><br>
+		 <input type="button" onclick="groupCreate();" value="create" />
 	</form>
 </body>
 </html>
