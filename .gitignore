@@ -5,3 +5,4 @@
 .metadata/
 .metadata
 *.metadata
+.recommenders/
