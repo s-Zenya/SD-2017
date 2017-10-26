@@ -1,11 +1,5 @@
 package servlet;
 
-import java.sql.Date;
-import java.util.List;
-
-import dao.MessageDAO;
-import model.Message;
-
 public class DbTest {
 	public static void main(String[] args) {
 //----------------------------------- CALENDAR ---------------------------------------------
@@ -43,20 +37,20 @@ public class DbTest {
 //		MessageDAO messageDAO = new MessageDAO();
 //
 //		messageDAO.add("00001","0001", "test2");
-
-		//groupIDとDateをもとに取得
-		MessageDAO messageDAO = new MessageDAO();
-		Date date= Date.valueOf("2017-01-01");
-		List<Message> messageList = messageDAO.get("0001",date);
-		Message message = new Message();
-		for (Message messagebox : messageList) {
-		System.out.println(":" + messagebox.getMessageId());
-		System.out.println("date:" + messagebox.getDate());
-		System.out.println("MESSAGE:" + messagebox.getMessage() + "\n");
-		System.out.println("GROUPID:" + messagebox.getGroupId());
-		System.out.println("ID:" + messagebox.getId());
-	}
-
+//
+//		//groupIDとDateをもとに取得
+//		MessageDAO messageDAO = new MessageDAO();
+//		Date date= Date.valueOf("2017-01-01");
+//		List<Message> messageList = messageDAO.get("0001",date);
+//		Message message = new Message();
+//		for (Message messagebox : messageList) {
+//		System.out.println(":" + messagebox.getMessageId());
+//		System.out.println("date:" + messagebox.getDate());
+//		System.out.println("MESSAGE:" + messagebox.getMessage() + "\n");
+//		System.out.println("GROUPID:" + messagebox.getGroupId());
+//		System.out.println("ID:" + messagebox.getId());
+//	}
+//
 
 
 //----------------------------------- TODO ---------------------------------------------

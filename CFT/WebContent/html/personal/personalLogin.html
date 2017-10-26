@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>個人ログイン画面</title>
-<script type="text/javascript" src="../../assets/javascript/personalLogin.js"></script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- BootstrapのCSS読み込み -->
+<link href="../../assets/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- jQuery読み込み -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- BootstrapのJS読み込み -->
+<script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../../assets/css/personalLogin.css">
+<script type="text/javascript" charset="utf-8" src="../../assets/javascript/"></script>
+<title>ログイン画面</title>
 </head>
+
 <body>
-	<h1>ログイン</h1>
-	<form action="/CFT/PersonalLogin" method="post">
-		ID: <input type="text" name="id"><br>
-		PW:<input type="password" name="pw"><br>
-		<input type="submit" value="in">
-	</form>
-	<button onClick="location.href='../personal/personalCreate.html'" >Create</button>
+	<!-- header読み込み -->
+	<SCRIPT src="../../assets/javascript/header.js"></SCRIPT>
+	
+	<h1 class="col-md-12">ログイン画面</h1>
+	
+	<!-- ID PW 入力フォーム -->
+	<div id="inputForm" class="container col-sm-12">
+		<form action="/CFT/PersonalLogin" method="post">
+			<div class="form-group">
+				<label class="col-sm-1">ID</label>
+				<input type="text" class="form-control col-sm-5" name="id" placeholder="IDを入力してください">
+			</div>
+			<div class="form-group">
+				<label class="col-sm-1">PW</label>
+				<input type="password" class="form-control col-sm-5" name="pw" placeholder="PWを入力してください">
+			</div>
+			<div id="submit" class="form-grpoup">
+				<input type="submit" class="btn btn-primary col-sm-2" value="in">
+			</div>
+		</form>
+	</div>
+	
+	<div id="linkCreate" class="col-sm-12">
+		<button onClick="location.href='../personal/personalCreate.html'" class="btn btn-defult col-sm-2">Create</button>
+	</div>
+	
+	<!-- footer読み込み -->
+	<SCRIPT src="../../assets/javascript/footer.js"></SCRIPT>
 </body>
 </html>
