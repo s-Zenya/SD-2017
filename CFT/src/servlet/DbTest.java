@@ -1,5 +1,11 @@
 package servlet;
 
+import java.sql.Date;
+import java.util.List;
+
+import dao.MessageDAO;
+import model.Message;
+
 public class DbTest {
 	public static void main(String[] args) {
 //----------------------------------- CALENDAR ---------------------------------------------
@@ -17,7 +23,7 @@ public class DbTest {
 //			System.out.println("CONTENTS:" + calendarbox.getContents());
 //			System.out.println("NAME:" + calendarbox.getName() + "\n");
 //		}実装
-//		
+//
 //		calendarDAO.add("0002", date, "hogehoge","user02");
 //----------------------------------- MESSAGE ---------------------------------------------
 //		// テーブルの全レコードを取得
@@ -33,10 +39,25 @@ public class DbTest {
 //			System.out.println("DATE:" + messagebox.getDate());
 //			System.out.println("MESSAGE:" + messagebox.getMessage() + "\n");
 //		}
-		
+
 //		MessageDAO messageDAO = new MessageDAO();
-//		
+//
 //		messageDAO.add("00001","0001", "test2");
+
+		//groupIDとDateをもとに取得
+		MessageDAO messageDAO = new MessageDAO();
+		Date date= Date.valueOf("2017-01-01");
+		List<Message> messageList = messageDAO.get("0001",date);
+		Message message = new Message();
+		for (Message messagebox : messageList) {
+		System.out.println(":" + messagebox.getMessageId());
+		System.out.println("date:" + messagebox.getDate());
+		System.out.println("MESSAGE:" + messagebox.getMessage() + "\n");
+		System.out.println("GROUPID:" + messagebox.getGroupId());
+		System.out.println("ID:" + messagebox.getId());
+	}
+
+
 
 //----------------------------------- TODO ---------------------------------------------
 //		// テーブルの全レコードを取得
@@ -52,11 +73,11 @@ public class DbTest {
 //			System.out.println("CONTENTS:" + todobox.getContents());
 //			System.out.println("DONE:" + todobox.getDone() + "\n");
 //		}
-		
+
 //		TodoDAO todoDAO = new TodoDAO();
-//		
+//
 //		todoDAO.add("0001", "test2");
-		
+
 //----------------------------------- SHOPPING ---------------------------------------------
 //		// テーブルの全レコードを取得
 //		ShoppingDAO shoppingDAO = new ShoppingDAO();
@@ -71,9 +92,9 @@ public class DbTest {
 //			System.out.println("CONTENTS:" + shoppingbox.getContents());
 //			System.out.println("DONE:" + shoppingbox.getDone() + "\n");
 //		}
-		
+
 //		ShoppingDAO shoppingDAO = new ShoppingDAO();
-//		
+//
 //		shoppingDAO.add("0001", "test2");
 
 //----------------------------------- PERSONAL ---------------------------------------------
@@ -90,7 +111,7 @@ public class DbTest {
 //			System.out.println("NAME:" + personalbox.getName());
 //			System.out.println("GROUPID:" + personalbox.getGroupId() + "\n");
 //		}
-		
+
 //		指定されたIDにgroupIDをセット
 //		boolean box = personalDAO.setGroupId("hoge","0002");
 //		System.out.println(box);
@@ -109,7 +130,7 @@ public class DbTest {
 //		IDとPWが合致するか確認
 //		boolean box = personalDAO.loginCheck("00001", "oic");
 //		System.out.println(box);
-		
+
 //----------------------------------- GROUP ---------------------------------------------
 //
 //		//groupテーブルの全レコードを取得
@@ -123,7 +144,7 @@ public class DbTest {
 //			System.out.println("PW:" + groupbox.getGroupPw());
 //			System.out.println("NAME:" + groupbox.getGroupName() + "\n");
 //		}
-//		
+//
 //		//groupテーブルに値を追加
 //		boolean box = groupDAO.add("0003", "3333", "hoge3");
 //		System.out.println(box);
