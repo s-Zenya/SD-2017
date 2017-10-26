@@ -1,0 +1,62 @@
+#message {
+	height: 250px;
+	font-size: 10px;
+	marign-bottom: 0;
+}
+
+.listName {
+	width: 130px;
+}
+
+.listDate {
+	width: 80px;
+}
+
+.listMessage {
+	
+}
+
+#addMessage {
+	margin-top: -20px;
+	margin-bottom: 50px;
+}
+
+#addMessage form div input {
+	margin-left: 0;
+	float: left;
+}
+
+#addMessage form div button {
+	margin-right: 0;
+	float: right;
+}
+
+#addMessage:after {
+	display: block;
+	clear: both;
+	content: "";
+}
+
+#calendar {
+	margin-bottom: 20px;
+	height: 400px;
+	font-size: 10px;
+	float: left;
+}
+
+#linkBtn {
+	float: right;
+}
+
+#linkBtn input {
+	margin-bottom: 30px;
+}
+
+#linkBtn p {
+    text-decoration: underline;
+}
+
+#linkBtn .btn1:hover, #linkBtn .btn2:hover, #linkBtn .btn3:hover,
+	#linkBtn .btn4:hover {
+	background-color: #A4A4A4;
+}

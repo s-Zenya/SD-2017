@@ -1,0 +1,1 @@
+document.write('<TABLE border="0" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="0" height="50"><TR><TD>&nbsp;<FONT color="#000000" size="5">CFT</FONT><FONT color="#424242" size="4">.CommunicationFamliyTool</FONT></TD></TR><TR bgcolor="#424242" height="2"><TD></TD></TR></TABLE>')
