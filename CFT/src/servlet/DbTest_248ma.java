@@ -1,6 +1,6 @@
 package servlet;
 
-public class DbTest {
+public class DbTest_248ma {
 	public static void main(String[] args) {
 //----------------------------------- CALENDAR ---------------------------------------------
 //		// テーブルの全レコードを取得
@@ -67,19 +67,16 @@ public class DbTest {
 //			System.out.println("CONTENTS:" + todobox.getContents());
 //			System.out.println("DONE:" + todobox.getDone() + "\n");
 //		}
-
-//		TodoDAO todoDAO = new TodoDAO();
 //
-//		todoDAO.add("0001", "test2");
+//		TodoDAO todoDAO = new TodoDAO();
+////		todoDAO.add("0001", "test2");
+//		boolean re = todoDAO.doneChange("0001",6);
+//		System.out.println(re);
+
 
 //----------------------------------- SHOPPING ---------------------------------------------
-//		//Date
-//		Date date = new Date(0);
-//		System.out.println(date);
-//		
 //		// テーブルの全レコードを取得
 //		ShoppingDAO shoppingDAO = new ShoppingDAO();
-//		shoppingDAO.changeDone(1, "0001");
 //		List<Shopping> shoppingList = shoppingDAO.findGroupIdAll("0001");
 //		Shopping shopping = new Shopping();
 //
@@ -91,11 +88,7 @@ public class DbTest {
 //			System.out.println("CONTENTS:" + shoppingbox.getContents());
 //			System.out.println("DONE:" + shoppingbox.getDone() + "\n");
 //		}
-<<<<<<< HEAD
 
-=======
-//		
->>>>>>> 2f692e051184f7a269e9921267e2f172abefe0bd
 //		ShoppingDAO shoppingDAO = new ShoppingDAO();
 //
 //		shoppingDAO.add("0001", "test2");
