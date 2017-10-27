@@ -1,0 +1,31 @@
+h1 {
+	margin : 20px 0;
+}
+
+#todo {
+	height : 400px;
+}
+
+#todo .listCheck {
+	width : 60px;
+}
+
+#addTodo {
+	margin : 20px 0;
+}
+
+#addTodo form div input {
+	margin-left: 0;
+	float: left;
+}
+
+#addTodo form div button {
+	margin-right: 0;
+	float: right;
+}
+
+#addTodo:after {
+	display: block;
+	clear: both;
+	content: "";
+}
