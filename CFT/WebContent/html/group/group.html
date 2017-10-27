@@ -25,14 +25,15 @@
 
 	<!--ログイン用 ID PW 入力フォーム -->
 	<div id="inputForm" class="container col-sm-12">
-		<form action="/CFT/PersonalLogin" method="post">
+		<form>
 			<div class="form-group">
 				<label class="col-sm-2">GroupID</label>
-				<input type="text" idclass="form-control col-sm-5" name="gid" placeholder="グループIDを入力してください">
+
+				<input type="text" id="LoginGroupId" class="form-control col-sm-5" name="gid" placeholder="グループIDを入力してください">
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2">GroupPW</label>
-				<input type="password" class="form-control col-sm-5" name="gpw" placeholder="グループPWを入力してください">
+				<input type="password" id="LoginGroupPass" class="form-control col-sm-5" name="gpw" placeholder="グループPWを入力してください">
 			</div>
 			<div class="form-grpoup">
 				<input type="button" id="submit" class="btn btn-primary col-sm-2" onclick="groupLogin();" value="in">
@@ -48,15 +49,15 @@
 		<form action="/CFT/PersonalLogin" method="post">
 			<div class="form-group">
 				<label class="col-sm-2">GroupName</label>
-				<input type="text" class="form-control col-sm-7" name="gname" placeholder="作成するグループの名前を入力してください">
+				<input type="text" id="createGroupName" class="form-control col-sm-7" name="gname" placeholder="作成するグループの名前を入力してください">
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2">GroupID</label>
-				<input type="password" class="form-control col-sm-7" name="gid" placeholder="作成するグループのPWを入力してください">
+				<input type="text" id="createGroupId" class="form-control col-sm-7" name="gid" placeholder="作成するグループのIDを入力してください">
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2">GroupPW</label>
-				<input type="password" class="form-control col-sm-7" name="gpw" placeholder="作成するグループのPWを入力してください">
+				<input type="password" id="createGroupPass" class="form-control col-sm-7" name="gpw" placeholder="作成するグループのPWを入力してください">
 			</div>
 			<div class="form-grpoup">
 				<input type="button" class="btn btn-primary col-sm-2" onclick="groupCreate();" value="create">

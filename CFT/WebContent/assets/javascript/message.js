@@ -15,7 +15,7 @@ function addMessage(){
 
 	while(cookie_all.split( '; ' )[ i ] != null){
 
-		if(cookie_all.split( '; ' )[ i ].split( '=' )[ 0 ] == 'groupId'){
+		if(cookie_all.split( '; ' )[ i ].split( '=' )[ 0 ] == 'gId'){
 			gid=cookie_all.split('; ')[ i ].split( '=' )[ 1 ];
 		}
 		if(cookie_all.split( '; ' )[ i ].split( '=' )[ 0 ] == 'id'){
@@ -36,7 +36,6 @@ function addMessage(){
     	  .then(response => {
     		  console.log(response);
 					if(response.status=="200"){
-						 location.href=response.url;
 					}
     	    return response.text();
     	  })

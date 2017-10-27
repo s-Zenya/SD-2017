@@ -1,24 +1,47 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
    "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="ja">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="../../assets/css/default.css">
-    <link rel="stylesheet" type="text/css" href="../../assets/css/CalendarTopCss.css">
-    <title>カレンダー</title>
-    <script type="text/javascript" charset="utf-8" src="../../assets/javascript/calendarJs/holiday.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../../assets/javascript/calendarJs/calendar_db_null.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../../assets/javascript/calendarJs/calendar.js"></script>
-  </head>
-  <body>
-    <h1>カレンダー</h1>
+<head>
+<script type="text/javascript" charset="utf-8"
+	src="../../assets/javascript/calendarJs/holiday.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="../../assets/javascript/calendarJs/calendar_db_null.js"></script>
+<script type="text/javascript" charset="utf-8"
+	src="../../assets/javascript/calendarJs/calendar.js"></script>
 
-    <script type="text/javascript">
-CalendarApp.placeCalendar();
-    </script>
-    <noscript>
-      <p>JavaScriptの実行が許可されていません。動作にはJavaScriptを実行できるブラウザと実行の許可が必要です。</p>
-    </noscript>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="../../assets/css/default.css">
+<link rel="stylesheet" type="text/css"
+	href="../../assets/css/CalendarTopCss.css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- BootstrapのCSS読み込み -->
+<link href="../../assets/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<!-- jQuery読み込み -->
+<!-- BootstrapのJS読み込み -->
+<script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="../../assets/css/calendar.css">
+<title>カレンダーページ</title>
+</head>
+<body>
+	<!-- header読み込み -->
+	<SCRIPT src="../../assets/javascript/header.js"></SCRIPT>
 
-  </body>
+	<h1 class="col-sm-3">カレンダー</h1>
+
+	<script type="text/javascript">
+		CalendarApp.placeCalendar();
+	</script>
+	<noscript>
+		<p>JavaScriptの実行が許可されていません。動作にはJavaScriptを実行できるブラウザと実行の許可が必要です。</p>
+	</noscript>
+
+	<!-- footer読み込み -->
+	<SCRIPT src="../../assets/javascript/footer.js"></SCRIPT>
+</body>
 </html>
