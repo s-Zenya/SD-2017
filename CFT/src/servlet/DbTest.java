@@ -20,7 +20,7 @@ public class DbTest {
 //
 //		calendarDAO.add("0002", date, "hogehoge","user02");
 //----------------------------------- MESSAGE ---------------------------------------------
-//		// テーブルの全レコードを取得
+		// テーブルの全レコードを取得
 //		MessageDAO messageDAO = new MessageDAO();
 //		List<Message> messageList = messageDAO.findGroupIdAll("0001");
 //		Message message = new Message();
@@ -156,5 +156,8 @@ public class DbTest {
 //		//IDとPWが合致するか確認
 //		boolean box2 = groupDAO.loginCheck("0003", "3333");
 //		System.out.println(box2);
+//		------------------------------ServerTest--------------------------------------
+
+
 	}
 }
