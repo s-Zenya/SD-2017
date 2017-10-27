@@ -28,6 +28,7 @@ public class Message extends HttpServlet {
 		String id = request.getParameter("id");
 		String gid = request.getParameter("gid");
 		String message = request.getParameter("message");
+		System.out.println("id:"+id+",gid:"+gid+",message:"+message);
 
 		// ユーザーメッセージ
 		MessageDAO messageDAO = new MessageDAO();
@@ -50,7 +51,6 @@ public class Message extends HttpServlet {
 		String gid = request.getParameter("gid");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = Date.valueOf(request.getParameter("date"));
-
 		MessageDAO messageDAO = new MessageDAO();
 		List<model.Message> messageList = new ArrayList<model.Message>();
 
@@ -59,22 +59,22 @@ public class Message extends HttpServlet {
 		PersonalDAO personalDAO = new PersonalDAO();
 		String response_json="";
 		if(messageList != null){
-			response_json += "{messageList:";
+			response_json += "{";
 
+			Integer i = 0;
 			for (model.Message messagebox : messageList) {
-				response_json += "{";
-				response_json +="messageId:"+messagebox.getMessageId()+",";
+				response_json += "\"message"+i+"\":{";
+				response_json +="\"messageId\":\""+messagebox.getMessageId()+"\",";
 				personal=personalDAO.findSearch(messagebox.getId());
-				response_json +="name:"+personal.getName()+",";
-				response_json +="message:"+messagebox.getMessage()+"},";
+				response_json +="\"name\":\""+personal.getName()+"\",";
+				response_json +="\"message\":\""+messagebox.getMessage()+"\"},";
+				i++;
 			}
 			if(response_json != null && response_json.length() > 0){
 				response_json = response_json.substring(0, response_json.length()-1);
 			}
 			response_json += "}";
 		}
-		System.out.println("res:"+response_json);
-
 		response.setContentType("application/json;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		out.print(response_json);

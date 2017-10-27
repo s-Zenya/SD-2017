@@ -20,20 +20,20 @@ public class DbTest {
 //
 //		calendarDAO.add("0002", date, "hogehoge","user02");
 //----------------------------------- MESSAGE ---------------------------------------------
-		// テーブルの全レコードを取得
+//		// テーブルの全レコードを取得
 //		MessageDAO messageDAO = new MessageDAO();
-//		List<Message> messageList = messageDAO.findGroupIdAll("0001");
+//		List<model.Message> messageList = messageDAO.findGroupIdAll("0001");
 //		Message message = new Message();
 //
 //		// 取得したレコードの内容を出力
-//		for (Message messagebox : messageList) {
+//		for (model.Message messagebox : messageList) {
 //			System.out.println("MESSAGEID:" + messagebox.getMessageId());
 //			System.out.println("ID:" + messagebox.getId());
 //			System.out.println("GROUPID:" + messagebox.getGroupId());
 //			System.out.println("DATE:" + messagebox.getDate());
 //			System.out.println("MESSAGE:" + messagebox.getMessage() + "\n");
 //		}
-
+//
 //		MessageDAO messageDAO = new MessageDAO();
 //
 //		messageDAO.add("00001","0001", "test2");
