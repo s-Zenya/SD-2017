@@ -25,7 +25,8 @@ public class Message extends HttpServlet {
 		// ユーザーメッセージ
 		MessageDAO messageDAO = new MessageDAO();
 		if (messageDAO.add(id, gid, message)) {
-			response.sendError(HttpServletResponse.SC_OK);;
+			response.sendError(HttpServletResponse.SC_OK);
+			System.out.println("addMessage OK");
 
 		} else {
 			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);;

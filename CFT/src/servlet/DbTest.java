@@ -76,7 +76,7 @@ public class DbTest {
 //		//Date
 //		Date date = new Date(0);
 //		System.out.println(date);
-//		
+//
 //		// テーブルの全レコードを取得
 //		ShoppingDAO shoppingDAO = new ShoppingDAO();
 //		shoppingDAO.changeDone(1, "0001");
@@ -91,6 +91,7 @@ public class DbTest {
 //			System.out.println("CONTENTS:" + shoppingbox.getContents());
 //			System.out.println("DONE:" + shoppingbox.getDone() + "\n");
 //		}
+
 //		ShoppingDAO shoppingDAO = new ShoppingDAO();
 //
 //		shoppingDAO.add("0001", "test2");
