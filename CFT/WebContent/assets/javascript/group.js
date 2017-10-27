@@ -54,3 +54,11 @@ function groupLogin(){
     	  })
 
 }
+
+//グループ作成画面の表示
+function groupCreateOpen()
+{
+  document.getElementById("createForm").style.display="block";
+  
+  return null;
+}
