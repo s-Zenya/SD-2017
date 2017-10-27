@@ -31,13 +31,15 @@ function groupLogin(){
 		}
 		i++;
 	}
-
-	var date1 = new Date();
-  date1.setTime(0);
+//
+//	var date1 = new Date();
+//	date1.setTime(0);
   //有効期限を過去にして書き込む
-  document.cookie = "gid=;expires="+date1.toGMTString();
+//  document.cookie = "gid=;expires="+date1.toGMTString();
 
     	fetch('/CFT/GroupLogin', {
+    		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
+    		credentials: 'include',
     		redirect: 'follow',
     		method: 'POST',
 			body : 'id='+id+'&gid='+gid+'&gpw='+gpw,
