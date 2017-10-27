@@ -91,11 +91,6 @@ public class DbTest {
 //			System.out.println("CONTENTS:" + shoppingbox.getContents());
 //			System.out.println("DONE:" + shoppingbox.getDone() + "\n");
 //		}
-<<<<<<< HEAD
-
-=======
-//		
->>>>>>> 2f692e051184f7a269e9921267e2f172abefe0bd
 //		ShoppingDAO shoppingDAO = new ShoppingDAO();
 //
 //		shoppingDAO.add("0001", "test2");
