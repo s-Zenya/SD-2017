@@ -20,29 +20,29 @@
 <body>
 	<!-- header読み込み -->
 	<SCRIPT src="../../assets/javascript/header.js"></SCRIPT>
-	
+
 	<h1 class="col-md-12">グループ管理画面</h1>
-	
+
 	<!--ログイン用 ID PW 入力フォーム -->
 	<div id="inputForm" class="container col-sm-12">
 		<form action="/CFT/PersonalLogin" method="post">
 			<div class="form-group">
 				<label class="col-sm-2">GroupID</label>
-				<input type="text" class="form-control col-sm-5" name="gid" placeholder="グループIDを入力してください">
+				<input type="text" idclass="form-control col-sm-5" name="gid" placeholder="グループIDを入力してください">
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2">GroupPW</label>
 				<input type="password" class="form-control col-sm-5" name="gpw" placeholder="グループPWを入力してください">
 			</div>
 			<div class="form-grpoup">
-				<input type="submit" id="submit" class="btn btn-primary col-sm-2" onclick="groupLogin();" value="in">
+				<input type="button" id="submit" class="btn btn-primary col-sm-2" onclick="groupLogin();" value="in">
 			</div>
 			<div class="form-group">
 				<input type="button" class="btn btn-defolut col-sm-12" onclick="groupCreateOpen()" value="グループアカウントの作成は此方">
 			</div>
 		</form>
 	</div>
-	
+
 	<!--作成用 NAME ID PW 入力フォーム -->
 	<div id="createForm" class="container col-sm-12">
 		<form action="/CFT/PersonalLogin" method="post">
@@ -63,7 +63,7 @@
 			</div>
 		</form>
 	</div>
-	
+
 	<!-- footer読み込み -->
 	<SCRIPT src="../../assets/javascript/footer.js"></SCRIPT>
 </body>

@@ -4,8 +4,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../assets/javascript/message.js"></script>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 
 <!-- BootstrapのCSS読み込み -->
 <link href="../../assets/bootstrap/css/bootstrap.min.css"
@@ -14,8 +17,7 @@
 <!-- BootstrapのJS読み込み -->
 <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/css/top.css">
-<script type="text/javascript" charset="utf-8"
-	src="../../assets/javascript/"></script>
+
 <title>トップページ</title>
 
 </head>
@@ -83,14 +85,14 @@
 	</div>
 
 	<!-- メッセージ追加フォーム -->
-	<div id="addMessage" class="container col-sm-12">
-		<form>
+	<div id="addMessage_form" class="container col-sm-12">
+
 			<div class="form-group">
-				<input type="text" class="form-control col-sm-10" name="Message"
+				<input type="text" class="form-control col-sm-10" name="Message" id = "addMessage"
 					placeholder="追加するメッセージを入力してください">
-				<button type="submit" class="btn btn-primary col-sm-2">追加</button>
+				<button class="btn btn-primary col-sm-2" onClick = 'addMessage()' >tuika</button>
 			</div>
-		</form>
+
 	</div>
 
 	<!-- カレンダー表示テーブル -->
