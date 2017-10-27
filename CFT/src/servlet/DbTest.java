@@ -73,8 +73,13 @@ public class DbTest {
 //		todoDAO.add("0001", "test2");
 
 //----------------------------------- SHOPPING ---------------------------------------------
+//		//Date
+//		Date date = new Date(0);
+//		System.out.println(date);
+//		
 //		// テーブルの全レコードを取得
 //		ShoppingDAO shoppingDAO = new ShoppingDAO();
+//		shoppingDAO.changeDone(1, "0001");
 //		List<Shopping> shoppingList = shoppingDAO.findGroupIdAll("0001");
 //		Shopping shopping = new Shopping();
 //
@@ -86,7 +91,11 @@ public class DbTest {
 //			System.out.println("CONTENTS:" + shoppingbox.getContents());
 //			System.out.println("DONE:" + shoppingbox.getDone() + "\n");
 //		}
+<<<<<<< HEAD
 
+=======
+//		
+>>>>>>> 2f692e051184f7a269e9921267e2f172abefe0bd
 //		ShoppingDAO shoppingDAO = new ShoppingDAO();
 //
 //		shoppingDAO.add("0001", "test2");
