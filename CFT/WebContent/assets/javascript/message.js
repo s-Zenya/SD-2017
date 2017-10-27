@@ -8,17 +8,18 @@ function addMessage(){
 	var id;
 	var message=document.getElementById("addMessage").value
 	var i=0;
-	while(cookie_all.split( '; ' )[ i ] != null){
+	if(message!=''){
+		while(cookie_all.split( '; ' )[ i ] != null){
 
-		if(cookie_all.split( '; ' )[ i ].split( '=' )[ 0 ] == 'gId'){
-			gid=cookie_all.split('; ')[ i ].split( '=' )[ 1 ];
+			if(cookie_all.split( '; ' )[ i ].split( '=' )[ 0 ] == 'gId'){
+				gid=cookie_all.split('; ')[ i ].split( '=' )[ 1 ];
+			}
+			if(cookie_all.split( '; ' )[ i ].split( '=' )[ 0 ] == 'id'){
+				id=cookie_all.split('; ')[ i ].split( '=' )[ 1 ];
+			}
+			i++;
 		}
-		if(cookie_all.split( '; ' )[ i ].split( '=' )[ 0 ] == 'id'){
-			id=cookie_all.split('; ')[ i ].split( '=' )[ 1 ];
-		}
-		i++;
-	}
-	console.log(id+":"+gid+":"+message);
+		console.log(id+":"+gid+":"+message);
 
     	fetch('/CFT/Message', {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
@@ -26,15 +27,19 @@ function addMessage(){
     		redirect: 'follow',
     		method: 'POST',
 			body : 'id='+id+'&gid='+gid+'&message='+message,
-			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded' }),
+			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
     	})
     	  .then(response => {
     		  console.log(response);
 					if(response.status=="200"){
+						//入力欄を空欄にする
+						document.getElementById("addMessage").value=null;
+//						メッセージを更新
 						getMessage();
 					}
     	    return response.text();
-    	  })
+    	})
+	}
 
 
 }
@@ -63,6 +68,7 @@ function getMessage(){
     		credentials: 'include',
     		redirect: 'follow',
     		method: 'GET',
+    		headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
     	})
     	  .then(response => {
     		  console.log(response);
@@ -75,14 +81,13 @@ function getMessage(){
     	  });
 }
 
-
 //メッセージの書き換え
 function writeMessage(messageObj){
 //	message要素の削除
 	$("#message table tbody").empty();
 //    messageObjを一行ずつ表示
     for(let k in messageObj) {
-	    $('#message table tbody').append('<tr><td>'+messageObj[k].name+'</td><td>'+messageObj[k].message+'</td></tr>');
+	    $('#message table tbody').append('<tr id='+messageObj[k].messageId+'><td>'+messageObj[k].name+'</td><td>'+messageObj[k].message+'</td></tr>');
     }
 //  messageTableを一番下までスクロール
     $("#message").scrollTop($("#message")[0].scrollHeight);

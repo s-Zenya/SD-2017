@@ -2,6 +2,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,6 +24,7 @@ public class GroupLogin extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("id");
 		String gid = request.getParameter("gid");
 		String gpw = request.getParameter("gpw");
@@ -40,7 +42,7 @@ public class GroupLogin extends HttpServlet {
 				Cookie cookie = new Cookie("gId", gid);
 				cookie.setPath("/");
 				response.addCookie(cookie);
-				cookie = new Cookie("groupName",group.getGroupName());
+				cookie = new Cookie("gName",URLEncoder.encode(group.getGroupName(), "UTF-8"));
 				cookie.setPath("/");
 				response.addCookie(cookie);
 

@@ -18,6 +18,7 @@ public class GroupCreate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 //		System.out.println(request);
+        request.setCharacterEncoding("UTF-8");
 		String gid = request.getParameter("gid");
 		String gpw = request.getParameter("gpw");
 		String gname = request.getParameter("gname");
