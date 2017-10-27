@@ -1,0 +1,43 @@
+h1 {
+	margin : 20px 0;
+}
+
+#shopping {
+	height : 400px;
+}
+
+#shopping .listCheck {
+	width : 60px;
+}
+
+#addShopping {
+	margin : 20px 0;
+}
+
+#addShopping form div input {
+	height : 38px;
+	margin-left: 0;
+	float: left;
+}
+
+#addShopping form div #amount {
+	margin-left: 0;
+	float: left;
+	
+	border-style: groove;
+	
+	border-radius: 5px;        /* CSS3草案 */  
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
+    -moz-border-radius: 5px;   /* Firefox用 */ 
+}
+
+#addShopping form div button {
+	margin-right: 0;
+	float: right;
+}
+
+#addShopping:after {
+	display: block;
+	clear: both;
+	content: "";
+}
