@@ -27,6 +27,7 @@ public class PersonalCreate extends HttpServlet {
 		PersonalDAO personalDAO = new PersonalDAO();
 		if (personalDAO.add(id, pw, name, null)) {
 			response.sendRedirect("/CFT/Login");
+			System.out.println("sss");
 
 		} else {
 			response.setContentType("application/json;charset=UTF-8");
