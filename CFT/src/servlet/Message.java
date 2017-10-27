@@ -25,6 +25,7 @@ public class Message extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("id");
 		String gid = request.getParameter("gid");
 		String message = request.getParameter("message");
@@ -48,6 +49,7 @@ public class Message extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8");
 		String gid = request.getParameter("gid");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = Date.valueOf(request.getParameter("date"));

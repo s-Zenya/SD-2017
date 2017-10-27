@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,6 +32,8 @@ public class PersonalLogin extends HttpServlet {
 			response.sendRedirect("/CFT/html/top/top.html");
 		}
 
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=utf-8");
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 
@@ -45,7 +48,7 @@ public class PersonalLogin extends HttpServlet {
 			Cookie cookie = new Cookie("id", id);
 			cookie.setPath("/");
 			response.addCookie(cookie);
-			cookie = new Cookie("name", personal.getName());
+			cookie = new Cookie("name",URLEncoder.encode(personal.getName(), "UTF-8") );
 			cookie.setPath("/");
 			response.addCookie(cookie);
 
@@ -56,7 +59,7 @@ public class PersonalLogin extends HttpServlet {
 			if(personal.getGroupId()!=null){
 
 //				cookieにgroupId,groupNameを追加
-				cookie = new Cookie("groupId", personal.getGroupId());
+				cookie = new Cookie("gId", personal.getGroupId());
 				cookie.setPath("/");
 				response.addCookie(cookie);
 //				cookieにgroupNameを追加

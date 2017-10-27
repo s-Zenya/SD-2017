@@ -19,6 +19,7 @@ public class PersonalCreate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+        request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
@@ -27,7 +28,7 @@ public class PersonalCreate extends HttpServlet {
 		PersonalDAO personalDAO = new PersonalDAO();
 		if (personalDAO.add(id, pw, name, null)) {
 			response.sendRedirect("/CFT/Login");
-			System.out.println("sss");
+			System.out.println(name);
 
 		} else {
 			response.setContentType("application/json;charset=UTF-8");

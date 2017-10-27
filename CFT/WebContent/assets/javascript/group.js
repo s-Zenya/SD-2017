@@ -6,7 +6,7 @@ function groupCreate(){
     	fetch('/CFT/GroupCreate', {
     		method: 'POST',
 			body : 'gid='+gid+'&gpw='+gpw+'&gname='+gname,
-			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded' })
+			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
     	})
     	  .then(response => {
     		  console.log(response.status);
@@ -43,7 +43,7 @@ function groupLogin(){
     		redirect: 'follow',
     		method: 'POST',
 			body : 'id='+id+'&gid='+gid+'&gpw='+gpw,
-			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded' }),
+			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
     	})
     	  .then(response => {
     		  console.log(response);
@@ -59,6 +59,6 @@ function groupLogin(){
 function groupCreateOpen()
 {
   document.getElementById("createForm").style.display="block";
-  
+
   return null;
 }
