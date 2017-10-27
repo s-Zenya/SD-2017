@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.GroupDAO;
 import dao.PersonalDAO;
+import model.Group;
 import model.Personal;
 
 @WebServlet("/PersonalLogin")
@@ -36,7 +38,8 @@ public class PersonalLogin extends HttpServlet {
 		PersonalDAO personalDAO = new PersonalDAO();
 
 		if (personalDAO.loginCheck(id,pw)) {
-			//cookieに追加
+
+			//cookieにid,nameを追加
 			Personal personal = new Personal();
 			personal = personalDAO.findSearch(id);
 			Cookie cookie = new Cookie("id", id);
@@ -45,9 +48,23 @@ public class PersonalLogin extends HttpServlet {
 			cookie = new Cookie("name", personal.getName());
 			cookie.setPath("/");
 			response.addCookie(cookie);
-			cookie = new Cookie("groupId", personal.getGroupId());
-			cookie.setPath("/");
-			response.addCookie(cookie);
+
+//			groupNameを取得
+			GroupDAO groupDAO = new GroupDAO();
+			Group group = new Group();
+//			ユーザにgroupIdが登録されている場合
+			if(personal.getGroupId()!=null){
+
+//				cookieにgroupId,groupNameを追加
+				cookie = new Cookie("groupId", personal.getGroupId());
+				cookie.setPath("/");
+				response.addCookie(cookie);
+//				cookieにgroupNameを追加
+				group = groupDAO.findSearch(personal.getGroupId());
+				cookie = new Cookie("gName",group.getGroupName() );
+				cookie.setPath("/");
+				response.addCookie(cookie);
+			}
 			//セッションを開始
 			session = request.getSession(true);
 

@@ -14,7 +14,7 @@ import model.Group;
 public class GroupDAO {
 	// DB接続パス
 	private String connectionString = DbConnection.getPass();
-	
+
 	public List<Group> findAll() {
 
 		Connection conn = null;

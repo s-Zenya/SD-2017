@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.GroupDAO;
 import dao.PersonalDAO;
+import model.Group;
 @WebServlet("/GroupLogin")
 public class GroupLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -31,13 +32,23 @@ public class GroupLogin extends HttpServlet {
 		if (groupDAO.loginCheck(gid,gpw)) {
 			//ユーザにgroupIdを登録
 			PersonalDAO personalDAO = new PersonalDAO();
-			System.out.println(personalDAO.setGroupId(id, gid));
-			//cookieに追加
-			Cookie cookie = new Cookie("gid", gid);
-			cookie.setPath("/");
-			response.addCookie(cookie);
-			System.out.print("Login");
-			response.sendRedirect("/CFT/html/top/top.html");
+			if(personalDAO.setGroupId(id, gid)){
+//				groupNameを取得
+				Group group = new Group();
+				group = groupDAO.findSearch(gid);
+				//cookieに追加
+				Cookie cookie = new Cookie("gId", gid);
+				cookie.setPath("/");
+				response.addCookie(cookie);
+				cookie = new Cookie("groupName",group.getGroupName());
+				cookie.setPath("/");
+				response.addCookie(cookie);
+
+				response.sendRedirect("/CFT/html/top/top.html");
+			}else{
+				response.sendError(HttpServletResponse.SC_FORBIDDEN);
+
+			}
 		} else {
 
 			response.sendError(HttpServletResponse.SC_FORBIDDEN);
