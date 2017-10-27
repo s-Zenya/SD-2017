@@ -20,7 +20,7 @@ public class DbTest {
 //
 //		calendarDAO.add("0002", date, "hogehoge","user02");
 //----------------------------------- MESSAGE ---------------------------------------------
-//		// テーブルの全レコードを取得
+		// テーブルの全レコードを取得
 //		MessageDAO messageDAO = new MessageDAO();
 //		List<Message> messageList = messageDAO.findGroupIdAll("0001");
 //		Message message = new Message();
@@ -76,7 +76,7 @@ public class DbTest {
 //		//Date
 //		Date date = new Date(0);
 //		System.out.println(date);
-//		
+//
 //		// テーブルの全レコードを取得
 //		ShoppingDAO shoppingDAO = new ShoppingDAO();
 //		shoppingDAO.changeDone(1, "0001");
@@ -91,11 +91,7 @@ public class DbTest {
 //			System.out.println("CONTENTS:" + shoppingbox.getContents());
 //			System.out.println("DONE:" + shoppingbox.getDone() + "\n");
 //		}
-<<<<<<< HEAD
 
-=======
-//		
->>>>>>> 2f692e051184f7a269e9921267e2f172abefe0bd
 //		ShoppingDAO shoppingDAO = new ShoppingDAO();
 //
 //		shoppingDAO.add("0001", "test2");
@@ -160,5 +156,8 @@ public class DbTest {
 //		//IDとPWが合致するか確認
 //		boolean box2 = groupDAO.loginCheck("0003", "3333");
 //		System.out.println(box2);
+//		------------------------------ServerTest--------------------------------------
+
+
 	}
 }
