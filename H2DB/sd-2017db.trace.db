@@ -2957,3 +2957,9 @@ No data is available [2000-196]
 org.h2.jdbc.JdbcSQLException: 有効なデータがありません
 No data is available [2000-196]
 >>>>>>> 2f692e051184f7a269e9921267e2f172abefe0bd
+2017-10-28 16:18:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: 有効なデータがありません
+No data is available [2000-196]
+2017-10-28 16:19:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: 有効なデータがありません
+No data is available [2000-196]

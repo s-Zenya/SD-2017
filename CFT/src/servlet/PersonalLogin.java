@@ -28,10 +28,6 @@ public class PersonalLogin extends HttpServlet {
 		// HttpSession session;
 		// セッションがある場合top.htmlに飛ばす
 		session = request.getSession(false);
-		if (session != null) {
-			response.sendRedirect("/CFT/html/top/top.html");
-		}
-
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=utf-8");
 		String id = request.getParameter("id");
@@ -64,9 +60,21 @@ public class PersonalLogin extends HttpServlet {
 				response.addCookie(cookie);
 //				cookieにgroupNameを追加
 				group = groupDAO.findSearch(personal.getGroupId());
-				cookie = new Cookie("gName",group.getGroupName() );
+				cookie = new Cookie("gName",URLEncoder.encode(group.getGroupName(), "UTF-8") );
 				cookie.setPath("/");
 				response.addCookie(cookie);
+			}else{
+//				ユーザにグループがセットされていない場合groupのcookieを削除
+				cookie = new Cookie("gId", "");
+				cookie.setPath("/");
+				cookie.setMaxAge(0);
+				response.addCookie(cookie);
+				group = groupDAO.findSearch(personal.getGroupId());
+				cookie = new Cookie("gName",URLEncoder.encode("", "UTF-8") );
+				cookie.setPath("/");
+				cookie.setMaxAge(0);
+				response.addCookie(cookie);
+
 			}
 			//セッションを開始
 			session = request.getSession(true);
