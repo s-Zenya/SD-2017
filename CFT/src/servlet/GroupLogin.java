@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import dao.GroupDAO;
 import dao.PersonalDAO;
 import model.Group;
+import tool.Tool;
 @WebServlet("/GroupLogin")
 public class GroupLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -25,9 +26,9 @@ public class GroupLogin extends HttpServlet {
 			throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("id");
-		String gid = request.getParameter("gid");
-		String gpw = request.getParameter("gpw");
+		String id = Tool.escapeStr(request.getParameter("id"));
+		String gid = Tool.escapeStr(request.getParameter("gid"));
+		String gpw = Tool.escapeStr(request.getParameter("gpw"));
 
 		// ログイン成功
 		GroupDAO groupDAO = new GroupDAO();
@@ -39,7 +40,7 @@ public class GroupLogin extends HttpServlet {
 				Group group = new Group();
 				group = groupDAO.findSearch(gid);
 				//cookieに追加
-				Cookie cookie = new Cookie("gId", gid);
+				Cookie cookie = new Cookie("gId",URLEncoder.encode(gid, "UTF-8"));
 				cookie.setPath("/");
 				response.addCookie(cookie);
 				cookie = new Cookie("gName",URLEncoder.encode(group.getGroupName(), "UTF-8"));

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.GroupDAO;
+import tool.Tool;
 
 @WebServlet("/GroupCreate")
 public class GroupCreate extends HttpServlet {
@@ -19,9 +20,9 @@ public class GroupCreate extends HttpServlet {
 			throws ServletException, IOException {
 //		System.out.println(request);
         request.setCharacterEncoding("UTF-8");
-		String gid = request.getParameter("gid");
-		String gpw = request.getParameter("gpw");
-		String gname = request.getParameter("gname");
+		String gid = Tool.escapeStr(request.getParameter("gid"));
+		String gpw = Tool.escapeStr(request.getParameter("gpw"));
+		String gname = Tool.escapeStr(request.getParameter("gname"));
 
 		System.out.print(" id="+gid);
 		System.out.print(" pass="+gpw);

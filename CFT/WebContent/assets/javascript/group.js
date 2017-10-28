@@ -31,6 +31,7 @@ function groupLogin(){
 		}
 		i++;
 	}
+	id=decodeURIComponent(id);
 //
 //	var date1 = new Date();
 //	date1.setTime(0);

@@ -20,8 +20,8 @@
 		gname='';
 	}
 	//文字のデコード
-	name=decodeURI(name);
-	gname=decodeURI(gname);
+	name=decodeURIComponent(name);
+	gname=decodeURIComponent(gname);
 
 	$('#groupInfo').append('<div>'+name+'<div>');
 	$('#groupInfo').append('<div>'+gname+'<div>');
