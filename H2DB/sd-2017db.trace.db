@@ -2957,3 +2957,45 @@ No data is available [2000-196]
 org.h2.jdbc.JdbcSQLException: 有効なデータがありません
 No data is available [2000-196]
 >>>>>>> 2f692e051184f7a269e9921267e2f172abefe0bd
+2017-10-28 16:18:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: 有効なデータがありません
+No data is available [2000-196]
+2017-10-28 16:19:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: 有効なデータがありません
+No data is available [2000-196]
+2017-10-28 16:29:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: 有効なデータがありません
+No data is available [2000-196]
+2017-10-28 16:49:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: 列 "ID VARCHAR(10) NOT NULL" の値が長過ぎます: "'&lt;script&gt;console.log()&lt;/script&gt;' (42)"
+Value too long for column "ID VARCHAR(10) NOT NULL": "'&lt;script&gt;console.log()&lt;/script&gt;' (42)"; SQL statement:
+INSERT INTO PERSONALTABLE (ID, PW, NAME, GROUPID) VALUES (?,?,?,?) [22001-196]
+2017-10-28 16:49:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: 列 "NAME VARCHAR2(30)" の値が長過ぎます: "'&lt;script&gt;console.log()&lt;/script&gt;' (42)"
+Value too long for column "NAME VARCHAR2(30)": "'&lt;script&gt;console.log()&lt;/script&gt;' (42)"; SQL statement:
+INSERT INTO PERSONALTABLE (ID, PW, NAME, GROUPID) VALUES (?,?,?,?) [22001-196]
+2017-10-28 16:50:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: 列 "ID VARCHAR(10) NOT NULL" の値が長過ぎます: "'&lt;u&gt;hoge&lt;/u&gt;' (23)"
+Value too long for column "ID VARCHAR(10) NOT NULL": "'&lt;u&gt;hoge&lt;/u&gt;' (23)"; SQL statement:
+INSERT INTO PERSONALTABLE (ID, PW, NAME, GROUPID) VALUES (?,?,?,?) [22001-196]
+2017-10-28 16:51:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: 有効なデータがありません
+No data is available [2000-196]
+2017-10-28 16:56:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: 有効なデータがありません
+No data is available [2000-196]
+2017-10-28 20:03:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: 有効なデータがありません
+No data is available [2000-196]
+2017-10-29 02:21:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: 列 "GROUPNAME VARCHAR2(30)" の値が長過ぎます: "'&lt;script&gt;console.log(&quot;hoge&quot;)&lt;/script&gt;' (58)"
+Value too long for column "GROUPNAME VARCHAR2(30)": "'&lt;script&gt;console.log(&quot;hoge&quot;)&lt;/script&gt;' (58)"; SQL statement:
+INSERT INTO GROUPTABLE VALUES (?,?,?) [22001-196]
+2017-10-29 02:22:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: 列 "GROUPNAME VARCHAR2(30)" の値が長過ぎます: "'&lt;script&gt;console.log(&quot;hoge&quot;)&lt;/script&gt;' (58)"
+Value too long for column "GROUPNAME VARCHAR2(30)": "'&lt;script&gt;console.log(&quot;hoge&quot;)&lt;/script&gt;' (58)"; SQL statement:
+INSERT INTO GROUPTABLE VALUES (?,?,?) [22001-196]
+2017-10-29 02:22:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: 列 "GROUPNAME VARCHAR2(30)" の値が長過ぎます: "'&lt;script&gt;console.log(&quot;hoge&quot;)&lt;/script&gt;' (58)"
+Value too long for column "GROUPNAME VARCHAR2(30)": "'&lt;script&gt;console.log(&quot;hoge&quot;)&lt;/script&gt;' (58)"; SQL statement:
+INSERT INTO GROUPTABLE VALUES (?,?,?) [22001-196]

@@ -3,7 +3,6 @@ package servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.MessageDAO;
 import dao.PersonalDAO;
 import model.Personal;
+import tool.Tool;
 
 @WebServlet("/Message")
 public class Message extends HttpServlet {
@@ -26,9 +26,9 @@ public class Message extends HttpServlet {
 			throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("id");
-		String gid = request.getParameter("gid");
-		String message = request.getParameter("message");
+		String id = Tool.escapeStr(request.getParameter("id"));
+		String gid = Tool.escapeStr(request.getParameter("gid"));
+		String message = Tool.escapeStr(request.getParameter("message"));
 		System.out.println("id:"+id+",gid:"+gid+",message:"+message);
 
 		// ユーザーメッセージ
@@ -51,7 +51,6 @@ public class Message extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
 		String gid = request.getParameter("gid");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = Date.valueOf(request.getParameter("date"));
 		MessageDAO messageDAO = new MessageDAO();
 		List<model.Message> messageList = new ArrayList<model.Message>();

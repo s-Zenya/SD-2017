@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.PersonalDAO;
+import tool.Tool;
 
 @WebServlet("/PersonalCreate")
 public class PersonalCreate extends HttpServlet {
@@ -20,9 +21,9 @@ public class PersonalCreate extends HttpServlet {
 			throws ServletException, IOException {
 
         request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
-		String name = request.getParameter("name");
+		String id = Tool.escapeStr(request.getParameter("id"));
+		String pw = Tool.escapeStr(request.getParameter("pw"));
+		String name = Tool.escapeStr(request.getParameter("name"));
 
 		// ユーザー作成成功
 		PersonalDAO personalDAO = new PersonalDAO();

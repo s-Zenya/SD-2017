@@ -19,6 +19,9 @@ function addMessage(){
 			}
 			i++;
 		}
+		gid=decodeURIComponent(gid);
+		id=decodeURIComponent(id);
+
 		console.log(id+":"+gid+":"+message);
 
     	fetch('/CFT/Message', {
@@ -60,6 +63,8 @@ function getMessage(){
 		}
 		i++;
 	}
+
+	gid=decodeURIComponent(gid);
 	console.dir(date);
 
 		var url= '/CFT/Message?gid='+gid+'&date='+date;

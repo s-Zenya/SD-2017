@@ -16,6 +16,7 @@ import dao.GroupDAO;
 import dao.PersonalDAO;
 import model.Group;
 import model.Personal;
+import tool.Tool;
 
 @WebServlet("/PersonalLogin")
 public class PersonalLogin extends HttpServlet {
@@ -28,14 +29,10 @@ public class PersonalLogin extends HttpServlet {
 		// HttpSession session;
 		// セッションがある場合top.htmlに飛ばす
 		session = request.getSession(false);
-		if (session != null) {
-			response.sendRedirect("/CFT/html/top/top.html");
-		}
-
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=utf-8");
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
+		String id = Tool.escapeStr(request.getParameter("id"));
+		String pw = Tool.escapeStr(request.getParameter("pw"));
 
 		// ログイン成功
 		PersonalDAO personalDAO = new PersonalDAO();
@@ -45,7 +42,7 @@ public class PersonalLogin extends HttpServlet {
 			//cookieにid,nameを追加
 			Personal personal = new Personal();
 			personal = personalDAO.findSearch(id);
-			Cookie cookie = new Cookie("id", id);
+			Cookie cookie = new Cookie("id", URLEncoder.encode(id, "UTF-8"));
 			cookie.setPath("/");
 			response.addCookie(cookie);
 			cookie = new Cookie("name",URLEncoder.encode(personal.getName(), "UTF-8") );
@@ -59,14 +56,26 @@ public class PersonalLogin extends HttpServlet {
 			if(personal.getGroupId()!=null){
 
 //				cookieにgroupId,groupNameを追加
-				cookie = new Cookie("gId", personal.getGroupId());
+				cookie = new Cookie("gId",URLEncoder.encode( personal.getGroupId(), "UTF-8"));
 				cookie.setPath("/");
 				response.addCookie(cookie);
 //				cookieにgroupNameを追加
 				group = groupDAO.findSearch(personal.getGroupId());
-				cookie = new Cookie("gName",group.getGroupName() );
+				cookie = new Cookie("gName",URLEncoder.encode(group.getGroupName(), "UTF-8") );
 				cookie.setPath("/");
 				response.addCookie(cookie);
+			}else{
+//				ユーザにグループがセットされていない場合groupのcookieを削除
+				cookie = new Cookie("gId",URLEncoder.encode("", "UTF-8"));
+				cookie.setPath("/");
+				cookie.setMaxAge(0);
+				response.addCookie(cookie);
+				group = groupDAO.findSearch(personal.getGroupId());
+				cookie = new Cookie("gName",URLEncoder.encode("", "UTF-8"));
+				cookie.setPath("/");
+				cookie.setMaxAge(0);
+				response.addCookie(cookie);
+
 			}
 			//セッションを開始
 			session = request.getSession(true);
