@@ -48,7 +48,7 @@ public class Calendar extends HttpServlet {
 //		カレンダートップにページ遷移したいとき
 		if(gid==null){
 			System.out.println("redirect");
-			response.sendRedirect("/CFT/html/calendar/calendarTop.html");
+			response.sendRedirect("/CFT/html/calendar/CalendarTop.html");
 		}else{
 			date=Date.valueOf(request.getParameter("date"));
 			response.sendError(HttpServletResponse.SC_NOT_FOUND);
