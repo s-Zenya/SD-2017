@@ -1,4 +1,4 @@
-getMessage();
+showMessage();
 
 
 
@@ -38,7 +38,7 @@ function addMessage(){
 						//入力欄を空欄にする
 						document.getElementById("addMessage").value=null;
 //						メッセージを更新
-						getMessage();
+						showMessage();
 					}
     	    return response.text();
     	})
@@ -47,7 +47,7 @@ function addMessage(){
 
 }
 
-function getMessage(){
+function showMessage(){
 
 	var date_source  = new Date();
 	var date = date_source.getFullYear()+"-"+(date_source.getMonth()+1)+"-"+date_source.getDate();
