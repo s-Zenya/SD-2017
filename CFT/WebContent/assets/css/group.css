@@ -1,29 +1,30 @@
-h1 {
-	margin : 20px 0;
+h2 {
+	margin: 20px 0;
 }
 
 #inputForm form div label {
-	font-size : 20px;
-	float : left;
+	font-size: 20px;
+	float: left;
 }
 
 #inputForm form div input {
-	margin : 10px 0;
-}
-
-#submit {
-	
+	margin: 10px 0;
 }
 
 #createForm form div label {
-	font-size : 20px;
-	float : left;
+	font-size: 20px;
+	float: left;
 }
 
 #createForm form div input {
-	margin : 10px 0;
+	margin: 10px 0;
 }
 
 #createForm {
-	display : none;
+	display: none;
+}
+
+/* スマホだけに適用するCSS */
+@media screen and ( max-width:530px ) {
+	
 }
