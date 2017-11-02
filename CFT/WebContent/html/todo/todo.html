@@ -13,6 +13,7 @@
 <!-- BootstrapのJS読み込み -->
 <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/css/todo.css">
+
 <title>やる事リスト画面</title>
 </head>
 
@@ -46,42 +47,24 @@
 					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
 						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
 				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
+
 			</tbody>
 		</table>
 	</div>
-	
+
 	<!-- Todo追加フォーム -->
 	<div id="addTodo" class="container col-sm-12">
 		<form>
 			<div class="form-group">
-				<input type="text" class="form-control col-sm-10" name=""
+				<input type="text" class="form-control col-sm-10" name="" id ="addTodo"
 					placeholder="追加するTodoを入力してください">
-				<button type="button" class="btn btn-primary col-sm-2">追加</button>
+				<button class="btn btn-primary col-sm-2" onClick='addTodo()'>追加</button>
 			</div>
 		</form>
 	</div>
 
 	<!-- footer読み込み -->
 	<SCRIPT src="../../assets/javascript/footer.js"></SCRIPT>
+	<script type="text/javascript" src="../../assets/javascript/todo.js"></script>
 </body>
 </html>

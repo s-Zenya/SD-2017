@@ -70,8 +70,8 @@ public class TodoDAO {
 		return todoList;
 	}
 
-	// GROUPID指定で参照
-	public List<Todo>findSearch(String groupId){
+	// 未完了のTODOリスト指定で参照
+	public List<Todo>findSearch_false(String groupId){
 
 		Connection conn = null;
 		List<Todo> todoList = new ArrayList<Todo>();
@@ -84,11 +84,11 @@ public class TodoDAO {
 			conn = DriverManager.getConnection(connectionString, "sa", "");
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM TODOTABLE WHERE GROUPID=?";
+			String sql = "SELECT * FROM TODOTABLE WHERE DONE=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			// 指定したIDで
-			pStmt.setString(1, groupId);
+			// FALSE指定で
+			pStmt.setString(1, "FALSE");
 
 			// SELECTを実行し、結果表を取得
 			ResultSet rs = pStmt.executeQuery();
