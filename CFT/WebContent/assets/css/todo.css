@@ -1,17 +1,27 @@
 h1 {
-	margin : 20px 0;
+	margin: 20px 0;
 }
 
-#todo {
-	height : 400px;
+#tableChangeButton {
+	float:right;
+	border-bottom-left-radius:0;
+	border-bottom-right-radius:0;
 }
 
-#todo .listCheck {
-	width : 60px;
+#toDayTodo , #allDayTodo {
+	height: 400px;
+}
+
+#toDayTodo .listCheck , #allDayTodo .listCheck {
+	width: 60px;
+}
+
+#allDayTodo {
+	display: none;
 }
 
 #addTodo {
-	margin : 20px 0;
+	margin: 20px 0;
 }
 
 #addTodo form div input {
