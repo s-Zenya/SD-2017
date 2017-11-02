@@ -1,37 +1,42 @@
+#groupInfo {
+	margin: 20px 0;
+}
+
 #message {
 	height: 250px;
 	font-size: 10px;
 	marign-bottom: 0;
+	width: auto;
 }
 
-.listName {
-	width: 130px;
+#message table {
+	font-size: 0.2px;
+	width: 100%;
 }
 
-.listDate {
+#message td {
+}
+
+#message td:nth-child(1) {
+	width: 140px;
+}
+
+#message td:nth-child(2) {
 	width: 80px;
 }
 
-.listMessage {
-	
+#message td:nth-child(3) {
 }
 
-#addMessage {
-	margin-top: -20px;
-	margin-bottom: 50px;
-}
-
-#addMessage form div input {
-	margin-left: 0;
+#addMessage_form div input {
 	float: left;
 }
 
-#addMessage form div button {
-	margin-right: 0;
+#addMessage_form div button {;
 	float: right;
 }
 
-#addMessage:after {
+#addMessage_form:after {
 	display: block;
 	clear: both;
 	content: "";
@@ -53,10 +58,27 @@
 }
 
 #linkBtn p {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 #linkBtn .btn1:hover, #linkBtn .btn2:hover, #linkBtn .btn3:hover,
 	#linkBtn .btn4:hover {
 	background-color: #A4A4A4;
+}
+
+/* スマホだけに適用するCSS */
+@media screen and ( max-width:530px ) {
+	#message table {
+		font-size: 0.2px;
+		width: 500px;
+	}
+	#message td {
+		padding: 1px;
+	}
+	#message td:nth-child(1) {
+		width: 100px;
+	}
+	#message td:nth-child(2) {
+		width: 70px;
+	}
 }
