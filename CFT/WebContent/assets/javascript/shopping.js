@@ -75,6 +75,7 @@ function addshopping(){
 					if(response.status=="200"){
 						//入力欄を空欄にする
 						document.getElementById("addshopping").value=null;
+						document.getElementById("amount").value=null;
 //						メッセージを更新
 						showShopping();
 					}
