@@ -9,7 +9,6 @@ function checkChange(todoId){
 	var gid;
 //	todoId = document.getElementById("todoId").value
 	var i=0;
-	var judge = "todo";
 
 		while(cookie_all.split( '; ' )[ i ] != null){
 
@@ -22,7 +21,7 @@ function checkChange(todoId){
 
 		console.log(gid+":"+todoId);
 
-    	fetch('/CFT/DoneChange', {
+    	fetch('/CFT/ChangeDone_todo', {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
     		redirect: 'follow',
@@ -47,11 +46,11 @@ function checkChange(todoId){
 
 
 
-function addTodo(){
+function addshopping(){
 
 	var cookie_all = document.cookie;
 	var gid;
-	var contents=document.getElementById("Todoadd").value
+	var contents=document.getElementById("addshopping").value
 	var i=0;
 
 	if(contents!=''){

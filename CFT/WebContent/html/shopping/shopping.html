@@ -33,49 +33,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
+
 			</tbody>
 		</table>
 	</div>
 
 	<!-- Shopping追加フォーム -->
 	<div id="addShopping" class="container col-sm-12">
-		<form>
+
 			<div class="form-group">
-				<input type="text" class="form-control col-sm-8" name=""
+				<input type="text" class="form-control col-sm-8" name="" id="addshopping"
 					placeholder="追加する購入予定の物を入力してください">
 				<input type="text" id="amount" autocomplete="on" list="test" class="col-sm-2"
 					placeholder="個数">
@@ -86,13 +53,15 @@
 					<option value="4">
 					<option value="5">
 				</datalist>
-				<button type="button" class="btn btn-primary col-sm-2">追加</button>
+				<button class="btn btn-primary col-sm-2" onclick="addshopping()">追加</button>
 
 			</div>
-		</form>
+
 	</div>
 
 	<!-- footer読み込み -->
 	<SCRIPT src="../../assets/javascript/footer.js"></SCRIPT>
+
+	<script src="../../assets/javascript/shopping.js"></script>
 </body>
 </html>
