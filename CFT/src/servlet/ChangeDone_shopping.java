@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.TodoDAO;
+import dao.ShoppingDAO;
 import tool.Tool;
 
-@WebServlet("/DoneChange")
-public class DoneChange extends HttpServlet {
+@WebServlet("/ChangeDone_shopping")
+public class ChangeDone_shopping extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
@@ -23,14 +23,13 @@ public class DoneChange extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String gid = Tool.escapeStr(request.getParameter("gid"));
 //		String judge = request.getParameter("judge");
-		String todoId_tmp = request.getParameter("todoId");
-		int todoId = Integer.parseInt(todoId_tmp);
+		String shoppingId_tmp = request.getParameter("shoppingId");
+		int shoppingId = Integer.parseInt(shoppingId_tmp);
 		System.out.println("gid:"+gid);
-		TodoDAO todoDAO = new TodoDAO();
+		ShoppingDAO shoppingDAO = new ShoppingDAO();
 
 		//todoチェックチェンジ
-//		if(judge == "todo"){
-			if (todoDAO.changeDone(gid, todoId)) {
+			if (shoppingDAO.changeDone(shoppingId,gid)) {
 				response.sendError(HttpServletResponse.SC_OK);
 				System.out.println("changeDone OK");
 
@@ -38,6 +37,6 @@ public class DoneChange extends HttpServlet {
 				System.out.println("1111");
 				response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);;
 			}
-		}
-//	}
+//		}
+	}
 }

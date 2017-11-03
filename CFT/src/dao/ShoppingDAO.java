@@ -198,14 +198,14 @@ public class ShoppingDAO {
 
 			// SELECTを実行し、結果表を取得
 			ResultSet rs = pStmt.executeQuery();
-			
+
 			boolean done = false;
-			
+
 			while (rs.next()) {
 				boolean doneTmp = rs.getBoolean("DONE");
 				done = doneTmp;
 			}
-			
+
 
 			if (done == false) {
 				// INSERT文を準備
@@ -226,6 +226,7 @@ public class ShoppingDAO {
 				pStmt_false.setInt(2, shoppingId);
 
 				pStmt_false.executeUpdate();
+				rt = true;
 			}
 
 			// return (r > 0);
