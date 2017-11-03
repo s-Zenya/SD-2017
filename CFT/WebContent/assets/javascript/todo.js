@@ -26,7 +26,7 @@ function checkChange(todoId){
     		credentials: 'include',
     		redirect: 'follow',
     		method: 'POST',
-			body : 'gid='+gid+'&todoId='+todoId+'&judge='+judge,
+			body : 'gid='+gid+'&todoId='+todoId,
 			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
     	})
     	  .then(response => {
