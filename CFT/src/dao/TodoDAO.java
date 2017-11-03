@@ -84,11 +84,11 @@ public class TodoDAO {
 			conn = DriverManager.getConnection(connectionString, "sa", "");
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM TODOTABLE WHERE DONE=?";
+			String sql = "SELECT * FROM TODOTABLE WHERE DONE = FALSE";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
-			// FALSE指定で
-			pStmt.setString(1, "FALSE");
+//			// FALSE指定で
+//			pStmt.setString(1, "FALSE");
 
 			// SELECTを実行し、結果表を取得
 			ResultSet rs = pStmt.executeQuery();

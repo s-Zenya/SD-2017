@@ -14,7 +14,6 @@
 <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/css/todo.css">
 
-<script type="text/javascript" src="../../assets/javascript/todo.js"></script>
 
 <title>やる事リスト画面</title>
 </head>
@@ -36,47 +35,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>今日</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
+
 			</tbody>
 		</table>
 	</div>
-	
+
 	<!-- allDayTodo表示テーブル -->
 	<div id="allDayTodo" class="table-responsive col-sm-12">
-	<button id="tableChangeButton" class="col-sm-4 btn btn-primary" onclick="toDayTableOpen()">今日のやること一覧表示</button>
+		<button id="tableChangeButton" class="col-sm-4 btn btn-primary" onclick="toDayTableOpen()">今日のやること一覧表示</button>
 		<table class="table">
 			<thead>
 				<tr>
@@ -85,20 +51,6 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>未完了一覧</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="" value=""></td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
 
 			</tbody>
 		</table>
@@ -106,17 +58,17 @@
 
 	<!-- Todo追加フォーム -->
 	<div id="addTodo" class="container col-sm-12">
-		<form>
+
 			<div class="form-group">
-				<input type="text" class="form-control col-sm-10" name="" id ="addTodo"
+				<input type="text" class="form-control col-sm-10" name="contents" id="Todoadd"
 					placeholder="追加するTodoを入力してください">
 				<button class="btn btn-primary col-sm-2" onClick='addTodo()'>追加</button>
 			</div>
-		</form>
+
 	</div>
 
 	<!-- footer読み込み -->
 	<SCRIPT src="../../assets/javascript/footer.js"></SCRIPT>
-	<script type="text/javascript" src="../../assets/javascript/todo.js"></script>
+	<script src="../../assets/javascript/todo.js"></script>
 </body>
 </html>
