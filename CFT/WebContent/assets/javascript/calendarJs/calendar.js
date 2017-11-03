@@ -13,7 +13,7 @@ var CalendarApp = {
 	weekDayNames : [ "日", "月", "火", "水", "木", "金", "土" ],
 	holidayDaysOfWeek : (1 << 0) | (1 << 6),
 	firstDayOfWeek : 0,
-	displayWeeks : 10,
+	displayWeeks : 5,
 
 	// Date/Time Utilities
 
@@ -71,13 +71,13 @@ var CalendarApp = {
 	},
 	/*
 	 * createDomNode: function(obj) { if(!obj){ return null; }
-	 * 
+	 *
 	 * if(obj.elem){ var e = document.createElement(obj.elem);
-	 * 
+	 *
 	 * if(obj.children){ for(var i = 0; i < obj.children.length; ++i){ var child =
 	 * CalendarApp.createDomNode(obj.children[i]); if(child){
 	 * e.appendChild(child); } } }
-	 * 
+	 *
 	 * if(obj.atrs){ for(var key in obj.atrs){ e[key] = obj.atrs[key]; } }
 	 * return e; } else if(obj.textnode){ var t =
 	 * document.createTextNode(obj.textnode); return t; } else{ return null; } },
@@ -111,8 +111,7 @@ var CalendarApp = {
 
 	createWeekRow : function(firstDate, func, rowClassName) {
 		var date = new Date(firstDate);
-
-		var row = document.createElement("tr");
+		var row = document.createElement("tr"); //ここで一週間の一列を作成
 		row.className = rowClassName;
 		for (var d = 0; d < 7; ++d) {
 			row.appendChild(func(date));
@@ -151,8 +150,9 @@ var CalendarApp = {
 	},
 
 	createDateHeaderCell : function(date, now) {
-		var cell = document.createElement("td");
+		var cell = document.createElement("td");//ここで一日分を作成
 		cell.className = CalendarApp.getDateClassName(date, now, "-header");
+
 
 		if (date.getDate() == 1) {
 			var monthName = document.createElement("span");
@@ -175,6 +175,7 @@ var CalendarApp = {
 	createDateContentCell : function(date, now, db, cellsDic) {
 		var cell = document.createElement("td");
 		cell.className = CalendarApp.getDateClassName(date, now, "-content");
+		cell.id = date.getFullYear()+"-"+("0"+(date.getMonth()+1)).slice(-2)+"-"+("0"+date.getDate()).slice(-2);
 
 		var ctrl = new CalendarApp.CalendarCellCtrl(cell, date, db);
 		if (cellsDic) {
@@ -216,7 +217,7 @@ var CalendarApp = {
 
 	appendWeeks : function(firstDate, weekCount, db, table, cellsDic, now) {
 		var date = new Date(firstDate);
-		for (var week = 0; week < weekCount; ++week) {
+		for (var week = 0; week < weekCount; ++week) {	//一週間分のヘッダーとコンテント部分を作成
 			table.appendChild(CalendarApp.createDateHeaderRow(date, now));
 			table.appendChild(CalendarApp.createDateContentRow(date, now, db,
 					cellsDic));
@@ -236,7 +237,7 @@ var CalendarApp = {
 
 		var firstDate = new Date(now.getFullYear(), now.getMonth(), now
 				.getDate()
-				- (nowPosOnWeek + 7)); // /@todo ok?
+				- (nowPosOnWeek )); // /@todo ok?
 
 		var table = document.createElement("table");
 		table.className = CalendarApp.cssPrefix + "-table";

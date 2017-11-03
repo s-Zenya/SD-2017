@@ -1,7 +1,5 @@
 showMessage();
 
-
-
 function addMessage(){
 	var cookie_all = document.cookie;
 	var gid;
@@ -22,8 +20,6 @@ function addMessage(){
 		gid=decodeURIComponent(gid);
 		id=decodeURIComponent(id);
 
-		console.log(id+":"+gid+":"+message);
-
     	fetch('/CFT/Message', {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
@@ -37,14 +33,12 @@ function addMessage(){
 					if(response.status=="200"){
 						//入力欄を空欄にする
 						document.getElementById("addMessage").value=null;
-//						メッセージを更新
+						//メッセージを更新
 						showMessage();
 					}
     	    return response.text();
     	})
 	}
-
-
 }
 
 function showMessage(){
@@ -55,7 +49,6 @@ function showMessage(){
 	var gid;
 	var i=0;
 
-
 	while(cookie_all.split( '; ' )[ i ] != null){
 
 		if(cookie_all.split( '; ' )[ i ].split( '=' )[ 0 ] == 'gId'){
@@ -63,9 +56,7 @@ function showMessage(){
 		}
 		i++;
 	}
-
 	gid=decodeURIComponent(gid);
-	console.dir(date);
 
 		var url= '/CFT/Message?gid='+gid+'&date='+date;
     	fetch(url, {
