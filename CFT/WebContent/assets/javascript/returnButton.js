@@ -1,5 +1,6 @@
-//帰りますボタンで使用
+﻿//帰りますボタンで使用
 nameGet();
+
 
 // 帰りますボタン
 function returnButton(getName){
