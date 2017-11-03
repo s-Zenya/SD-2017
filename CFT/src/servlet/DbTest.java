@@ -100,7 +100,8 @@ public class DbTest {
 
 //		// personalテーブルの全レコードを取得
 //		PersonalDAO personalDAO = new PersonalDAO();
-//		List<Personal> personalList = personalDAO.findAll();
+//		//List<Personal> personalList = personalDAO.findAll();
+//		List<Personal> personalList = personalDAO.nameSearch("GID");
 //		Personal personal = new Personal();
 //
 //		// 取得したレコードの内容を出力
@@ -110,6 +111,9 @@ public class DbTest {
 //			System.out.println("NAME:" + personalbox.getName());
 //			System.out.println("GROUPID:" + personalbox.getGroupId() + "\n");
 //		}
+		
+		// groupIdからそのグループに所属するnameを表示
+		//personalDAO.nameSearch("GID");
 
 //		指定されたIDにgroupIDをセット
 //		boolean box = personalDAO.setGroupId("hoge","0002");

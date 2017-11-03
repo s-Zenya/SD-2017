@@ -2,8 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -25,24 +23,23 @@ public class ReturnButton extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-        request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		String id = Tool.escapeStr(request.getParameter("id"));
 		String gid = Tool.escapeStr(request.getParameter("gid"));
-//		String name = Tool.escapeStr(request.getParameter("name"));
+		// String name = Tool.escapeStr(request.getParameter("name"));
 		String selectName = Tool.escapeStr(request.getParameter("selectName"));
-		System.out.println("id:"+id+",gid:"+gid+"selectName:"+selectName);
-		
+//		System.out.println("id:" + id + ",gid:" + gid + "selectName:" + selectName);
+
 		Personal personal = new Personal();
 		PersonalDAO personalDAO = new PersonalDAO();
 		personal = personalDAO.findSearch(id);
-		
-		String message="";
-		if(selectName.equals("帰りますボタン")){
+
+		String message = "";
+		if (selectName.equals("帰りますボタン")) {
 			message = personal.getName() + "が急いで帰ります。";
-		}else{
-			message = personal.getName() + "が"+selectName+"に帰りなさいと激怒した。";
+		} else {
+			message = personal.getName() + "が" + selectName + "に帰りなさいと激怒した。";
 		}
-		System.out.println("RETURNBUTTON.JAVA:"+id+gid+message+selectName);
 
 		// ユーザーメッセージ
 		MessageDAO messageDAO = new MessageDAO();
@@ -53,7 +50,6 @@ public class ReturnButton extends HttpServlet {
 		} else {
 			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 
-
 		}
 
 	}
@@ -62,30 +58,25 @@ public class ReturnButton extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-        request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		String gid = request.getParameter("gid");
-		Date date = Date.valueOf(request.getParameter("date"));
-		MessageDAO messageDAO = new MessageDAO();
-		List<model.Message> messageList = new ArrayList<model.Message>();
 
-		messageList = messageDAO.get(gid, date);
-		Personal personal = new Personal();
 		PersonalDAO personalDAO = new PersonalDAO();
-		String response_json="";
-		if(messageList != null){
+		List<Personal> personalList = personalDAO.nameSearch(gid);
+		Personal personal = new Personal();
+
+		String response_json = "";
+		if (personalList != null) {
 			response_json += "{";
 
 			Integer i = 0;
-			for (model.Message messagebox : messageList) {
-				response_json += "\"message"+i+"\":{";
-				response_json +="\"messageId\":\""+messagebox.getMessageId()+"\",";
-				personal=personalDAO.findSearch(messagebox.getId());
-				response_json +="\"name\":\""+personal.getName()+"\",";
-				response_json +="\"message\":\""+messagebox.getMessage()+"\"},";
+			for (model.Personal personalbox : personalList) {
+				response_json += "\"personal" + i + "\":{";
+				response_json += "\"name\":\"" + personalbox.getName() + "\"},";
 				i++;
 			}
-			if(response_json != null && response_json.length() > 0){
-				response_json = response_json.substring(0, response_json.length()-1);
+			if (response_json != null && response_json.length() > 0) {
+				response_json = response_json.substring(0, response_json.length() - 1);
 			}
 			response_json += "}";
 		}
@@ -94,6 +85,5 @@ public class ReturnButton extends HttpServlet {
 		out.print(response_json);
 
 	}
-
 
 }
