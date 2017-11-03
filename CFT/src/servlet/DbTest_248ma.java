@@ -1,5 +1,10 @@
 package servlet;
 
+import java.util.List;
+
+import dao.PersonalDAO;
+import model.Personal;
+
 public class DbTest_248ma {
 	public static void main(String[] args) {
 //----------------------------------- CALENDAR ---------------------------------------------
@@ -95,9 +100,9 @@ public class DbTest_248ma {
 
 //----------------------------------- PERSONAL ---------------------------------------------
 
-//		// personalテーブルの全レコードを取得
-//		PersonalDAO personalDAO = new PersonalDAO();
-//		List<Personal> personalList = personalDAO.findAll();
+		// personalテーブルの全レコードを取得
+		PersonalDAO personalDAO = new PersonalDAO();
+		List<Personal> personalList = personalDAO.findAll();
 //		Personal personal = new Personal();
 //
 //		// 取得したレコードの内容を出力
@@ -127,6 +132,13 @@ public class DbTest_248ma {
 //		boolean box = personalDAO.loginCheck("00001", "oic");
 //		System.out.println(box);
 
+		PersonalDAO peronalDAO = new PersonalDAO();
+		List<Personal> name = personalDAO.nameSearch("gida");
+		Personal personal = new Personal();
+//		System.out.println(personal);
+		for (Personal namebox : name) {
+		System.out.println( namebox.getName());
+	}
 //----------------------------------- GROUP ---------------------------------------------
 //
 //		//groupテーブルの全レコードを取得

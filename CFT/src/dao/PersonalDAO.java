@@ -193,7 +193,7 @@ public class PersonalDAO {
 			}
 		}
 	}
-	
+
 	// 指定されたIDにgroupIDをセット　戻り値boolean
 	public boolean setGroupId(String id, String groupId) {
 		Connection conn = null;
@@ -289,5 +289,58 @@ public class PersonalDAO {
 		}
 		System.out.println("loginCheck NG");
 		return false;
+	}
+
+
+	// name取り出し
+	public List<Personal> nameSearch(String groupId) {
+
+		Connection conn = null;
+		List<Personal> nameList = new ArrayList<Personal>();
+		Personal personal = new Personal();
+		try {
+
+			// JDBC Driver Read
+			Class.forName("org.h2.Driver");
+
+			// データベースへ接続
+			conn = DriverManager.getConnection(connectionString, "sa", "");
+
+			// SELECT文を準備
+			String sql = "SELECT * FROM PERSONALTABLE WHERE GROUPID=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// 指定したIDで
+			pStmt.setString(1, groupId);
+
+			// SELECTを実行し、結果表を取得
+			ResultSet rs = pStmt.executeQuery();
+
+			 while (rs.next()) {
+//			rs.next();
+			String name = rs.getString("NAME");
+			personal = new Personal(name);
+			nameList.add(personal);
+			// groupList.add(group);
+			 }
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+
+			// データベース切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+		}
+		return nameList;
 	}
 }
