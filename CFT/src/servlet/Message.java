@@ -29,20 +29,13 @@ public class Message extends HttpServlet {
 		String id = Tool.escapeStr(request.getParameter("id"));
 		String gid = Tool.escapeStr(request.getParameter("gid"));
 		String message = Tool.escapeStr(request.getParameter("message"));
-		System.out.println("id:"+id+",gid:"+gid+",message:"+message);
-
 		// ユーザーメッセージ
 		MessageDAO messageDAO = new MessageDAO();
 		if (messageDAO.add(id, gid, message)) {
 			response.sendError(HttpServletResponse.SC_OK);
-			System.out.println("addMessage OK");
-
 		} else {
 			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);;
-
-
 		}
-
 	}
 
 	@Override
@@ -54,14 +47,13 @@ public class Message extends HttpServlet {
 		Date date = Date.valueOf(request.getParameter("date"));
 		MessageDAO messageDAO = new MessageDAO();
 		List<model.Message> messageList = new ArrayList<model.Message>();
-
 		messageList = messageDAO.get(gid, date);
 		Personal personal = new Personal();
 		PersonalDAO personalDAO = new PersonalDAO();
 		String response_json="";
+		//メッセージ一覧の取得
 		if(messageList != null){
 			response_json += "{";
-
 			Integer i = 0;
 			for (model.Message messagebox : messageList) {
 				response_json += "\"message"+i+"\":{";
@@ -75,6 +67,10 @@ public class Message extends HttpServlet {
 				response_json = response_json.substring(0, response_json.length()-1);
 			}
 			response_json += "}";
+			//メッセージがなかった場合
+			if(i==0){
+				response_json="{}";
+			}
 		}
 		response.setContentType("application/json;charset=UTF-8");
 		PrintWriter out = response.getWriter();
