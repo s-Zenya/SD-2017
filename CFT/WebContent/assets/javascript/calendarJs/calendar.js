@@ -2,7 +2,7 @@
 // title SimpleCalendar
 // since 2009-11-03
 // author AKIYAMA Kouhei
-
+var moreInt=0;
 // require holiday.js (function ktHolidayName)
 // require calendar_db_*.js (function/class CalendarData)
 
@@ -169,6 +169,32 @@ var CalendarApp = {
 		if (holidayName) {
 			cell.appendChild(document.createTextNode(":" + holidayName));
 		}
+		//ここでカレンダーに予定をを追加
+		// cell.append(<button>hoge</button>);
+		var dateStr=date.getFullYear()+"-"+("0"+(date.getMonth()+1)).slice(-2)+"-"+("0"+date.getDate()).slice(-2);
+		var addCalendarHtml="";
+		addCalendarHtml+='<br><button class="btn btn-mini btn-primary col-sm-2 " data-toggle="modal" data-target="#modal_'+dateStr+'">+</button>';
+		addCalendarHtml+='<div class="modal" id="modal_'+dateStr+'" tabindex="-1">';
+		addCalendarHtml+='<div class="modal-dialog">';
+		addCalendarHtml+='<div class="modal-content">';
+		addCalendarHtml+='<div class="modal-header">';
+		addCalendarHtml+='<h4 class="modal-title" id="modal-label">ダイアログ</h4>';//ここヘッダー
+		addCalendarHtml+='<button type="button" class="close" data-dismiss="modal">';
+		addCalendarHtml+='<span aria-hidden="true">&times;</span>';//閉じるボタン(右上)
+		addCalendarHtml+='</button>';
+		addCalendarHtml+='</div>';
+		addCalendarHtml+='<div class="modal-body">';
+		addCalendarHtml+='<span id="calendar_date_form_'+dateStr+'">'+dateStr+'</span><br>';
+		addCalendarHtml+='<input type="text" id="calendar_content_form_'+dateStr+'" name="content" />';
+		addCalendarHtml+='</div>';
+		addCalendarHtml+='<div class="modal-footer">';
+		addCalendarHtml+='<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>';
+		addCalendarHtml+='<button type="button"  onClick="addCalendar('+date.getFullYear()+','+("0"+(date.getMonth()+1)).slice(-2)+','+("0"+date.getDate()).slice(-2)+');" class="btn btn-primary"  data-dismiss="modal">追加</button>';
+		addCalendarHtml+='</div>';
+		addCalendarHtml+='</div>';
+		addCalendarHtml+='</div>';
+		addCalendarHtml+='</div>';
+		$(cell).append(addCalendarHtml);
 		return cell;
 	},
 
@@ -253,8 +279,12 @@ var CalendarApp = {
 	},
 
 	placeCalendar : function() {
+		$('table').after('<h1 class="col-sm-10">カレンダー</h1>');
+
 		var parent = CalendarApp.getLastScriptNode().parentNode;
+
 		parent.appendChild(CalendarApp.createCalendarCtrl().div);
+
 	}
 
 };
@@ -290,6 +320,19 @@ CalendarApp.CalendarCtrl.prototype = {
 	},
 
 	onClickMore : function() {
+		moreInt++;
+		var NowDate=new Date();
+		var y=NowDate.getFullYear();
+		var m=NowDate.getMonth()+moreInt;
+		y=parseInt(y+(m/12));
+		m=parseInt(m%12+1);
+		var d=("0"+NowDate.getDate()).slice(-2);
+		m=("0"+m).slice(-2);
+		console.log("y:"+y+",m="+m+",d:"+d+",more:"+moreInt);
+		getCalendar(y+"-"+m+"-"+d);
+
+
+
 		this.lastDate = CalendarApp.appendWeeks(this.lastDate, 4, this.db,
 				this.table, this.cellsDic, this.now);
 	}
@@ -337,14 +380,14 @@ CalendarApp.CalendarEventItemCtrl = function(cell, value, editingMode, date, db)
 	this.db = db;
 	this.cell = cell;
 	this.div = null;
-	this.textarea = null;
+	// this.textarea = null;
 	this.msg = null;
 	this.value = value;
 
 	if (editingMode) {
-		this.textarea = this.createTextArea(value);
-		this.cell.appendChild(this.textarea);
-		this.textarea.focus();
+		// this.textarea = this.createTextArea(value);
+		// this.cell.appendChild(this.textarea);
+		// this.textarea.focus();
 	} else {
 		this.div = this.createDiv(value);
 		this.cell.appendChild(this.div);
@@ -375,23 +418,23 @@ CalendarApp.CalendarEventItemCtrl.prototype = {
 			return;
 		}
 
-		this.textarea = this.createTextArea(this.value);
-		this.cell.insertBefore(this.textarea, this.div);
-		this.textarea.focus();
-
-		this.cell.removeChild(this.div);
-		this.div = null;
+		// this.textarea = this.createTextArea(this.value);
+		// this.cell.insertBefore(this.textarea, this.div);
+		// this.textarea.focus();
+		//
+		// this.cell.removeChild(this.div);
+		// this.div = null;
 	},
 
 	createTextArea : function(value) {
-		var self = this;
-		var textarea = document.createElement("textarea");
-		textarea.className = CalendarApp.cssPrefix + "-event-item-input";
-		textarea.value = value;
-		CalendarApp.addEventListener(textarea, "blur", function() {
-			self.onTextAreaBlur();
-		});
-		return textarea;
+		// var self = this;
+		// var textarea = document.createElement("textarea");
+		// textarea.className = CalendarApp.cssPrefix + "-event-item-input";
+		// textarea.value = value;
+		// CalendarApp.addEventListener(textarea, "blur", function() {
+		// 	self.onTextAreaBlur();
+		// });
+		// return textarea;
 	},
 
 	onTextAreaBlur : function() {

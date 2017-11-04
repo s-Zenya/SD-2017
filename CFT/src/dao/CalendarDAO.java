@@ -6,7 +6,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,23 +16,13 @@ public class CalendarDAO {
 	// DB接続パス
 	private String connectionString = DbConnection.getPass();
 
-	// 指定されたgroupIdの全データ取得
+	// 指定されたgroupId,dateの前後1か月の全データ取得
 	public  List<Calendar> findDateGroupIdAll(Date getDate, String groupId) {
-//		System.out.println(getDate);
-		SimpleDateFormat sdfYear = new SimpleDateFormat("yyyy");
-		SimpleDateFormat sdfMonth = new SimpleDateFormat("mm");
-		String yearString = sdfYear.format(getDate);
-		String monthString = sdfMonth.format(getDate);
-		int yearInt = Integer.parseInt(yearString);
-		int monthInt = Integer.parseInt(monthString);
-		monthInt++;
-		monthString = String.valueOf(monthInt);
-		
-//		System.out.println("@@@@@:"+ yearString + ":" + monthString);
-
+		String dateStr=getDate.toString();
+		dateStr=dateStr.substring(0,8)+"01";
+		System.out.println(dateStr);
 		Connection conn = null;
 		List<Calendar> calendarList = new ArrayList<Calendar>();
-
 		try {
 
 			// JDBC Driver Read
@@ -43,12 +32,11 @@ public class CalendarDAO {
 			conn = DriverManager.getConnection(connectionString, "sa", "");
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM CALENDARTABLE WHERE GROUPID = ? AND DATE LIKE ?";
+			String sql = "SELECT * FROM CALENDARTABLE WHERE GROUPID = ? AND DATE >= DATEADD(MONTH,-1,?) AND DATE <= DATEADD(DAY,-1,DATEADD(MONTH,2,?))";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-
 			pStmt.setString(1, groupId);
-//			System.out.println(yearString + "-%" + monthString + "-%");
-			pStmt.setString(2, yearString + "-%" + monthString + "-%");
+			pStmt.setString(2, dateStr);
+			pStmt.setString(3, dateStr);
 
 			// SELECTを実行し、結果表を取得
 			ResultSet rs = pStmt.executeQuery();

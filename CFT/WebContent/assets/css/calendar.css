@@ -2,10 +2,22 @@ h1 {
 	margin : 20px 0;
 }
 
-.btn {
-	margin : 10px;
+.btn-mini {
+	margin : 3px;
+	line-height: 1.2;
+	padding: 0;
+	line-height: 1;
+    padding: 0 0 0.22em 0;
 }
 
 .btn:hover {
 	background-color: #A4A4A4;
-}}
+}
+.btn-plan{
+	margin:1px;
+	width:98%;
+	color: #000;
+    background-color: #999;
+    border-color: #333;
+
+}
