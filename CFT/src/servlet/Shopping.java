@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,20 +48,20 @@ public class Shopping extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
 		String gid = request.getParameter("gid");
-		String dateStr = request.getParameter("date");
+//		String dateStr = request.getParameter("date");
 		ShoppingDAO shoppingDAO = new ShoppingDAO();
 		List<model.Shopping> shoppingList = new ArrayList<model.Shopping>();
-		Date date = null;
-		if(dateStr!=null){
-			date=Date.valueOf(dateStr);
-		}
+//		Date date = null;
+//		if(dateStr!=null){
+//			date=Date.valueOf(dateStr);
+//		}
 
 //		System.out.println("get");
 
 
 		//日付指定の時の処理
-		if(date != null){
-		shoppingList = shoppingDAO.findGroupIdDateAll(gid, date);
+//		if(date != null){
+		shoppingList = shoppingDAO.findGroupIdFalseAll(gid);
 		String response_json="";
 		if(shoppingList != null){
 			response_json += "{";
@@ -90,5 +89,5 @@ public class Shopping extends HttpServlet {
 		out.print(response_json);
 		}
 
-	}
+//	}
 }
