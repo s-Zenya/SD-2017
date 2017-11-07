@@ -57,7 +57,7 @@
 
 	<!-- カレンダー表示テーブル -->
 	<div id="calendar" class="table-responsive col-md-8">
-		<table class="table">
+		<table class="table" id="calendar_table">
 			<thead>
 				<tr>
 					<th class="listDate">予定</th>
@@ -65,35 +65,6 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>2012-01-01</td>
-					<td>aaaaaaaaaaaaaaaaaaaaaaaaa</td>
-				</tr>
-				<tr>
-					<td>データ5</td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td>データ5</td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td>データ5</td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td>データ5</td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
-				<tr>
-					<td>データ5</td>
-					<td>いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす
-						いろはにほへと ちりぬるを わかよたれそ つねならむ うゐのおくやま けふこえて あさきゆめみし ゑひもせす</td>
-				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -137,5 +108,10 @@
 	<script src="../../assets/javascript/top.js"></script>
 	<script src="../../assets/javascript/message.js"></script>
 	<script src="../../assets/javascript/returnButton.js"></script>
+	<script src="../../assets/javascript/calendar.js"></script>
+	<script>
+		var NowDate=new Date();
+  	var dateStr=NowDate.getFullYear()+'-'+("0"+(NowDate.getMonth()+1)).slice(-2)+'-'+("0"+NowDate.getDate()).slice(-2);
+		getCalendarTop(dateStr);</script>
 </body>
 </html>
