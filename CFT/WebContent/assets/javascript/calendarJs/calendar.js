@@ -323,17 +323,18 @@ CalendarApp.CalendarCtrl.prototype = {
 		moreInt++;
 		var NowDate=new Date();
 		var y=NowDate.getFullYear();
-		var m=NowDate.getMonth()+moreInt;
+		var m="0"+(NowDate.getMonth()+moreInt);
 		y=parseInt(y+(m/12));
 		m=parseInt(m%12+1);
 		var d=("0"+NowDate.getDate()).slice(-2);
 		m=("0"+m).slice(-2);
-		console.log("y:"+y+",m="+m+",d:"+d+",more:"+moreInt);
 		getCalendar(y+"-"+m+"-"+d);
-
-
-
-		this.lastDate = CalendarApp.appendWeeks(this.lastDate, 4, this.db,
+		var getWeek=4;
+		console.log(y+"-"+m+"-"+d);
+		if(this.lastDate.getDate()<4){
+			getWeek=5;
+		}
+		this.lastDate = CalendarApp.appendWeeks(this.lastDate, getWeek, this.db,
 				this.table, this.cellsDic, this.now);
 	}
 };
