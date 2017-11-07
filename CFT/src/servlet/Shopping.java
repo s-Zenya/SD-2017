@@ -34,7 +34,7 @@ public class Shopping extends HttpServlet {
 		// ユーザーメッセージ
 		if (shoppingDAO.add(gid, contents)) {
 			response.sendError(HttpServletResponse.SC_OK);
-			System.out.println("addTodo OK");
+			System.out.println("addShopping OK");
 
 		} else {
 			System.out.println("222");
@@ -53,16 +53,16 @@ public class Shopping extends HttpServlet {
 		ShoppingDAO shoppingDAO = new ShoppingDAO();
 		List<model.Shopping> shoppingList = new ArrayList<model.Shopping>();
 		Date date = null;
-		if(dateStr!=null){
+		if(dateStr != null){
 			date=Date.valueOf(dateStr);
 		}
 
-//		System.out.println("get");
+		System.out.println(date);
 
 
 		//日付指定の時の処理
 		if(date != null){
-		shoppingList = shoppingDAO.findGroupIdDateAll(gid, date);
+		shoppingList = shoppingDAO.findGroupIdDateAll(gid,date);
 		String response_json="";
 		if(shoppingList != null){
 			response_json += "{";
@@ -82,7 +82,7 @@ public class Shopping extends HttpServlet {
 			}
 			response_json += "}";
 			if(i==0){
-				response_json += "()";
+				response_json = "{}";
 			}
 		}
 		response.setContentType("application/json;charset=UTF-8");
@@ -90,5 +90,39 @@ public class Shopping extends HttpServlet {
 		out.print(response_json);
 		}
 
+
+
+	//日付なしの時の処理
+	if(date == null){
+	shoppingList = shoppingDAO.findGroupIdAll(gid);
+	String response_json="";
+	if(shoppingList != null){
+		response_json += "{";
+
+		Integer i = 0;
+		for (model.Shopping shoppingbox : shoppingList) {
+			response_json += "\"shopping"+i+"\":{";
+			response_json +="\"shoppingId\":\""+shoppingbox.getShoppingId()+"\",";
+			response_json +="\"groupId\":\""+shoppingbox.getGroupId()+"\",";
+			response_json +="\"date\":\""+shoppingbox.getDate()+"\",";
+			response_json +="\"contents\":\""+shoppingbox.getContents()+"\",";
+			response_json +="\"done\":\""+shoppingbox.getDone()+"\"},";
+			i++;
+		}
+		if(response_json != null && response_json.length() > 0){
+			response_json = response_json.substring(0, response_json.length()-1);
+		}
+		response_json += "}";
+		if(i==0){
+			response_json = "{}";
+		}
 	}
+	response.setContentType("application/json;charset=UTF-8");
+	PrintWriter out = response.getWriter();
+	out.print(response_json);
+	}
+
+}
+
+
 }

@@ -29,7 +29,7 @@ function showCalendar(planObj,dateMain){
 	//htmlへ書き込み
 	for(let k in planObj) {
 		var addCalendarHtml="";
-		addCalendarHtml+='<button class="btn btn-mini btn-plan" data-toggle="modal" data-target="#modal_'+planObj[k].calendarId+'">'+planObj[k].content+'</button><br>';
+		addCalendarHtml+='<button id="plans" class="btn btn-mini btn-plan" data-toggle="modal" data-target="#modal_'+planObj[k].calendarId+'">'+planObj[k].content+'</button><br>';
 		addCalendarHtml+='<div class="modal" id="modal_'+planObj[k].calendarId+'" tabindex="-1">';
 		addCalendarHtml+='<div class="modal-dialog">';
 		addCalendarHtml+='<div class="modal-content">';

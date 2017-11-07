@@ -23,12 +23,12 @@ h1 {
 #addShopping form div #amount {
 	margin-left: 0;
 	float: left;
-	
+
 	border-style: groove;
-	
-	border-radius: 5px;        /* CSS3草案 */  
-    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */  
-    -moz-border-radius: 5px;   /* Firefox用 */ 
+
+	border-radius: 5px;        /* CSS3草案 */
+    -webkit-border-radius: 5px;    /* Safari,Google Chrome用 */
+    -moz-border-radius: 5px;   /* Firefox用 */
 }
 
 #addShopping form div button {
@@ -40,4 +40,8 @@ h1 {
 	display: block;
 	clear: both;
 	content: "";
+}
+
+#toDayShopping {
+	display: none;
 }

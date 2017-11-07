@@ -173,19 +173,19 @@ var CalendarApp = {
 		// cell.append(<button>hoge</button>);
 		var dateStr=date.getFullYear()+"-"+("0"+(date.getMonth()+1)).slice(-2)+"-"+("0"+date.getDate()).slice(-2);
 		var addCalendarHtml="";
-		addCalendarHtml+='<br><button class="btn btn-mini btn-primary col-sm-2 " data-toggle="modal" data-target="#modal_'+dateStr+'">+</button>';
+		addCalendarHtml+='<br><button id="addButton" class="btn btn-mini btn-default col-sm-6 " data-toggle="modal" data-target="#modal_'+dateStr+'">+</button>';
 		addCalendarHtml+='<div class="modal" id="modal_'+dateStr+'" tabindex="-1">';
 		addCalendarHtml+='<div class="modal-dialog">';
 		addCalendarHtml+='<div class="modal-content">';
 		addCalendarHtml+='<div class="modal-header">';
-		addCalendarHtml+='<h4 class="modal-title" id="modal-label">ダイアログ</h4>';//ここヘッダー
+		addCalendarHtml+='<h4 class="modal-title" id="modal-label">予定入力フォーム</h4>';//ここヘッダー
 		addCalendarHtml+='<button type="button" class="close" data-dismiss="modal">';
 		addCalendarHtml+='<span aria-hidden="true">&times;</span>';//閉じるボタン(右上)
 		addCalendarHtml+='</button>';
 		addCalendarHtml+='</div>';
 		addCalendarHtml+='<div class="modal-body">';
 		addCalendarHtml+='<span id="calendar_date_form_'+dateStr+'">'+dateStr+'</span><br>';
-		addCalendarHtml+='<input type="text" id="calendar_content_form_'+dateStr+'" name="content" />';
+		addCalendarHtml+='<input type="text" id="calendar_content_form_'+dateStr+'" name="content" class="col-sm-12" placeholder="予定を入力してください。"/>';
 		addCalendarHtml+='</div>';
 		addCalendarHtml+='<div class="modal-footer">';
 		addCalendarHtml+='<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>';
