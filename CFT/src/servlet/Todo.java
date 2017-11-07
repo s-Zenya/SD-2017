@@ -82,7 +82,7 @@ public class Todo extends HttpServlet {
 			}
 			response_json += "}";
 			if(i==0){
-				response_json += "()";
+				response_json = "{}";
 			}
 		}
 		response.setContentType("application/json;charset=UTF-8");
@@ -113,7 +113,7 @@ public class Todo extends HttpServlet {
 			}
 			response_json += "}";
 			if(i==0){
-				response_json += "()";
+				response_json = "{}";
 			}
 		}
 		response.setContentType("application/json;charset=UTF-8");
