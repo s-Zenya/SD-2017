@@ -23,12 +23,13 @@
 
 	<h1 class="col-md-12">買い物リスト</h1>
 
-	<!-- Shopping表示テーブル -->
-	<div id="shopping" class="table-responsive col-sm-12">
+	<!-- allDayShopping表示テーブル -->
+	<div id="allDayShopping" class="table-responsive col-sm-12">
+	<button id="tableChangeButton" class="col-sm-5 btn btn-primary" onclick="allDayTableOpen()">今日の買い物一覧表示へ</button>
 		<table class="table">
 			<thead>
 				<tr>
-					<th class="listCheck">一覧</th>
+					<th class="listCheck">未購入一覧一覧</th>
 					<th class="listShopping"></th>
 				</tr>
 			</thead>
@@ -37,6 +38,23 @@
 			</tbody>
 		</table>
 	</div>
+
+		<!-- toDayShopping表示テーブル -->
+	<div id="toDayShopping" class="table-responsive col-sm-12">
+	<button id="tableChangeButton" class="col-sm-4 btn btn-primary" onclick="toDayTableOpen()">未購入一覧表示へ</button>
+		<table class="table">
+			<thead>
+				<tr>
+					<th class="listCheck">今日の買い物一覧</th>
+					<th class="listShopping"></th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+	</div>
+
 
 	<!-- Shopping追加フォーム -->
 	<div id="addShopping" class="container col-sm-12">

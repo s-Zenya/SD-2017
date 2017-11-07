@@ -46,11 +46,11 @@ function checkChange(todoId){
 
 
 
-function addshopping(){
+function addTodo(){
 
 	var cookie_all = document.cookie;
 	var gid;
-	var contents=document.getElementById("addshopping").value
+	var contents=document.getElementById("Todoadd").value
 	var i=0;
 
 	if(contents!=''){
@@ -85,8 +85,6 @@ function addshopping(){
     	    return response.text();
     	})
 	}
-
-
 }
 
 function showTodo_Day(){
@@ -124,6 +122,7 @@ function showTodo_Day(){
     	    return response.text();
     	  }).then(text => {
 //    		  メッセージの書き換え
+    		  console.dir(text);
     		  writeTodo($.parseJSON(text));
     	  });
 
@@ -202,6 +201,8 @@ function writeTodo_false(todoObj_false){
 //  messageTableを一番下までスクロール
 //    $("#allDayTodo").scrollTop($("#allDayTodo")[0].scrollHeight);
 }
+
+
 
 //グループ作成画面の表示切り替え
 function allDayTableOpen()
