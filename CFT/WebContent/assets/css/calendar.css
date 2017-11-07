@@ -21,3 +21,14 @@ h1 {
     border-color: #333;
 
 }
+
+#addButton {
+	float : right;
+}
+
+/* スマホだけに適用するCSS */
+@media screen and ( max-width:530px ) {
+	#addButton {
+		margin:0;
+	}
+}
