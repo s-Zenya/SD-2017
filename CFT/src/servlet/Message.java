@@ -29,12 +29,16 @@ public class Message extends HttpServlet {
 		String id = Tool.escapeStr(request.getParameter("id"));
 		String gid = Tool.escapeStr(request.getParameter("gid"));
 		String message = Tool.escapeStr(request.getParameter("message"));
-		// ユーザーメッセージ
-		MessageDAO messageDAO = new MessageDAO();
-		if (messageDAO.add(id, gid, message)) {
-			response.sendError(HttpServletResponse.SC_OK);
-		} else {
-			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);;
+		if(gid.equals("undefined")){
+			response.sendError(501);
+		}else{
+			// ユーザーメッセージ
+			MessageDAO messageDAO = new MessageDAO();
+			if (messageDAO.add(id, gid, message)) {
+				response.sendError(HttpServletResponse.SC_OK);
+			} else {
+				response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);;
+			}
 		}
 	}
 

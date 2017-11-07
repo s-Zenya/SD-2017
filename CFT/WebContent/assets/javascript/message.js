@@ -19,7 +19,6 @@ function addMessage(){
 		}
 		gid=decodeURIComponent(gid);
 		id=decodeURIComponent(id);
-
     	fetch('/CFT/Message', {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
@@ -48,7 +47,6 @@ function showMessage(){
 	var cookie_all = document.cookie;
 	var gid;
 	var i=0;
-
 	while(cookie_all.split( '; ' )[ i ] != null){
 
 		if(cookie_all.split( '; ' )[ i ].split( '=' )[ 0 ] == 'gId'){
@@ -57,7 +55,8 @@ function showMessage(){
 		i++;
 	}
 	gid=decodeURIComponent(gid);
-
+	console.log("gid:"+gid);
+	if(gid.length<1){
 		var url= '/CFT/Message?gid='+gid+'&date='+date;
     	fetch(url, {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
@@ -66,19 +65,24 @@ function showMessage(){
     		method: 'GET',
     		headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
     	})
-    	  .then(response => {
-    		  console.log(response);
-    		  if(response.status=="200"){
-    		  }
-    	    return response.text();
-    	  }).then(text => {
+  	  .then(response => {
+  		  console.log(response);
+  		  if(response.status=="200"){
+  		  }
+  	    return response.text();
+  	  }).then(text => {
 //    		  メッセージの書き換え
-    		  writeMessage($.parseJSON(text));
-    	  });
+  		  writeMessage($.parseJSON(text));
+  	  });
+		}else{
+			$('#message table tbody').append('<tr id="caution"><td></td><td><b>家族グループにログインしてください</b></td></tr>');
+			$('#caution').css('color','#ff0000');
+		}
 }
 
 //メッセージの書き換え
 function writeMessage(messageObj){
+	console.log("writte");
 //	message要素の削除
 	$("#message table tbody").empty();
 //    messageObjを一行ずつ表示
