@@ -94,7 +94,7 @@ public class Shopping extends HttpServlet {
 
 	//日付なしの時の処理
 	if(date == null){
-	shoppingList = shoppingDAO.findGroupIdAll(gid);
+	shoppingList = shoppingDAO.findGroupIdFalseAll(gid);
 	String response_json="";
 	if(shoppingList != null){
 		response_json += "{";

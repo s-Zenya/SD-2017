@@ -45,8 +45,21 @@ public class Calendar extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 		String gid = Tool.escapeStr(request.getParameter("gid")+"");
 		String dateStr = request.getParameter("date");
-
+		String calendarId_tmp = request.getParameter("calendarId");
+		int calendarId = 0 ;
+		if(calendarId_tmp != null){
+		calendarId  = Integer.parseInt(calendarId_tmp);
+		}
 		if(dateStr==null){	//カレンダートップにページ遷移したいとき
+			if(calendarId > 0){//calendarIdがNULLじゃないなら削除処理  取ってくるとき値なければNULL？
+				CalendarDAO calendarDAO = new CalendarDAO();
+				boolean deletecalendar = calendarDAO.delete(calendarId);
+				if(deletecalendar == true){
+					System.out.println("削除成功");
+				}else{
+					System.out.println("削除失敗");
+				}
+			}
 			response.sendRedirect("/CFT/html/calendar/CalendarTop.html");
 		}else{
 			Date date = Date.valueOf(Tool.escapeStr(dateStr));

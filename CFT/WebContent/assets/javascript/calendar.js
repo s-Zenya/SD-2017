@@ -46,7 +46,7 @@ function showCalendar(planObj,dateMain){
 		addCalendarHtml+='</div>';
 		addCalendarHtml+='<div class="modal-footer">';
 		addCalendarHtml+='<button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>';
-		addCalendarHtml+='<button type="button" class="btn btn-primary"  data-dismiss="modal">削除とか？</button>';
+		addCalendarHtml+='<button type="button" class="btn btn-primary" onclick = "deleteCalendar('+planObj[k].calendarId+')"  data-dismiss="modal">削除</button>';
 		addCalendarHtml+='</div>';
 		addCalendarHtml+='</div>';
 		addCalendarHtml+='</div>';
@@ -92,6 +92,28 @@ function addCalendar(year,mon,day){
 			return response.text();
 		});
 	}
+}
+
+//予定の削除
+function deleteCalendar(calendarId){
+	var cookie_all = document.cookie;
+	var calendarId;
+	var i=0;
+	var url= '/CFT/Calendar?calendarId='+calendarId;
+   	fetch(url, {
+   		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
+   		credentials: 'include',
+   		redirect: 'follow',
+   		method: 'GET',
+		headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
+   	}).then(response => {
+			if(response.status=="200"){
+				console.log("deleteCalendar OK");
+				getCalendar(dateStr);
+			}
+			console.dir(response.status);
+			return response.text();
+		});
 }
 
 //予定の取得

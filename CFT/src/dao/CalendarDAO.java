@@ -110,5 +110,50 @@ public class CalendarDAO {
 			}
 		}
 	}
+	// データ削除
+	public boolean delete(int calendarId) {
+		Connection conn = null;
+//		boolean rt = false;
+		try {
+			Class.forName("org.h2.Driver");
 
+			// データベースへ接続
+			conn = DriverManager.getConnection(connectionString, "sa", "");
+
+			// INSERT文を準備
+			String sql = "DELETE FROM CALENDARTABLE WHERE CALENDARID = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setInt(1, calendarId);
+
+			int r = pStmt.executeUpdate();
+//
+//			String sql2 = "SELECT * FROM CALENDARTABLE WHERE CALENDARID = ?";
+//			PreparedStatement pStmt2 = conn.prepareStatement(sql2);
+//			pStmt2.setInt(1, calendarId);
+//			ResultSet rs = pStmt.executeQuery();
+//
+//			String contents = rs.getString("CONTENTS");
+//			if(contents == null){
+//				rt = true;
+//			}
+
+			return (r > 0);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+
+		} finally {
+			// データベース切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return false;
+				}
+			}
+		}
+//		return rt;
+	}
 }
