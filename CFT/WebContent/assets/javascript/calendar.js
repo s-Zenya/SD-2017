@@ -63,7 +63,6 @@ function addCalendar(year,mon,day){
 	var content=$("#calendar_content_form_"+date).val();
 	var name;
 	var i=0;
-	console.log(date+":"+content);
 	if(content.length>0){
 		while(cookie_all.split( '; ' )[ i ] != null){
 
@@ -86,7 +85,6 @@ function addCalendar(year,mon,day){
 			body : 'gid='+gid+'&date='+date+'&content='+content+'&name='+name,
 			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
    	}).then(response => {
-			console.log(response);
 			if(response.status=="200"){
 				getCalendar(date);
 			}
@@ -109,7 +107,6 @@ function getCalendar(date){
 			i++;
 		}
 		gid=decodeURIComponent(gid);
-console.log(date);
 		var url= '/CFT/Calendar?gid='+gid+'&date='+date;
 		fetch(url, {
 			mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
