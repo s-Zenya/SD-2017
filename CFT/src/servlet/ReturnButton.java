@@ -79,6 +79,10 @@ public class ReturnButton extends HttpServlet {
 				response_json = response_json.substring(0, response_json.length() - 1);
 			}
 			response_json += "}";
+			//メッセージがなかった場合
+			if(i==0){
+				response_json="{}";
+			}
 		}
 		response.setContentType("application/json;charset=UTF-8");
 		PrintWriter out = response.getWriter();
