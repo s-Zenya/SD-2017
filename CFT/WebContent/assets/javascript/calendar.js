@@ -3,7 +3,7 @@
  var NowDate=new Date();
  //(例)'2017-11-01'
  var dateStr=NowDate.getFullYear()+'-'+("0"+(NowDate.getMonth()+1)).slice(-2)+'-'+("0"+NowDate.getDate()).slice(-2);
-getCalendar(dateStr);
+// getCalendar(dateStr);
 
 function showCalendar(planObj,dateMain){
 	var displayYear = [];//先月、今月、来月の西暦が入る
@@ -54,6 +54,49 @@ function showCalendar(planObj,dateMain){
 		$('#'+planObj[k].date).append(addCalendarHtml);
 	}
 }
+
+function showCalendarTop(planObj,dateMain){
+	// var displayYear = [];//先月、今月、来月の西暦が入る
+	// var displayMon = [];//先月、今月、来月の月が入る
+	// var startMon = dateMain.substr(5,2)-1;
+	// for(var i=0;i<3;i++){
+	// 	displayYear[i]=dateMain.substr(0,4);
+	// 	displayMon[i]=startMon+i%13;
+	// 	if(displayMon[i]==0){//月の繰り下がりの処理
+	// 		displayYear[i]--;
+	// 		displayMon[i]=12;
+	// 	}else if(displayMon[i]==13){//月の繰り上がりの処理
+	// 		displayYear[i]++;
+	// 		displayMon[i]=1;
+	// 	}
+	// }
+	// //データの削除
+	// for(var i=0;i<3;i++){
+	// 	for(var j=1;j<=31;j++){
+	// 		$('#'+displayYear[i]+'-'+("0"+displayMon[i]).slice(-2)+'-'+("0"+j).slice(-2)).empty();
+	// 	}
+	// }
+  var countPlan = 0;
+	//htmlへ書き込み
+	for(let k in planObj) {
+		var addCalendarHtml="";
+		addCalendarHtml+='<tr>';
+		addCalendarHtml+='<td>'+planObj[k].date+'</td>';
+		addCalendarHtml+='<td>'+planObj[k].content+'</td>';
+		addCalendarHtml+='</tr>';
+    if(dateStr<=planObj[k].date){
+  		$('#calendar_table tbody').append(addCalendarHtml);
+      countPlan++;
+    }
+    if(20<countPlan){
+      break;
+    }
+	}
+}
+
+
+
+
 
 //予定の追加
 function addCalendar(year,mon,day){
@@ -122,6 +165,40 @@ function getCalendar(date){
 //    		  予定の書き換え
 			console.log(text);
 			showCalendar($.parseJSON(text),date);
+		});
+	}
+}
+
+
+
+//Top画面用予定の取得
+function getCalendarTop(date){
+	var cookie_all = document.cookie;
+	var gid;
+	var i=0;
+	if(date!=''){
+		while(cookie_all.split( '; ' )[ i ] != null){
+			if(cookie_all.split( '; ' )[ i ].split( '=' )[ 0 ] == 'gId'){
+				gid=cookie_all.split('; ')[ i ].split( '=' )[ 1 ];
+			}
+			i++;
+		}
+		gid=decodeURIComponent(gid);
+		var url= '/CFT/Calendar?gid='+gid+'&date='+date;
+		fetch(url, {
+			mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
+			credentials: 'include',
+			redirect: 'follow',
+			method: 'GET',
+			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
+		}).then(response => {
+			if(response.status=="200"){
+			}
+			return response.text();
+		}).then(text => {
+//    		  予定の書き換え
+			console.log(text);
+			showCalendarTop($.parseJSON(text),date);
 		});
 	}
 }
