@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.MessageDAO;
 import dao.PersonalDAO;
@@ -29,6 +30,13 @@ public class ReturnButton extends HttpServlet {
 		// String name = Tool.escapeStr(request.getParameter("name"));
 		String selectName = Tool.escapeStr(request.getParameter("selectName"));
 //		System.out.println("id:" + id + ",gid:" + gid + "selectName:" + selectName);
+		HttpSession session;
+//		セッションを取得
+		session = request.getSession(false);
+		if(session == null){//セッションがあればTopにページ遷移
+			response.sendRedirect("/CFT/html/personal/personalLogin.html");
+			return;
+		}
 
 		Personal personal = new Personal();
 		PersonalDAO personalDAO = new PersonalDAO();

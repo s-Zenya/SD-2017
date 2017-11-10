@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CalendarDAO;
 import tool.Tool;
@@ -47,9 +48,19 @@ public class Calendar extends HttpServlet {
 		String dateStr = request.getParameter("date");
 		String calendarId_tmp = request.getParameter("calendarId");
 		int calendarId = 0 ;
+
+		HttpSession session;
+//		セッションを取得
+		session = request.getSession(false);
+		if(session == null){//セッションがあればTopにページ遷移
+			response.sendRedirect("/CFT/html/personal/personalLogin.html");
+			return;
+		}
+
 		if(calendarId_tmp != null){
 		calendarId  = Integer.parseInt(calendarId_tmp);
 		}
+
 		if(dateStr==null){	//カレンダートップにページ遷移したいとき
 			if(calendarId > 0){//calendarIdがNULLじゃないなら削除処理  取ってくるとき値なければNULL？
 				CalendarDAO calendarDAO = new CalendarDAO();

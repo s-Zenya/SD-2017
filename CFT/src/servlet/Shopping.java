@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ShoppingDAO;
 import tool.Tool;
@@ -29,7 +30,13 @@ public class Shopping extends HttpServlet {
 		String contents = Tool.escapeStr(request.getParameter("contents"));
 		System.out.println("gid:"+gid + "contents:"+contents);
 		ShoppingDAO shoppingDAO = new ShoppingDAO();
-
+		HttpSession session;
+//		セッションを取得
+		session = request.getSession(false);
+		if(session == null){//セッションがあればTopにページ遷移
+			response.sendRedirect("/CFT/html/personal/personalLogin.html");
+			return;
+		}
 
 		// ユーザーメッセージ
 		if (shoppingDAO.add(gid, contents)) {
@@ -53,6 +60,14 @@ public class Shopping extends HttpServlet {
 		ShoppingDAO shoppingDAO = new ShoppingDAO();
 		List<model.Shopping> shoppingList = new ArrayList<model.Shopping>();
 		Date date = null;
+		HttpSession session;
+//		セッションを取得
+		session = request.getSession(false);
+		if(session == null){//セッションがあればTopにページ遷移
+			response.sendRedirect("/CFT/html/personal/personalLogin.html");
+			return;
+		}
+
 		if(dateStr != null){
 			date=Date.valueOf(dateStr);
 		}
