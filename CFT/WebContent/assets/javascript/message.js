@@ -45,7 +45,7 @@ function showMessage(){
 	var date_source  = new Date();
 	var date = date_source.getFullYear()+"-"+(date_source.getMonth()+1)+"-"+date_source.getDate();
 	var cookie_all = document.cookie;
-	var gid;
+	var gid = null;
 	var i=0;
 	while(cookie_all.split( '; ' )[ i ] != null){
 
@@ -54,9 +54,8 @@ function showMessage(){
 		}
 		i++;
 	}
-	gid=decodeURIComponent(gid);
-	console.log("gid:"+gid);
-	if(gid.length<1){
+	if(gid != null){
+		gid=decodeURIComponent(gid);
 		var url= '/CFT/Message?gid='+gid+'&date='+date;
     	fetch(url, {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
