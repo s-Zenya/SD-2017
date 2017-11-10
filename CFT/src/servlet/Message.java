@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.MessageDAO;
 import dao.PersonalDAO;
@@ -29,6 +30,14 @@ public class Message extends HttpServlet {
 		String id = Tool.escapeStr(request.getParameter("id"));
 		String gid = Tool.escapeStr(request.getParameter("gid"));
 		String message = Tool.escapeStr(request.getParameter("message"));
+		HttpSession session;
+//		セッションを取得
+		session = request.getSession(false);
+		if(session == null){//セッションがあればTopにページ遷移
+			response.sendRedirect("/CFT/html/personal/personalLogin.html");
+			return;
+		}
+
 		if(gid.equals("undefined")){
 			response.sendError(501);
 		}else{
@@ -55,6 +64,14 @@ public class Message extends HttpServlet {
 		Personal personal = new Personal();
 		PersonalDAO personalDAO = new PersonalDAO();
 		String response_json="";
+		HttpSession session;
+//		セッションを取得
+		session = request.getSession(false);
+		if(session == null){//セッションがあればTopにページ遷移
+			response.sendRedirect("/CFT/html/personal/personalLogin.html");
+			return;
+		}
+
 		//メッセージ一覧の取得
 		if(messageList != null){
 			response_json += "{";

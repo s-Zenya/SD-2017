@@ -29,6 +29,13 @@ public class GroupLogin extends HttpServlet {
 		String id = Tool.escapeStr(request.getParameter("id"));
 		String gid = Tool.escapeStr(request.getParameter("gid"));
 		String gpw = Tool.escapeStr(request.getParameter("gpw"));
+		HttpSession session;
+//		セッションを取得
+		session = request.getSession(false);
+		if(session == null){//セッションがあればTopにページ遷移
+			response.sendRedirect("/CFT/html/personal/personalLogin.html");
+			return;
+		}
 
 		// ログイン成功
 		GroupDAO groupDAO = new GroupDAO();

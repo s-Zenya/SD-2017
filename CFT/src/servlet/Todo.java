@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.TodoDAO;
 import tool.Tool;
@@ -29,7 +30,13 @@ public class Todo extends HttpServlet {
 		String contents = Tool.escapeStr(request.getParameter("contents"));
 		System.out.println("gid:"+gid + "contents:"+contents);
 		TodoDAO todoDAO = new TodoDAO();
-
+		HttpSession session;
+//		セッションを取得
+		session = request.getSession(false);
+		if(session == null){//セッションがあればTopにページ遷移
+			response.sendRedirect("/CFT/html/personal/personalLogin.html");
+			return;
+		}
 
 		// ユーザーメッセージ
 		if (todoDAO.add(gid, contents)) {
@@ -53,6 +60,14 @@ public class Todo extends HttpServlet {
 		TodoDAO todoDAO = new TodoDAO();
 		List<model.Todo> todoList = new ArrayList<model.Todo>();
 		Date date = null;
+		HttpSession session;
+//		セッションを取得
+		session = request.getSession(false);
+		if(session == null){//セッションがあればTopにページ遷移
+			response.sendRedirect("/CFT/html/personal/personalLogin.html");
+			return;
+		}
+
 		if(dateStr!=null){
 			date=Date.valueOf(dateStr);
 		}

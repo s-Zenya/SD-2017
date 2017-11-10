@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.TodoDAO;
 import tool.Tool;
@@ -27,6 +28,13 @@ public class ChangeDone_todo extends HttpServlet {
 		int todoId = Integer.parseInt(todoId_tmp);
 		System.out.println("gid:"+gid);
 		TodoDAO todoDAO = new TodoDAO();
+		HttpSession session;
+//		セッションを取得
+		session = request.getSession(false);
+		if(session == null){//セッションがあればTopにページ遷移
+			response.sendRedirect("/CFT/html/personal/personalLogin.html");
+			return;
+		}
 
 		//todoチェックチェンジ
 			if (todoDAO.changeDone(gid, todoId)) {

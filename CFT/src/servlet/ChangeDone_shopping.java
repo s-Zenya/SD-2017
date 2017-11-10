@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ShoppingDAO;
 import tool.Tool;
@@ -27,6 +28,13 @@ public class ChangeDone_shopping extends HttpServlet {
 		int shoppingId = Integer.parseInt(shoppingId_tmp);
 		System.out.println("gid:"+gid);
 		ShoppingDAO shoppingDAO = new ShoppingDAO();
+		HttpSession session;
+//		セッションを取得
+		session = request.getSession(false);
+		if(session == null){//セッションがあればTopにページ遷移
+			response.sendRedirect("/CFT/html/personal/personalLogin.html");
+			return;
+		}
 
 		//todoチェックチェンジ
 			if (shoppingDAO.changeDone(shoppingId,gid)) {
