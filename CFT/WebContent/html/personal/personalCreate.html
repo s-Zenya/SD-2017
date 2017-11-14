@@ -13,6 +13,7 @@
 <!-- BootstrapのJS読み込み -->
 <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/css/personalCreate.css">
+<script type="text/javascript" src="../../assets/javascript/personalCreate.js"></script>
 <title>個人アカウント作成画面</title>
 </head>
 
@@ -27,18 +28,18 @@
 		<form action="/CFT/PersonalCreate" method="post">
 			<div class="form-group">
 				<label class="col-sm-1">ID</label>
-				<input type="text" class="form-control col-sm-5" name="id" placeholder="IDを入力してください">
+				<input type="text" class="form-control col-sm-5" name="id" id="id" placeholder="IDを入力してください">
 			</div>
 			<div class="form-group">
 				<label class="col-sm-1">PW</label>
-				<input type="password" class="form-control col-sm-5" name="pw" placeholder="PWを入力してください">
+				<input type="password" class="form-control col-sm-5" name="pw" id="pw" placeholder="PWを入力してください">
 			</div>
 			<div class="form-group">
 				<label class="col-sm-1">Name</label>
-				<input type="text" class="form-control col-sm-5" name="name" placeholder="名前を入力してください">
+				<input type="text" class="form-control col-sm-5" name="name" id="name" placeholder="名前を入力してください">
 			</div>
 			<div id="submit" class="form-grpoup">
-				<input type="submit" class="btn btn-primary col-sm-2" value="Create">
+				<button type="button" class="btn btn-primary col-sm-2" onClick="personalCreate();">create</button>
 			</div>
 		</form>
 	</div>
