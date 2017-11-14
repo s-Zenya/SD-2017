@@ -84,11 +84,11 @@ public class TodoDAO {
 			conn = DriverManager.getConnection(connectionString, "sa", "");
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM TODOTABLE WHERE GROUPID = ? DONE = FALSE";
+			String sql = "SELECT * FROM TODOTABLE WHERE GROUPID = ? AND DONE = FALSE";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 //			// FALSE指定で
-			pStmt.setString(1, "FALSE");
+			pStmt.setString(1, groupId);
 
 			// SELECTを実行し、結果表を取得
 			ResultSet rs = pStmt.executeQuery();
