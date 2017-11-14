@@ -34,8 +34,7 @@ public class PersonalCreate extends HttpServlet {
 		} else {
 			response.setContentType("application/json;charset=UTF-8");
 			PrintWriter out = response.getWriter();
-			out.print("入力されたユーザー名はすでに使用されています");
-			response.sendRedirect("/CFT/html/personal/personalCreate.html");
+			response.sendError(HttpServletResponse.SC_CONFLICT);
 
 		}
 

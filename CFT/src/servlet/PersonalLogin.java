@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
@@ -79,12 +78,11 @@ public class PersonalLogin extends HttpServlet {
 			}
 			//セッションを開始
 			session = request.getSession(true);
-
+			
 			response.sendRedirect("/CFT/html/top/top.html");
+			return;
 		} else {
-			response.sendRedirect("/CFT/html/personal/personalLogin.html");
-			PrintWriter out = response.getWriter();
-			out.print("ログインに失敗しました");
+			response.sendError(HttpServletResponse.SC_FORBIDDEN);
 		}
 	}
 
