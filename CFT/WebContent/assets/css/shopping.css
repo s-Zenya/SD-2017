@@ -2,6 +2,14 @@ h1 {
 	margin : 20px 0;
 }
 
+#tableChangeButton {
+	float: right;
+}
+
+#allDayShopping , #toDayShopping {
+	height: 480px;
+}
+
 #shopping {
 	height : 400px;
 }
@@ -12,18 +20,19 @@ h1 {
 
 #addShopping {
 	margin : 20px 0;
+
 }
 
-#addShopping form div input {
+#addShopping input {
 	height : 38px;
 	margin-left: 0;
 	float: left;
 }
 
-#addShopping form div #amount {
-	margin-left: 0;
+#addShopping #amount {
+	margin: 0;
 	float: left;
-
+	
 	border-style: groove;
 
 	border-radius: 5px;        /* CSS3草案 */
@@ -31,8 +40,8 @@ h1 {
     -moz-border-radius: 5px;   /* Firefox用 */
 }
 
-#addShopping form div button {
-	margin-right: 0;
+#addShopping button {
+	margin: 0;
 	float: right;
 }
 
@@ -42,6 +51,6 @@ h1 {
 	content: "";
 }
 
-#toDayShopping {
+#allDayShopping {
 	display: none;
 }

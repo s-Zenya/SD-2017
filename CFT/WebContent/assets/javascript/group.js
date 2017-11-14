@@ -50,6 +50,7 @@ function groupLogin(){
     		  console.log(response);
 					if(response.status=="200"){
 						 location.href=response.url;
+						 document.getElementById("createForm").style.display="none";
 					}
     	    return response.text();
     	  })
