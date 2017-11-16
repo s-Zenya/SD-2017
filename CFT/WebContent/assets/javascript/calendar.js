@@ -55,6 +55,7 @@ function showCalendar(planObj,dateMain){
 	}
 }
 
+// Topページでのカレンダー描画-
 function showCalendarTop(planObj,dateMain){
 	// var displayYear = [];//先月、今月、来月の西暦が入る
 	// var displayMon = [];//先月、今月、来月の月が入る
