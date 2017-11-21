@@ -21,9 +21,9 @@ public class Entrance extends HttpServlet  {
 //		セッションを取得
 		session = request.getSession(false);
 		if(session != null){//セッションがあればTopにページ遷移
-			response.sendRedirect("/CFT/html/top/top.html");
+			response.sendRedirect("html/top/top.html");
 		}else{//セッションがなければLogin画面へ遷移
-			response.sendRedirect("/CFT/html/personal/personalLogin.html");
+			response.sendRedirect("html/personal/personalLogin.html");
 		}
 	}
 

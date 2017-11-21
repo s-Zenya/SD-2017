@@ -28,7 +28,7 @@ public class GroupCreate extends HttpServlet {
 //		セッションを取得
 		session = request.getSession(false);
 		if(session == null){//セッションがあればTopにページ遷移
-			response.sendRedirect("/CFT/html/personal/personalLogin.html");
+			response.sendRedirect("html/personal/personalLogin.html");
 			return;
 		}
 

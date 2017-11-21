@@ -47,7 +47,7 @@ public class PersonalCreate extends HttpServlet {
 
 		// session = request.getSession(false);
 		// if(session != null){
-		 response.sendRedirect("/CFT/html/top/top.html");
+		 response.sendRedirect("html/top/top.html");
 		// }
 
 	}
