@@ -25,7 +25,7 @@ function returnButton(getName){
 
 //	console.log(id+":"+gid+":"+name+":"+selectName);
 
-	fetch('/CFT/ReturnButton', {
+	fetch('/ReturnButton', {
 		mode: 'cors', // クロスオリジンリクエストをするのでCORSモードにする
 		credentials: 'include',
 		redirect: 'follow',
@@ -83,7 +83,7 @@ function showMessageFromButton(){
 	gid=decodeURIComponent(gid);
 // console.dir(date);
 
-	var url= '/CFT/Message?gid='+gid+'&date='+date;
+	var url= '/Message?gid='+gid+'&date='+date;
 	fetch(url, {
 		mode: 'cors', // クロスオリジンリクエストをするのでCORSモードにする
 		credentials: 'include',
@@ -137,7 +137,7 @@ function nameGet(){
 	name=decodeURIComponent(name);
 	gid=decodeURIComponent(gid);
 
-	var url= '/CFT/ReturnButton?gid='+gid;
+	var url= '/ReturnButton?gid='+gid;
 	fetch(url, {
 		mode: 'cors', // クロスオリジンリクエストをするのでCORSモードにする
 		credentials: 'include',

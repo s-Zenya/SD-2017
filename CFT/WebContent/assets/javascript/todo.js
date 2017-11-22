@@ -21,7 +21,7 @@ function checkChange(todoId){
 
 		console.log(gid+":"+todoId);
 
-    	fetch('/CFT/ChangeDone_todo', {
+    	fetch('/ChangeDone_todo', {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
     		redirect: 'follow',
@@ -65,7 +65,7 @@ function addTodo(){
 
 //		console.log(gid+":"+contents);
 
-    	fetch('/CFT/ToDo', {
+    	fetch('/ToDo', {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
     		redirect: 'follow',
@@ -105,7 +105,7 @@ function showTodo_Day(){
 	}
 	gid=decodeURIComponent(gid);
 
-		var url= '/CFT/ToDo?gid='+gid+'&date='+date;
+		var url= '/ToDo?gid='+gid+'&date='+date;
 
 //		console.log("showtodo");
     	fetch(url, {
@@ -144,7 +144,7 @@ function showTodo_All(){
 	}
 	gid=decodeURIComponent(gid);
 
-		var url= '/CFT/ToDo?gid='+gid;
+		var url= '/ToDo?gid='+gid;
 
 //		console.log("showtodo");
     	fetch(url, {
