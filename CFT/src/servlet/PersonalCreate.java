@@ -28,9 +28,7 @@ public class PersonalCreate extends HttpServlet {
 		// ユーザー作成成功
 		PersonalDAO personalDAO = new PersonalDAO();
 		if (personalDAO.add(id, pw, name, null)) {
-			response.sendRedirect("/CFT/Login");
-			System.out.println(name);
-
+			response.sendRedirect("/Login");
 		} else {
 			response.setContentType("application/json;charset=UTF-8");
 			PrintWriter out = response.getWriter();
@@ -47,7 +45,7 @@ public class PersonalCreate extends HttpServlet {
 
 		// session = request.getSession(false);
 		// if(session != null){
-		 response.sendRedirect("/CFT/html/top/top.html");
+		 response.sendRedirect("html/top/top.html");
 		// }
 
 	}

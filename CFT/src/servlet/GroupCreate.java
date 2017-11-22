@@ -19,7 +19,6 @@ public class GroupCreate extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		System.out.println(request);
         request.setCharacterEncoding("UTF-8");
 		String gid = Tool.escapeStr(request.getParameter("gid"));
 		String gpw = Tool.escapeStr(request.getParameter("gpw"));
@@ -28,7 +27,7 @@ public class GroupCreate extends HttpServlet {
 //		セッションを取得
 		session = request.getSession(false);
 		if(session == null){//セッションがあればTopにページ遷移
-			response.sendRedirect("/CFT/html/personal/personalLogin.html");
+			response.sendRedirect("html/personal/personalLogin.html");
 			return;
 		}
 
@@ -36,19 +35,17 @@ public class GroupCreate extends HttpServlet {
 		GroupDAO groupDAO = new GroupDAO();
 		if (groupDAO.add(gid, gpw, gname)) {
 			response.sendError(HttpServletResponse.SC_OK);
-
+			return;
 
 		} else {
 			response.sendError(HttpServletResponse.SC_CONFLICT);
-
+			return;
 		}
-
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.sendError(HttpServletResponse.SC_NOT_FOUND);
-
 	}
 }

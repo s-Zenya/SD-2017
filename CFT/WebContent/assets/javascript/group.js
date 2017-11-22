@@ -3,7 +3,7 @@ function groupCreate(){
 	var gid=document.getElementById("createGroupId").value
 	var gpw=document.getElementById("createGroupPass").value
 	var gname=document.getElementById("createGroupName").value
-    	fetch('/CFT/GroupCreate', {
+    	fetch('/GroupCreate', {
     		method: 'POST',
 			body : 'gid='+gid+'&gpw='+gpw+'&gname='+gname,
 			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
@@ -27,7 +27,6 @@ function groupLogin(){
 	while(cookie_all.split( '; ' )[ i ] != null){
 		if(cookie_all.split( '; ' )[ i ].split( '=' )[ 0 ] == 'id'){
 			id=cookie_all.split('; ')[ i ].split( '=' )[ 1 ];
-			console.log("i="+i);
 		}
 		i++;
 	}
@@ -38,7 +37,7 @@ function groupLogin(){
   //有効期限を過去にして書き込む
 //  document.cookie = "gid=;expires="+date1.toGMTString();
 
-    	fetch('/CFT/GroupLogin', {
+    	fetch('/GroupLogin', {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
     		redirect: 'follow',
