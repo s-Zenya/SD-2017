@@ -90,14 +90,15 @@ function personalLogin(){
 }
 
 function errorCheck(responseStatus){
-	console.log(responseStatus);
+//	console.log(responseStatus);
+	$("#addComment").remove();
 	
 	document.getElementById("idLabel").style.color = "black";
 	document.getElementById("pwLabel").style.color = "black";
 	
 	// 成功
 	if(responseStatus == 200){
-		alert("ログインしました。\nトップページへ移動します。");
+//		alert("ログインしました。\nトップページへ移動します。");
 	}
 	// 失敗
 	else{
@@ -105,20 +106,17 @@ function errorCheck(responseStatus){
 		var pw=document.getElementById("pw").value
 		
 		// 文字数確認
-		if(id.length >= 11 || pw.length >= 11){
-			if(id.length >= 11){document.getElementById("idLabel").style.color = "red"}
-			if(pw.length >= 11){document.getElementById("pwLabel").style.color = "red"}
-
-	        alert("error：赤く表示されている欄の文字数を確認してください。");
+		if(id.length >= 11 || pw.length >= 11 || id.length == 0 || pw.length == 0){
+			if(id.length >= 11 || id.length == 0){document.getElementById("idLabel").style.color = "red"}
+			if(pw.length >= 11 || pw.length == 0){document.getElementById("pwLabel").style.color = "red"}
+			
+			$('h1').append('<div id="addComment"><font color="red"><h4>error：赤く表示されている欄の文字数を確認してください。</h4></font></div>');
+//	        alert("error：赤く表示されている欄の文字数を確認してください。");
 	        return;
 		}
-		// ID欄が空白じゃないか
-		else if(id.length == 0){
-			document.getElementById("idLabel").style.color = "red";
-			alert("error：IDを入力してください。");
-			return;
-		}
 		
-		alert("error：ログインできませんでした。\nIDまたはPWを確認してください。");
+		$('h1').append('<div id="addComment"><font color="red"><h4>error：ログインできませんでした。<br>IDまたはPWを確認してください。</h4></font></div>');
+//		alert("error：ログインできませんでした。\nIDまたはPWを確認してください。");
+		return;
 	}
 }

@@ -75,6 +75,7 @@ function addTodo(){
     	})
     	  .then(response => {
     		  console.log(response);
+    		  errorCheck(response.status);
 					if(response.status=="200"){
 						//入力欄を空欄にする
 						document.getElementById("Todoadd").value=null;
@@ -219,4 +220,28 @@ function toDayTableOpen()
   document.getElementById("toDayTodo").style.display="block";
 
   return null;
+}
+
+//入力値チェック
+function errorCheck(responseStatus){
+	console.log(responseStatus);
+	$("#addComment").remove();
+	
+	// 成功
+	if(responseStatus == 200){
+		$('h1').append('<div id="addComment"><font color="green"><h4>予定を追加しました。</h4></font></div>');
+	}
+	// 失敗
+	else{
+		var todoAdd=document.getElementById("Todoadd").value
+		
+		// 文字数確認
+		if(todoAdd.length >= 101 || todoAdd.length == 0){
+			$('h1').append('<div id="addComment"><font color="red"><h4>error：入力した文字数を確認してください。</h4></font></div>');
+	        return;
+		}
+		
+		$('h1').append('<div id="addComment"><font color="red"><h4>error：予定を追加できませんでした。</h4></font></div>');
+		return;
+	}
 }
