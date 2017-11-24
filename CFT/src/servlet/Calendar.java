@@ -53,7 +53,7 @@ public class Calendar extends HttpServlet {
 //		セッションを取得
 		session = request.getSession(false);
 		if(session == null){//セッションがあればTopにページ遷移
-			response.sendRedirect("/CFT/html/personal/personalLogin.html");
+			response.sendRedirect("html/personal/personalLogin.html");
 			return;
 		}
 
@@ -71,7 +71,7 @@ public class Calendar extends HttpServlet {
 					System.out.println("削除失敗");
 				}
 			}
-			response.sendRedirect("/CFT/html/calendar/CalendarTop.html");
+			response.sendRedirect("html/calendar/CalendarTop.html");
 		}else{
 			Date date = Date.valueOf(Tool.escapeStr(dateStr));
 			CalendarDAO calendarDAO = new CalendarDAO();

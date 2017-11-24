@@ -1,5 +1,5 @@
 //
-//fetch('http://localhost:8080/CFT/SampleServlet').
+//fetch('http://localhost:8080/SampleServlet').
 //	then(response => {
 //		console.log(response.status);
 //	    return response.text();
@@ -8,7 +8,7 @@
 
 //function hoge(){
 //
-//	fetch('http://localhost:8080/CFT/SampleServlet').
+//	fetch('http://localhost:8080/SampleServlet').
 //		then(response => {
 //			console.log(response.status);
 //		    return response.text();
@@ -18,7 +18,7 @@
 
 
 //	console.log("hoge");
-//    	fetch('http://localhost:8080/CFT/SampleServlet?id="so"&pass="no"', {
+//    	fetch('http://localhost:8080/SampleServlet?id="so"&pass="no"', {
 //    		method: 'GET',
 //    		parameter:{
 //   		  	id: "idid",
@@ -70,7 +70,7 @@ function personalLogin(){
   // 有効期限を過去にして書き込む
 // document.cookie = "gid=;expires="+date1.toGMTString();
 //		console.log(inputId+","+inputPw);
-    	fetch('/CFT/PersonalLogin', {
+    	fetch('/PersonalLogin', {
     		mode: 'cors', // クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
 //    		redirect: 'follow',

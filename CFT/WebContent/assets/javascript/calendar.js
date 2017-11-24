@@ -55,6 +55,7 @@ function showCalendar(planObj,dateMain){
 	}
 }
 
+// Topページでのカレンダー描画-
 function showCalendarTop(planObj,dateMain){
 	// var displayYear = [];//先月、今月、来月の西暦が入る
 	// var displayMon = [];//先月、今月、来月の月が入る
@@ -120,7 +121,7 @@ function addCalendar(year,mon,day){
 		gid=decodeURIComponent(gid);
 		name=decodeURIComponent(name);
 
-   	fetch('/CFT/Calendar', {
+   	fetch('/Calendar', {
    		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
    		credentials: 'include',
    		redirect: 'follow',
@@ -142,7 +143,7 @@ function deleteCalendar(calendarId){
 	var cookie_all = document.cookie;
 	var calendarId;
 	var i=0;
-	var url= '/CFT/Calendar?calendarId='+calendarId;
+	var url= '/Calendar?calendarId='+calendarId;
    	fetch(url, {
    		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
    		credentials: 'include',
@@ -172,7 +173,7 @@ function getCalendar(date){
 			i++;
 		}
 		gid=decodeURIComponent(gid);
-		var url= '/CFT/Calendar?gid='+gid+'&date='+date;
+		var url= '/Calendar?gid='+gid+'&date='+date;
 		fetch(url, {
 			mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
 			credentials: 'include',
@@ -206,7 +207,7 @@ function getCalendarTop(date){
 			i++;
 		}
 		gid=decodeURIComponent(gid);
-		var url= '/CFT/Calendar?gid='+gid+'&date='+date;
+		var url= '/Calendar?gid='+gid+'&date='+date;
 		fetch(url, {
 			mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
 			credentials: 'include',

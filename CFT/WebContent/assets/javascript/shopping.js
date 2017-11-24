@@ -20,7 +20,7 @@ function checkChange(shoppingId){
 
 		console.log(gid+":"+shoppingId);
 
-    	fetch('/CFT/ChangeDone_shopping', {
+    	fetch('/ChangeDone_shopping', {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
     		redirect: 'follow',
@@ -69,7 +69,7 @@ function addshopping(){
 
 		console.log(gid+":"+contents);
 
-    	fetch('/CFT/Shopping', {
+    	fetch('/Shopping', {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
     		redirect: 'follow',
@@ -113,7 +113,7 @@ function showShopping(){
 	}
 	gid=decodeURIComponent(gid);
 
-		var url= '/CFT/Shopping?gid='+gid+'&date='+date;
+		var url= '/Shopping?gid='+gid+'&date='+date;
 
     	fetch(url, {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
@@ -152,7 +152,7 @@ function showShopping_all(){
 	}
 	gid=decodeURIComponent(gid);
 
-		var url= '/CFT/Shopping?gid='+gid;
+		var url= '/Shopping?gid='+gid;
 
 //		console.log("showtodo");
     	fetch(url, {

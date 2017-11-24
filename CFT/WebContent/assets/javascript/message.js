@@ -19,7 +19,7 @@ function addMessage(){
 		}
 		gid=decodeURIComponent(gid);
 		id=decodeURIComponent(id);
-    	fetch('/CFT/Message', {
+    	fetch('/Message', {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
     		redirect: 'follow',
@@ -56,7 +56,7 @@ function showMessage(){
 	}
 	if(gid != null){
 		gid=decodeURIComponent(gid);
-		var url= '/CFT/Message?gid='+gid+'&date='+date;
+		var url= '/Message?gid='+gid+'&date='+date;
     	fetch(url, {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',

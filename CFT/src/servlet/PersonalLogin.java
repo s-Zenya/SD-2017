@@ -79,7 +79,7 @@ public class PersonalLogin extends HttpServlet {
 			//セッションを開始
 			session = request.getSession(true);
 			
-			response.sendRedirect("/CFT/html/top/top.html");
+			response.sendRedirect("html/top/top.html");
 			return;
 		} else {
 			response.sendError(HttpServletResponse.SC_FORBIDDEN);
