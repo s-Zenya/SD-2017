@@ -27,16 +27,16 @@
 	<div id="inputForm" class="container col-sm-12">
 		<form action="/CFT/PersonalCreate" method="post">
 			<div class="form-group">
-				<label class="col-sm-1">ID</label>
-				<input type="text" class="form-control col-sm-5" name="id" id="id" placeholder="IDを入力してください">
+				<label class="col-sm-1" id="idLabel">ID</label>
+				<input type="text" class="form-control col-sm-5" name="id" id="id" placeholder="ID入力欄(10文字以内)">
 			</div>
 			<div class="form-group">
-				<label class="col-sm-1">PW</label>
-				<input type="password" class="form-control col-sm-5" name="pw" id="pw" placeholder="PWを入力してください">
+				<label class="col-sm-1" id="pwLabel">PW</label>
+				<input type="password" class="form-control col-sm-5" name="pw" id="pw" placeholder="PW入力欄(10文字以内)">
 			</div>
 			<div class="form-group">
-				<label class="col-sm-1">Name</label>
-				<input type="text" class="form-control col-sm-5" name="name" id="name" placeholder="名前を入力してください">
+				<label class="col-sm-1" id="nameLabel">Name</label>
+				<input type="text" class="form-control col-sm-5" name="name" id="name" placeholder="名前入力欄(30文字以内)">
 			</div>
 			<div id="submit" class="form-grpoup">
 				<button type="button" class="btn btn-primary col-sm-2" onClick="personalCreate();">create</button>
