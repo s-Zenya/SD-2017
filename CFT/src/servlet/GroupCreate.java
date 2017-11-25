@@ -27,6 +27,7 @@ public class GroupCreate extends HttpServlet {
 //		セッションを取得
 		session = request.getSession(false);
 		if(session == null){//セッションがあればTopにページ遷移
+			System.out.print("no-session");
 			response.sendRedirect("html/personal/personalLogin.html");
 			return;
 		}
