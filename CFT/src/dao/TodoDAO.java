@@ -15,7 +15,10 @@ import model.Todo;
 
 public class TodoDAO {
 	// DB接続パス
-	private String connectionString = DbConnection.getPass();
+	private String connectionString = DbConnection.getPath();
+	private String dbUser = DbConnection.getUser();
+	private String dbPass = DbConnection.getPass();
+	private String dbSchema = DbConnection.getSchema();
 
 	// 指定されたgroupIdの全データ取得
 	public  List<Todo> findGroupIdAll() {
@@ -29,10 +32,10 @@ public class TodoDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM TODOTABLE";
+			String sql = "SELECT * FROM "+dbSchema+"TODOTABLE";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 //			pStmt.setString(1, groupId);
@@ -81,10 +84,10 @@ public class TodoDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM TODOTABLE WHERE GROUPID = ? AND DONE = FALSE";
+			String sql = "SELECT * FROM "+dbSchema+"TODOTABLE WHERE GROUPID = ? AND DONE = FALSE";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 //			// FALSE指定で
@@ -137,10 +140,10 @@ public class TodoDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM TODOTABLE WHERE GROUPID=? AND DATE = ?";
+			String sql = "SELECT * FROM "+dbSchema+"TODOTABLE WHERE GROUPID=? AND DATE = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// 指定したIDで
@@ -190,10 +193,10 @@ public class TodoDAO {
 				Class.forName("org.h2.Driver");
 
 				// データベースへ接続
-				conn = DriverManager.getConnection(connectionString, "sa", "");
+				conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 				// SELECT文を準備
-				String sql = "SELECT * FROM TODOTABLE WHERE GROUPID=? AND TODOID=?";
+				String sql = "SELECT * FROM "+dbSchema+"TODOTABLE WHERE GROUPID=? AND TODOID=?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// 指定したIDで
@@ -210,7 +213,7 @@ public class TodoDAO {
 
 				if(done == false){
 					// INSERT文を準備
-					String sql_true = "UPDATE TODOTABLE SET DONE = TRUE WHERE GROUPID=? AND TODOID=?";
+					String sql_true = "UPDATE "+dbSchema+"TODOTABLE SET DONE = TRUE WHERE GROUPID=? AND TODOID=?";
 					PreparedStatement pStmt_true = conn.prepareStatement(sql_true);
 
 					pStmt_true.setString(1, groupId);
@@ -221,7 +224,7 @@ public class TodoDAO {
 				}
 				else if(done == true){
 					// INSERT文を準備
-					String sql_false = "UPDATE TODOTABLE SET DONE = FALSE WHERE GROUPID=? AND TODOID=?";
+					String sql_false = "UPDATE "+dbSchema+"TODOTABLE SET DONE = FALSE WHERE GROUPID=? AND TODOID=?";
 					PreparedStatement pStmt_false = conn.prepareStatement(sql_false);
 
 					pStmt_false.setString(1, groupId);
@@ -262,10 +265,10 @@ public class TodoDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// INSERT文を準備
-			String sql = "INSERT INTO TODOTABLE (GROUPID, DATE, CONTENTS, DONE) VALUES (?,?,?,false)";
+			String sql = "INSERT INTO "+dbSchema+"TODOTABLE (GROUPID, DATE, CONTENTS, DONE) VALUES (?,?,?,false)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, groupId);

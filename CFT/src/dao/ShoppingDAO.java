@@ -15,7 +15,10 @@ import model.Shopping;
 
 public class ShoppingDAO {
 	// DB接続パス
-	private String connectionString = DbConnection.getPass();
+	private String connectionString = DbConnection.getPath();
+	private String dbUser = DbConnection.getUser();
+	private String dbPass = DbConnection.getPass();
+	private String dbSchema = DbConnection.getSchema();
 
 	// 指定されたgroupIdの全データ取得
 	public List<Shopping> findGroupIdAll(String groupId) {
@@ -29,10 +32,10 @@ public class ShoppingDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM SHOPPINGTABLE WHERE GROUPID = ?";
+			String sql = "SELECT * FROM "+dbSchema+"SHOPPINGTABLE WHERE GROUPID = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, groupId);
@@ -82,10 +85,10 @@ public class ShoppingDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM SHOPPINGTABLE WHERE GROUPID = ? AND DATE = ?";
+			String sql = "SELECT * FROM "+dbSchema+"SHOPPINGTABLE WHERE GROUPID = ? AND DATE = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, groupId);
@@ -136,10 +139,10 @@ public class ShoppingDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM SHOPPINGTABLE WHERE GROUPID = ? AND DONE = FALSE";
+			String sql = "SELECT * FROM "+dbSchema+"SHOPPINGTABLE WHERE GROUPID = ? AND DONE = FALSE";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, groupId);
@@ -186,10 +189,10 @@ public class ShoppingDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM SHOPPINGTABLE WHERE GROUPID=? AND SHOPPINGID = ?";
+			String sql = "SELECT * FROM "+dbSchema+"SHOPPINGTABLE WHERE GROUPID=? AND SHOPPINGID = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// 指定したIDで
@@ -209,7 +212,7 @@ public class ShoppingDAO {
 
 			if (done == false) {
 				// INSERT文を準備
-				String sql_true = "UPDATE SHOPPINGTABLE SET DONE = TRUE WHERE GROUPID = ? AND SHOPPINGID = ?";
+				String sql_true = "UPDATE "+dbSchema+"SHOPPINGTABLE SET DONE = TRUE WHERE GROUPID = ? AND SHOPPINGID = ?";
 				PreparedStatement pStmt_true = conn.prepareStatement(sql_true);
 
 				pStmt_true.setString(1, groupId);
@@ -219,7 +222,7 @@ public class ShoppingDAO {
 				rt = true;
 			} else if (done == true) {
 				// INSERT文を準備
-				String sql_false = "UPDATE SHOPPINGTABLE SET DONE = FALSE WHERE GROUPID = ? AND SHOPPINGID = ?";
+				String sql_false = "UPDATE "+dbSchema+"SHOPPINGTABLE SET DONE = FALSE WHERE GROUPID = ? AND SHOPPINGID = ?";
 				PreparedStatement pStmt_false = conn.prepareStatement(sql_false);
 
 				pStmt_false.setString(1, groupId);
@@ -258,10 +261,10 @@ public class ShoppingDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// INSERT文を準備
-			String sql = "INSERT INTO SHOPPINGTABLE (GROUPID, DATE, CONTENTS, DONE) VALUES (?,?,?,false)";
+			String sql = "INSERT INTO "+dbSchema+"SHOPPINGTABLE (GROUPID, DATE, CONTENTS, DONE) VALUES (?,?,?,false)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, groupId);

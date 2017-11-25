@@ -14,7 +14,10 @@ import model.DbConnection;
 
 public class CalendarDAO {
 	// DB接続パス
-	private String connectionString = DbConnection.getPass();
+	private String connectionString = DbConnection.getPath();
+	private String dbUser = DbConnection.getUser();
+	private String dbPass = DbConnection.getPass();
+	private String dbSchema = DbConnection.getSchema();
 
 	// 指定されたgroupId,dateの前後1か月の全データ取得
 	public  List<Calendar> findDateGroupIdAll(Date getDate, String groupId) {
@@ -29,10 +32,10 @@ public class CalendarDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM CALENDARTABLE WHERE GROUPID = ? AND DATE >= DATEADD(MONTH,-1,?) AND DATE <= DATEADD(DAY,-1,DATEADD(MONTH,2,?))";
+			String sql = "SELECT * FROM "+dbSchema+"CALENDARTABLE WHERE GROUPID = ? AND DATE >= DATEADD(MONTH,-1,?) AND DATE <= DATEADD(DAY,-1,DATEADD(MONTH,2,?))";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, groupId);
 			pStmt.setString(2, dateStr);
@@ -79,10 +82,10 @@ public class CalendarDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// INSERT文を準備
-			String sql = "INSERT INTO CALENDARTABLE (GROUPID, DATE, CONTENTS, NAME) VALUES (?,?,?,?)";
+			String sql = "INSERT INTO "+dbSchema+"CALENDARTABLE (GROUPID, DATE, CONTENTS, NAME) VALUES (?,?,?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, groupId);
@@ -118,16 +121,16 @@ public class CalendarDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// INSERT文を準備
-			String sql = "DELETE FROM CALENDARTABLE WHERE CALENDARID = ?";
+			String sql = "DELETE FROM "+dbSchema+"CALENDARTABLE WHERE CALENDARID = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, calendarId);
 
 			int r = pStmt.executeUpdate();
 //
-//			String sql2 = "SELECT * FROM CALENDARTABLE WHERE CALENDARID = ?";
+//			String sql2 = "SELECT * FROM "+dbSchema+"CALENDARTABLE WHERE CALENDARID = ?";
 //			PreparedStatement pStmt2 = conn.prepareStatement(sql2);
 //			pStmt2.setInt(1, calendarId);
 //			ResultSet rs = pStmt.executeQuery();

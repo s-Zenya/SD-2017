@@ -13,7 +13,10 @@ import model.Group;
 
 public class GroupDAO {
 	// DB接続パス
-	private String connectionString = DbConnection.getPass();
+	private String connectionString = DbConnection.getPath();
+	private String dbUser = DbConnection.getUser();
+	private String dbPass = DbConnection.getPass();
+	private String dbSchema = DbConnection.getSchema();
 
 	public List<Group> findAll() {
 
@@ -26,10 +29,10 @@ public class GroupDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM GROUPTABLE";
+			String sql = "SELECT * FROM "+dbSchema+"GROUPTABLE";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SELECTを実行し、結果表を取得
@@ -71,10 +74,10 @@ public class GroupDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// INSERT文を準備
-			String sql = "INSERT INTO GROUPTABLE VALUES (?,?,?)";
+			String sql = "INSERT INTO "+dbSchema+"GROUPTABLE VALUES (?,?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, groupId);
@@ -114,10 +117,10 @@ public class GroupDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM GROUPTABLE WHERE GROUPID=? AND GROUPPW=?";
+			String sql = "SELECT * FROM "+dbSchema+"GROUPTABLE WHERE GROUPID=? AND GROUPPW=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// 指定したIDで
@@ -171,10 +174,10 @@ public class GroupDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM GROUPTABLE WHERE GROUPID=?";
+			String sql = "SELECT * FROM "+dbSchema+"GROUPTABLE WHERE GROUPID=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// 指定したIDで
