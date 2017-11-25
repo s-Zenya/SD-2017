@@ -72,10 +72,6 @@
 	margin-bottom: 30px;
 }
 
-#linkBtn p {
-	text-decoration: underline;
-}
-
 #linkBtn .btn1:hover, #linkBtn .btn2:hover, #linkBtn .btn3:hover,
 	#linkBtn .btn4:hover {
 	background-color: #A4A4A4;
