@@ -15,7 +15,10 @@ import model.Message;
 
 public class MessageDAO {
 	// DB接続パス
-	private String connectionString = DbConnection.getPass();
+	private String connectionString = DbConnection.getPath();
+	private String dbUser = DbConnection.getUser();
+	private String dbPass = DbConnection.getPass();
+	private String dbSchema = DbConnection.getSchema();
 
 	// 指定されたgroupIdの全データ取得
 	public  List<Message> findGroupIdAll(String groupId) {
@@ -29,10 +32,10 @@ public class MessageDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM MESSAGETABLE WHERE GROUPID = ?";
+			String sql = "SELECT * FROM "+dbSchema+"MESSAGETABLE WHERE GROUPID = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, groupId);
@@ -78,10 +81,10 @@ public class MessageDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// INSERT文を準備
-			String sql = "INSERT INTO MESSAGETABLE (ID, GROUPID, DATE, MESSAGE) VALUES (?,?,?,?)";
+			String sql = "INSERT INTO "+dbSchema+"MESSAGETABLE (ID, GROUPID, DATE, MESSAGE) VALUES (?,?,?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, Id);
@@ -122,10 +125,10 @@ public class MessageDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM MESSAGETABLE WHERE GROUPID = ? AND DATE = ?";
+			String sql = "SELECT * FROM "+dbSchema+"MESSAGETABLE WHERE GROUPID = ? AND DATE = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, groupId);
