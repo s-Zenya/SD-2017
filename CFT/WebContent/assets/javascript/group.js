@@ -4,6 +4,8 @@ function groupCreate(){
 	var gpw=document.getElementById("createGroupPass").value
 	var gname=document.getElementById("createGroupName").value
     	fetch('/GroupCreate', {
+    		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
+    		credentials: 'include',
     		method: 'POST',
 			body : 'gid='+gid+'&gpw='+gpw+'&gname='+gname,
 			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
@@ -70,7 +72,7 @@ function groupCreateOpen()
 function loginErrorCheck(responseStatus){
 //	console.log(responseStatus);
 	$("#addComment").remove();
-	
+
 	document.getElementById("loginGroupIdLabel").style.color = "black";
 	document.getElementById("loginGroupPwLabel").style.color = "black";
 	// 成功
@@ -83,7 +85,7 @@ function loginErrorCheck(responseStatus){
 	else{
 		var gid=document.getElementById("LoginGroupId").value
 		var gpw=document.getElementById("LoginGroupPass").value
-		
+
 		// 文字数確認
 		if(gid.length >= 11 || gpw.length >= 11 || gid.length == 0 || gpw.length == 0 ){
 			if(gid.length >= 11 || gid.length == 0){document.getElementById("loginGroupIdLabel").style.color = "red"}
@@ -91,7 +93,7 @@ function loginErrorCheck(responseStatus){
 			$('h2').append('<div id="addComment"><font color="red"><h4>error：赤く表示されている欄の文字数を確認してください。</h4></font></div>');
 	        return;
 		}
-		
+
 		$('h2').append('<div id="addComment"><font color="red"><h4>error：ログインできませんでした。<br>IDまたはPWを確認してください。</h4></font></div>');
 		return;
 	}
@@ -101,7 +103,7 @@ function loginErrorCheck(responseStatus){
 function createErrorCheck(responseStatus){
 //	console.log(responseStatus);
 	$("#addComment").remove();
-	
+
 	document.getElementById("createGroupIdLabel").style.color = "black";
 	document.getElementById("createGroupPwLabel").style.color = "black";
 	document.getElementById("createGroupNameLabel").style.color = "black";
@@ -116,7 +118,7 @@ function createErrorCheck(responseStatus){
 		var gid=document.getElementById("createGroupId").value
 		var gpw=document.getElementById("createGroupPw").value
 		var gname=document.getElementById("createGroupName").value
-		
+
 		// 文字数確認
 		if(gid.length >= 11 || gpw.length >= 11 || gname.length >= 31 || gid.length == 0 || gpw.length == 0 || gname.length == 0){
 			if(gid.length >= 11 || gid.length == 0){document.getElementById("createGroupIdLabel").style.color = "red"}
@@ -125,7 +127,7 @@ function createErrorCheck(responseStatus){
 			$('h2').append('<div id="addComment"><font color="red"><h4>error：赤く表示されている欄の文字数を確認してください。</h4></font></div>');
 	        return;
 		}
-		
+
 		$('h2').append('<div id="addComment"><font color="red"><h4>error：アカウントを作成できませんでした。</h4></font></div>');
 		return;
 	}
