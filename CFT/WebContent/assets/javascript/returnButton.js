@@ -25,7 +25,7 @@ function returnButton(getName){
 
 //	console.log(id+":"+gid+":"+name+":"+selectName);
 
-	fetch('/CFT/ReturnButton', {
+	fetch('/ReturnButton', {
 		mode: 'cors', // クロスオリジンリクエストをするのでCORSモードにする
 		credentials: 'include',
 		redirect: 'follow',
@@ -35,6 +35,7 @@ function returnButton(getName){
 	})
 	.then(response => {
 		console.log(response);
+		buttonClickAddMessage(response.status);
 		if(response.status=="200"){
 			// メッセージを更新
 			showMessageFromButton();
@@ -59,7 +60,8 @@ function goHomeButton(){
 	if(selectName!=""){
 		returnButton(selectName);
 	}else{
-		alert("グループメンバー名を選択してください。");
+		$("#addComment").remove();
+		$('#shortcutButtonTitle').append('<div id="addComment"><font color="red"><h5>グループメンバー名を選択してください。</h5></font></div>');
 	}
 }
 
@@ -83,7 +85,7 @@ function showMessageFromButton(){
 	gid=decodeURIComponent(gid);
 // console.dir(date);
 
-	var url= '/CFT/Message?gid='+gid+'&date='+date;
+	var url= '/Message?gid='+gid+'&date='+date;
 	fetch(url, {
 		mode: 'cors', // クロスオリジンリクエストをするのでCORSモードにする
 		credentials: 'include',
@@ -137,7 +139,7 @@ function nameGet(){
 	name=decodeURIComponent(name);
 	gid=decodeURIComponent(gid);
 
-	var url= '/CFT/ReturnButton?gid='+gid;
+	var url= '/ReturnButton?gid='+gid;
 	fetch(url, {
 		mode: 'cors', // クロスオリジンリクエストをするのでCORSモードにする
 		credentials: 'include',
@@ -166,5 +168,17 @@ function nameSet(memberObj,name){
 		if(memberObj[k].name != name){
 			$('#selectName').append('<option>'+memberObj[k].name+'</option>');  
 		}
+	}
+}
+
+//ボタン押した時、ショートカットボタンの下にメッセージ追加
+function buttonClickAddMessage(responseStatus){
+	$("#addComment").remove();
+	
+	// 成功
+	if(responseStatus == 200){
+		$('#shortcutButtonTitle').append('<div id="addComment"><font color="green"><h5>メッセージを追加しました。</5></font></div>');
+	}else{
+		$('#shortcutButtonTitle').append('<div id="addComment"><font color="red"><h5>失敗しました。</h5></font></div>');
 	}
 }

@@ -21,7 +21,7 @@ function checkChange(todoId){
 
 		console.log(gid+":"+todoId);
 
-    	fetch('/CFT/ChangeDone_todo', {
+    	fetch('/ChangeDone_todo', {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
     		redirect: 'follow',
@@ -65,7 +65,7 @@ function addTodo(){
 
 //		console.log(gid+":"+contents);
 
-    	fetch('/CFT/ToDo', {
+    	fetch('/ToDo', {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
     		redirect: 'follow',
@@ -75,6 +75,7 @@ function addTodo(){
     	})
     	  .then(response => {
     		  console.log(response);
+    		  errorCheck(response.status);
 					if(response.status=="200"){
 						//入力欄を空欄にする
 						document.getElementById("Todoadd").value=null;
@@ -105,7 +106,7 @@ function showTodo_Day(){
 	}
 	gid=decodeURIComponent(gid);
 
-		var url= '/CFT/ToDo?gid='+gid+'&date='+date;
+		var url= '/ToDo?gid='+gid+'&date='+date;
 
 //		console.log("showtodo");
     	fetch(url, {
@@ -144,7 +145,7 @@ function showTodo_All(){
 	}
 	gid=decodeURIComponent(gid);
 
-		var url= '/CFT/ToDo?gid='+gid;
+		var url= '/ToDo?gid='+gid;
 
 //		console.log("showtodo");
     	fetch(url, {
@@ -219,4 +220,28 @@ function toDayTableOpen()
   document.getElementById("toDayTodo").style.display="block";
 
   return null;
+}
+
+//入力値チェック
+function errorCheck(responseStatus){
+	console.log(responseStatus);
+	$("#addComment").remove();
+	
+	// 成功
+	if(responseStatus == 200){
+		$('h1').append('<div id="addComment"><font color="green"><h4>予定を追加しました。</h4></font></div>');
+	}
+	// 失敗
+	else{
+		var todoAdd=document.getElementById("Todoadd").value
+		
+		// 文字数確認
+		if(todoAdd.length >= 101 || todoAdd.length == 0){
+			$('h1').append('<div id="addComment"><font color="red"><h4>error：入力した文字数を確認してください。</h4></font></div>');
+	        return;
+		}
+		
+		$('h1').append('<div id="addComment"><font color="red"><h4>error：予定を追加できませんでした。</h4></font></div>');
+		return;
+	}
 }

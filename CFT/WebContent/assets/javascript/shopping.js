@@ -20,7 +20,7 @@ function checkChange(shoppingId){
 
 		console.log(gid+":"+shoppingId);
 
-    	fetch('/CFT/ChangeDone_shopping', {
+    	fetch('/ChangeDone_shopping', {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
     		redirect: 'follow',
@@ -69,7 +69,7 @@ function addshopping(){
 
 		console.log(gid+":"+contents);
 
-    	fetch('/CFT/Shopping', {
+    	fetch('/Shopping', {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
     		redirect: 'follow',
@@ -79,6 +79,7 @@ function addshopping(){
     	})
     	  .then(response => {
     		  console.log(response);
+    		  errorCheck(response.status);
 					if(response.status=="200"){
 						//入力欄を空欄にする
 						document.getElementById("addshopping").value=null;
@@ -113,7 +114,7 @@ function showShopping(){
 	}
 	gid=decodeURIComponent(gid);
 
-		var url= '/CFT/Shopping?gid='+gid+'&date='+date;
+		var url= '/Shopping?gid='+gid+'&date='+date;
 
     	fetch(url, {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
@@ -152,7 +153,7 @@ function showShopping_all(){
 	}
 	gid=decodeURIComponent(gid);
 
-		var url= '/CFT/Shopping?gid='+gid;
+		var url= '/Shopping?gid='+gid;
 
 //		console.log("showtodo");
     	fetch(url, {
@@ -231,4 +232,26 @@ document.getElementById("toDayShopping").style.display="none";
 return null;
 }
 
-
+//入力値チェック
+function errorCheck(responseStatus){
+	console.log(responseStatus);
+	$("#addComment").remove();
+	
+	// 成功
+	if(responseStatus == 200){
+		$('h1').append('<div id="addComment"><font color="green"><h4>買い物予定を追加しました。</h4></font></div>');
+	}
+	// 失敗
+	else{
+		var addShopping=document.getElementById("addshopping").value
+		
+		// 文字数確認
+		if(addShopping.length >= 101 || addShopping.length == 0){
+			$('h1').append('<div id="addComment"><font color="red"><h4>error：入力した文字数を確認してください。</h4></font></div>');
+	        return;
+		}
+		
+		$('h1').append('<div id="addComment"><font color="red"><h4>error：買い物予定を追加できませんでした。</h4></font></div>');
+		return;
+	}
+}

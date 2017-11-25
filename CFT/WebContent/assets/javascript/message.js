@@ -1,5 +1,5 @@
-showMessage();
 
+showMessage();
 function addMessage(){
 	var cookie_all = document.cookie;
 	var gid;
@@ -19,7 +19,7 @@ function addMessage(){
 		}
 		gid=decodeURIComponent(gid);
 		id=decodeURIComponent(id);
-    	fetch('/CFT/Message', {
+    	fetch('/Message', {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
     		redirect: 'follow',
@@ -29,6 +29,7 @@ function addMessage(){
     	})
     	  .then(response => {
     		  console.log(response);
+//    		  errorCheck(response.status);
 					if(response.status=="200"){
 						//入力欄を空欄にする
 						document.getElementById("addMessage").value=null;
@@ -56,7 +57,7 @@ function showMessage(){
 	}
 	if(gid != null){
 		gid=decodeURIComponent(gid);
-		var url= '/CFT/Message?gid='+gid+'&date='+date;
+		var url= '/Message?gid='+gid+'&date='+date;
     	fetch(url, {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
@@ -91,3 +92,30 @@ function writeMessage(messageObj){
 //  messageTableを一番下までスクロール
     $("#message").scrollTop($("#message")[0].scrollHeight);
 }
+
+//入力値チェック
+//更新のタイミング的に使えないのでなかったことに！！！
+//function errorCheck(responseStatus){
+//	console.log(responseStatus);
+//	$("#addMessageComment").remove();
+//	
+//	// 成功
+//	if(responseStatus == 200){
+//		console.log("追加");
+//		$('#addMessage_form').append('<div id="addMessageComment"><font color="green"><h5>メッセージを追加しました。</h5></font></div>');
+//		return;
+//	}
+//	// 失敗
+//	else{
+//		var addMessage=document.getElementById("addMessage").value
+//		
+//		// 文字数確認
+//		if(addMessage.length >= 101 || addMessage.length == 0){		
+//			$('#addMessage_form').append('<div id="addMessageComment"><font color="red"><h5>error：赤く表示されている欄の文字数を確認してください。</h5></font></div>');
+//	        return;
+//		}
+//		
+//		$('#addMessage_form').append('<div id="addMessageComment"><font color="red"><h5>error：メッセージを追加できませんでした。</h5></font></div>');
+//		return;
+//	}
+//}
