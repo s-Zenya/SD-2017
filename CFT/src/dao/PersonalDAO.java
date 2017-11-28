@@ -13,7 +13,10 @@ import model.Personal;
 
 public class PersonalDAO {
 	// DB接続パス
-	private String connectionString = DbConnection.getPass();
+	private String connectionString = DbConnection.getPath();
+	private String dbUser = DbConnection.getUser();
+	private String dbPass = DbConnection.getPass();
+	private String dbSchema = DbConnection.getSchema();
 
 	public List<Personal> findAll() {
 
@@ -26,10 +29,10 @@ public class PersonalDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM PERSONALTABLE";
+			String sql = "SELECT * FROM "+dbSchema+"PERSONALTABLE";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SELECTを実行し、結果表を取得
@@ -76,10 +79,10 @@ public class PersonalDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM PERSONALTABLE WHERE ID=?";
+			String sql = "SELECT * FROM "+dbSchema+"PERSONALTABLE WHERE ID=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// 指定したIDで
@@ -126,10 +129,10 @@ public class PersonalDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// DELETE文を準備
-			String sql = "DELETE FROM PERSONALTABLE WHERE ID=?";
+			String sql = "DELETE FROM "+dbSchema+"PERSONALTABLE WHERE ID=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, removeId);
@@ -162,10 +165,10 @@ public class PersonalDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// INSERT文を準備
-			String sql = "INSERT INTO PERSONALTABLE (ID, PW, NAME, GROUPID) VALUES (?,?,?,?)";
+			String sql = "INSERT INTO "+dbSchema+"PERSONALTABLE (ID, PW, NAME, GROUPID) VALUES (?,?,?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, id);
@@ -202,10 +205,10 @@ public class PersonalDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// UPDATE文を準備
-			String sql = "update PERSONALTABLE set groupid = ? where id = ?";
+			String sql = "UPDATE "+dbSchema+"PERSONALTABLE set groupid = ? where id = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, groupId);
@@ -245,10 +248,10 @@ public class PersonalDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM PERSONALTABLE WHERE ID=? AND PW=?";
+			String sql = "SELECT * FROM "+dbSchema+"PERSONALTABLE WHERE ID=? AND PW=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// 指定したIDで
@@ -304,10 +307,10 @@ public class PersonalDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
-			conn = DriverManager.getConnection(connectionString, "sa", "");
+			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM PERSONALTABLE WHERE GROUPID=?";
+			String sql = "SELECT * FROM "+dbSchema+"PERSONALTABLE WHERE GROUPID=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// 指定したIDで
