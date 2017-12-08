@@ -229,7 +229,7 @@ function errorCheck(responseStatus){
 
 	// 成功
 	if(responseStatus == 200){
-		$('h1').append('<div id="addComment"><font color="green"><h4>予定を追加しました。</h4></font></div>');
+		$('h1').append('<div id="addComment"><font color="green"><h4>やる事を追加しました。</h4></font></div>');
 	}
 	// 失敗
 	else{
@@ -241,7 +241,7 @@ function errorCheck(responseStatus){
 	        return;
 		}
 
-		$('h1').append('<div id="addComment"><font color="red"><h4>error：予定を追加できませんでした。</h4></font></div>');
+		$('h1').append('<div id="addComment"><font color="red"><h4>error：やる事を追加できませんでした。</h4></font></div>');
 		return;
 	}
 }

@@ -74,7 +74,7 @@ function addshopping(){
     		credentials: 'include',
     		redirect: 'follow',
     		method: 'POST',
-			body : 'gid='+gid+'&contents='+contents+'   '+amount+'個          登録者 '+name,
+			body : 'gid='+gid+'&contents='+contents+' '+amount+'個 登録者 '+name,
 			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
     	})
     	  .then(response => {
