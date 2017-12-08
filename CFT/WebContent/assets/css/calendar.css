@@ -27,7 +27,7 @@ h1 {
 }
 
 #plans {
-	max-width: 200px;
+	/*max-width: 200px;*/
 	font-color: #000000;
 	background-color: #ffffff;
 	border-style: none;
@@ -44,6 +44,8 @@ h1 {
 span.break{
   word-wrap: break-word;
 }
+
+
 
 /* スマホだけに適用するCSS */
 @media screen and ( max-width:530px ) {

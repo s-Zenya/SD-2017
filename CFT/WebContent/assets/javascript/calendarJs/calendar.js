@@ -279,7 +279,7 @@ var CalendarApp = {
 	},
 
 	placeCalendar : function() {
-		$('table').after('<h1 class="col-sm-10">カレンダー</h1>');
+		$('table').after('<h3 class="col-sm-10">カレンダー</h3>');
 
 		var parent = CalendarApp.getLastScriptNode().parentNode;
 
