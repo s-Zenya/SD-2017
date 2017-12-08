@@ -187,7 +187,7 @@ function getCalendar(date){
 			return response.text();
 		}).then(text => {
 //    		  予定の書き換え
-			console.log(text);
+			// console.log(text);
 			showCalendar($.parseJSON(text),date);
 		});
 	}
@@ -221,7 +221,7 @@ function getCalendarTop(date){
 			return response.text();
 		}).then(text => {
 //    		  予定の書き換え
-			console.log(text);
+			// console.log(text);
 			showCalendarTop($.parseJSON(text),date);
 		});
 	}
@@ -232,7 +232,7 @@ function getCalendarTop(date){
 function errorCheck(responseStatus,year,mon,day){
 	console.log(responseStatus);
 	$("#addComment").remove();
-	
+
 	// 成功
 	if(responseStatus == 200){
 		$('h1').append('<div id="addComment"><font color="green"><h4>予定を追加しました。</h4></font></div>');
@@ -241,13 +241,13 @@ function errorCheck(responseStatus,year,mon,day){
 	else{
 		var date = year+"-"+("0"+mon).slice(-2)+"-"+("0"+day).slice(-2);//ここで日付を取得
 		var content=$("#calendar_content_form_"+date).val();
-		
+
 		// 文字数確認
 		if(content.length >= 101 || content.length == 0){
 			$('h1').append('<div id="addComment"><font color="red"><h4>error：入力した文字数を確認してください。</h4></font></div>');
 	        return;
 		}
-		
+
 		$('h1').append('<div id="addComment"><font color="red"><h4>error：予定を追加できませんでした。</h4></font></div>');
 		return;
 	}

@@ -23,18 +23,15 @@ function getTop(){
 	name=decodeURIComponent(name);
 	gname=decodeURIComponent(gname);
 
-	$('#groupInfo').append('<div>'+name+'<div>');
-	$('#groupInfo').append('<div>'+gname+'<div>');
+	$('#groupInfo').append('<div>ユーザー：'+name+'<div>');
+	$('#groupInfo').append('<div>グループ：'+gname+'<div>');
 }
 
-// ==音声認識========================================================================
-
-
-function voiceRecognition(){
 
 
 
-}
+
+
 
 
 // --天気取得---------------------------------------------------------------------
@@ -44,23 +41,23 @@ function voiceRecognition(){
 
 
 
-	var i=0;
-	var url= 'http://api.openweathermap.org/data/2.5/forecast?q=Tokyo,jp&units=metric&APPID=e4eabde8b2fd7bedbfda7d0f87285092';
-	fetch(url, {
-		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
-		// credentials: 'include',
-		// redirect: 'follow',
-		method: 'GET',
-		dataType: "json"
-	// headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
-	}).then(response => {
-		// if(response.status=="200"){
-			// console.log("deleteCalendar OK");
-			console.dir(response);
-		// }
-		console.dir(response.status);
-		// return response.text();
-	}).then(data => {
-		console.dir(data);
-	});
-// }
+// 	var i=0;
+// 	var url= 'http://api.openweathermap.org/data/2.5/forecast?q=Tokyo,jp&units=metric&APPID=e4eabde8b2fd7bedbfda7d0f87285092';
+// 	fetch(url, {
+// 		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
+// 		// credentials: 'include',
+// 		// redirect: 'follow',
+// 		method: 'GET',
+// 		dataType: "json"
+// 	// headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
+// 	}).then(response => {
+// 		// if(response.status=="200"){
+// 			// console.log("deleteCalendar OK");
+// 			console.dir(response);
+// 		// }
+// 		console.dir(response.status);
+// 		// return response.text();
+// 	}).then(data => {
+// 		console.dir(data);
+// 	});
+// // }
