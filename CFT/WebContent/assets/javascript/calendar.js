@@ -153,7 +153,7 @@ function deleteCalendar(calendarId){
 		headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
    	}).then(response => {
 			if(response.status=="200"){
-				console.log("deleteCalendar OK");
+				// console.log("deleteCalendar OK");
 				getCalendar(dateStr);
 			}
 			console.dir(response.status);
@@ -230,7 +230,7 @@ function getCalendarTop(date){
 
 //入力値チェック
 function errorCheck(responseStatus,year,mon,day){
-	console.log(responseStatus);
+	// console.log(responseStatus);
 	$("#addComment").remove();
 
 	// 成功
