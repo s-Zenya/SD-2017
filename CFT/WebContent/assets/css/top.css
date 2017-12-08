@@ -15,7 +15,7 @@
 }
 
 #message td {
-	
+
 }
 
 #message td:nth-child(1) {
@@ -27,7 +27,7 @@
 }
 
 #message td:nth-child(3) {
-	
+
 }
 
 #addMessage_form {
@@ -50,7 +50,7 @@
 
 #calendar {
 	margin-bottom: 20px;
-	height: 400px;
+	height: auto;
 	font-size: 20px;
 	float: left;
 }
@@ -70,6 +70,11 @@
 
 #linkBtn input {
 	margin-bottom: 30px;
+	display: flex:
+}
+
+#linkBtn-TodoCal , #linkBtn-ShopGroup {
+
 }
 
 #linkBtn .btn1:hover, #linkBtn .btn2:hover, #linkBtn .btn3:hover,
@@ -92,7 +97,7 @@
 	#message td:nth-child(2) {
 
 	}
-	
+
 	#calendar table {
 		font-size: 20px;
 		width: 500px;
