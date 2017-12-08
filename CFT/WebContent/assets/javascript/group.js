@@ -1,8 +1,8 @@
 function groupCreate(){
 
-	var gid=document.getElementById("createGroupId").value
-	var gpw=document.getElementById("createGroupPass").value
-	var gname=document.getElementById("createGroupName").value
+	var gid=document.getElementById("createGroupId").value;
+	var gpw=document.getElementById("createGroupPass").value;
+	var gname=document.getElementById("createGroupName").value;
     	fetch('/GroupCreate', {
     		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
     		credentials: 'include',
@@ -115,9 +115,9 @@ function createErrorCheck(responseStatus){
 	}
 	// 失敗
 	else{
-		var gid=document.getElementById("createGroupId").value
-		var gpw=document.getElementById("createGroupPw").value
-		var gname=document.getElementById("createGroupName").value
+		var gid=document.getElementById("createGroupId").value;
+		var gpw=document.getElementById("createGroupPw").value;
+		var gname=document.getElementById("createGroupName").value;
 
 		// 文字数確認
 		if(gid.length >= 11 || gpw.length >= 11 || gname.length >= 31 || gid.length == 0 || gpw.length == 0 || gname.length == 0){

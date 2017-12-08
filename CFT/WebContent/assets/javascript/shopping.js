@@ -74,7 +74,7 @@ function addshopping(){
     		credentials: 'include',
     		redirect: 'follow',
     		method: 'POST',
-			body : 'gid='+gid+'&contents='+name+'      '+contents+'   ×'+amount,
+			body : 'gid='+gid+'&contents='+contents+'   '+amount+'個          登録者 '+name,
 			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
     	})
     	  .then(response => {
@@ -236,7 +236,7 @@ return null;
 function errorCheck(responseStatus){
 	console.log(responseStatus);
 	$("#addComment").remove();
-	
+
 	// 成功
 	if(responseStatus == 200){
 		$('h1').append('<div id="addComment"><font color="green"><h4>買い物予定を追加しました。</h4></font></div>');
@@ -244,13 +244,13 @@ function errorCheck(responseStatus){
 	// 失敗
 	else{
 		var addShopping=document.getElementById("addshopping").value
-		
+
 		// 文字数確認
 		if(addShopping.length >= 101 || addShopping.length == 0){
 			$('h1').append('<div id="addComment"><font color="red"><h4>error：入力した文字数を確認してください。</h4></font></div>');
 	        return;
 		}
-		
+
 		$('h1').append('<div id="addComment"><font color="red"><h4>error：買い物予定を追加できませんでした。</h4></font></div>');
 		return;
 	}
