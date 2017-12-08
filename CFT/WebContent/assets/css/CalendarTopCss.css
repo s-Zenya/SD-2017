@@ -7,12 +7,13 @@ table.calendar-table {
 }
 table.calendar-table > tr > td {
     border: 1px solid #808080;
-    width: 14%;
+    width: 14vw;
+    max-width: 1px;
     vertical-align: top;
 }
 table.calendar-table > tr > th {
     border: 1px solid #808080;
-    width: 14%;
+    width: 14vw;
 }
 
 
@@ -87,3 +88,5 @@ table.calendar-table > tr > td.calendar-last-date-of-month-content {
 table.calendar-table > tr > td.calendar-last-date-of-month-header {
     border-right: 3px solid #505050;
 }
+
+/*-ここから編集---------------------------------------------------------------*/

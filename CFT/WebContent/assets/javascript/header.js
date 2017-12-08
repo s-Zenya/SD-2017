@@ -90,6 +90,7 @@ recognition.onresult = function(event) {
   		return response.text();
   	}).then(text => {
   //    		  予定の書き換え
+  console.log(text);
   		var dataObj = $.parseJSON(text);
   		// ===================================================================================
   		var i = 0;

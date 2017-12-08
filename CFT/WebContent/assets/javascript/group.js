@@ -13,7 +13,10 @@ function groupCreate(){
     	  .then(response => {
     		  console.log(response.status);
     		  createErrorCheck(response.status);
-    	    return response.text();
+					if(200 == response.status) {
+						document.getElementById("createForm").style.display="none";
+					}
+					return response.text();
     	  })
 
 }
