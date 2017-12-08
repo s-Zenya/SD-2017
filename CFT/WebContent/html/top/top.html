@@ -25,10 +25,6 @@
 	<script src="../../assets/javascript/header.js"></script>
 	<div id="groupInfo" class="col-sm-12">
 
-<button onClick="recStart()">rec</button>
-
-
-
 	</div>
 
 	<!-- メッセージ表示テーブル -->
@@ -71,12 +67,12 @@
 
 	<div id="linkBtn" class="col-md-4">
 		<p>各機能ページへ</p>
-		<div>
+		<div id="linkBtn-All">
 
-			<div id="link-TodoCal">
+			<div id="link-TodoCal" class="col-md-6">
 				<!-- やることリスト -->
 				<input type="button" onclick="location.href='../todo/todo.html'" value="やる事リスト"
-				class="btn1 btn btn-default col-md-12">
+				class="btn1 btn btn-default col-sm-12">
 
 				<!-- カレンダー -->
 				<input type="button" method='GET'
@@ -84,7 +80,7 @@
 				class="btn2 btn btn-default col-sm-12">
 			</div>
 
-			<div id="link-ShopGroup">
+			<div id="link-ShopGroup" class="col-md-6">
 			<!-- 買い物リスト -->
 			<input type="button" onclick="location.href='../shopping/shopping.html'" value="買い物リスト"
 			class="btn3 btn btn-default col-sm-12">

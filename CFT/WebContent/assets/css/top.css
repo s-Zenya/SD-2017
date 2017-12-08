@@ -3,7 +3,7 @@
 }
 
 #message {
-	height: 250px;
+	max-height: 250px;
 	font-size: 50px;
 	marign-bottom: 0;
 	width: auto;
@@ -50,7 +50,7 @@
 
 #calendar {
 	margin-bottom: 20px;
-	height: auto;
+	max-height: 400px;
 	font-size: 20px;
 	float: left;
 }
@@ -69,11 +69,15 @@
 }
 
 #linkBtn input {
-	margin-bottom: 30px;
-	display: flex:
+	margin-bottom:   15px;
 }
 
-#linkBtn-TodoCal , #linkBtn-ShopGroup {
+#linkBtn-All {
+		display: flex;
+}
+
+#linkBtn-TodoCal , #linkBtn-ShopGroup{
+
 
 }
 
