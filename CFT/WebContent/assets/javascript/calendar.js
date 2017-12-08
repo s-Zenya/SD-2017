@@ -57,26 +57,6 @@ function showCalendar(planObj,dateMain){
 
 // Topページでのカレンダー描画-
 function showCalendarTop(planObj,dateMain){
-	// var displayYear = [];//先月、今月、来月の西暦が入る
-	// var displayMon = [];//先月、今月、来月の月が入る
-	// var startMon = dateMain.substr(5,2)-1;
-	// for(var i=0;i<3;i++){
-	// 	displayYear[i]=dateMain.substr(0,4);
-	// 	displayMon[i]=startMon+i%13;
-	// 	if(displayMon[i]==0){//月の繰り下がりの処理
-	// 		displayYear[i]--;
-	// 		displayMon[i]=12;
-	// 	}else if(displayMon[i]==13){//月の繰り上がりの処理
-	// 		displayYear[i]++;
-	// 		displayMon[i]=1;
-	// 	}
-	// }
-	// //データの削除
-	// for(var i=0;i<3;i++){
-	// 	for(var j=1;j<=31;j++){
-	// 		$('#'+displayYear[i]+'-'+("0"+displayMon[i]).slice(-2)+'-'+("0"+j).slice(-2)).empty();
-	// 	}
-	// }
   var countPlan = 0;
 	//htmlへ書き込み
 	for(let k in planObj) {
@@ -94,17 +74,13 @@ function showCalendarTop(planObj,dateMain){
     }
 	}
 }
-
-
-
-
-
 //予定の追加
 function addCalendar(year,mon,day){
 	var cookie_all = document.cookie;
 	var gid;
 	var date = year+"-"+("0"+mon).slice(-2)+"-"+("0"+day).slice(-2);//ここで日付を取得
 	var content=$("#calendar_content_form_"+date).val();
+  document.getElementById("calendar_content_form_"+date).value = "";
 	var name;
 	var i=0;
 	if(content.length>0){
