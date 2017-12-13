@@ -10,12 +10,17 @@ h1 {
 #inputForm form div input {
 }
 
-#linkCreate , #submit {
+#linkCreate{
+	margin : 10px 0;
+}
+
+#submit{
 	margin : 10px 0;
 }
 
 #submit {
 }
 
-#linkCreate  button {
+#LoginBtn {
+	display: flex;
 }
