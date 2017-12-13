@@ -94,71 +94,67 @@ function showCalendarTop(planObj,dateMain){
     }
   }
 }
-
-
-
-
-
 //予定の追加
 function addCalendar(year,mon,day){
-  var cookie_all = document.cookie;
-  var gid;
-  var date = year+"-"+("0"+mon).slice(-2)+"-"+("0"+day).slice(-2);//ここで日付を取得
-  var content=$("#calendar_content_form_"+date).val();
-  var name;
-  var i=0;
-  if(content.length>0){
-    while(cookie_all.split( '; ' )[ i ] != null){
+	var cookie_all = document.cookie;
+	var gid;
+	var date = year+"-"+("0"+mon).slice(-2)+"-"+("0"+day).slice(-2);//ここで日付を取得
+	var content=$("#calendar_content_form_"+date).val();
+  document.getElementById("calendar_content_form_"+date).value = "";
+	var name;
+	var i=0;
+	if(content.length>0){
+		while(cookie_all.split( '; ' )[ i ] != null){
 
-      if(cookie_all.split( '; ' )[ i ].split( '=' )[ 0 ] == 'gId'){
-        gid=cookie_all.split('; ')[ i ].split( '=' )[ 1 ];
-      }
-      if(cookie_all.split( '; ' )[ i ].split( '=' )[ 0 ] == 'name'){
-        name=cookie_all.split('; ')[ i ].split( '=' )[ 1 ];
-      }
-      i++;
-    }
-    gid=decodeURIComponent(gid);
-    name=decodeURIComponent(name);
+			if(cookie_all.split( '; ' )[ i ].split( '=' )[ 0 ] == 'gId'){
+				gid=cookie_all.split('; ')[ i ].split( '=' )[ 1 ];
+			}
+			if(cookie_all.split( '; ' )[ i ].split( '=' )[ 0 ] == 'name'){
+				name=cookie_all.split('; ')[ i ].split( '=' )[ 1 ];
+			}
+			i++;
+		}
+		gid=decodeURIComponent(gid);
+		name=decodeURIComponent(name);
 
-    fetch('/Calendar', {
-      mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
-      credentials: 'include',
-      redirect: 'follow',
-      method: 'POST',
-      body : 'gid='+gid+'&date='+date+'&content='+content+'&name='+name,
-      headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
-    }).then(response => {
-      errorCheck(response.status,year,mon,day);
-      if(response.status=="200"){
-        getCalendar(date);
-      }
-      console.dir(response.status);
-      return response.text();
-    });
-  }
+   	fetch('/Calendar', {
+   		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
+   		credentials: 'include',
+   		redirect: 'follow',
+   		method: 'POST',
+			body : 'gid='+gid+'&date='+date+'&content='+content+'&name='+name,
+			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
+   	}).then(response => {
+   		errorCheck(response.status,year,mon,day);
+			if(response.status=="200"){
+				getCalendar(date);
+			}
+			console.dir(response.status);
+			return response.text();
+		});
+	}
 }
 
 //予定の削除
 function deleteCalendar(calendarId){
-  var cookie_all = document.cookie;
-  var calendarId;
-  var i=0;
-  var url= '/Calendar?calendarId='+calendarId;
-  fetch(url, {
-    mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
-    credentials: 'include',
-    redirect: 'follow',
-    method: 'GET',
-    headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
-  }).then(response => {
-    if(response.status=="200"){
-      console.log("deleteCalendar OK");
-      getCalendar(dateStr);
-    }
-    console.dir(response.status);
-    return response.text();
-  });
+	var cookie_all = document.cookie;
+	var calendarId;
+	var i=0;
+	var url= '/Calendar?calendarId='+calendarId;
+   	fetch(url, {
+   		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
+   		credentials: 'include',
+   		redirect: 'follow',
+   		method: 'GET',
+		headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
+   	}).then(response => {
+			if(response.status=="200"){
+				// console.log("deleteCalendar OK");
+				getCalendar(dateStr);
+			}
+			console.dir(response.status);
+			return response.text();
+		});
 }
 
 //予定の取得
@@ -230,25 +226,25 @@ function getCalendarTop(date){
 
 //入力値チェック
 function errorCheck(responseStatus,year,mon,day){
-  console.log(responseStatus);
-  $("#addComment").remove();
+	// console.log(responseStatus);
+	$("#addComment").remove();
 
-  // 成功
-  if(responseStatus == 200){
-    $('h1').append('<div id="addComment"><font color="green"><h4>予定を追加しました。</h4></font></div>');
-  }
-  // 失敗
-  else{
-    var date = year+"-"+("0"+mon).slice(-2)+"-"+("0"+day).slice(-2);//ここで日付を取得
-    var content=$("#calendar_content_form_"+date).val();
+	// 成功
+	if(responseStatus == 200){
+		$('h1').append('<div id="addComment"><font color="green"><h4>予定を追加しました。</h4></font></div>');
+	}
+	// 失敗
+	else{
+		var date = year+"-"+("0"+mon).slice(-2)+"-"+("0"+day).slice(-2);//ここで日付を取得
+		var content=$("#calendar_content_form_"+date).val();
 
-    // 文字数確認
-    if(content.length >= 101 || content.length == 0){
-      $('h1').append('<div id="addComment"><font color="red"><h4>error：入力した文字数を確認してください。</h4></font></div>');
-      return;
-    }
+		// 文字数確認
+		if(content.length >= 101 || content.length == 0){
+			$('h1').append('<div id="addComment"><font color="red"><h4>error：入力した文字数を確認してください。</h4></font></div>');
+	        return;
+		}
 
-    $('h1').append('<div id="addComment"><font color="red"><h4>error：予定を追加できませんでした。</h4></font></div>');
-    return;
-  }
+		$('h1').append('<div id="addComment"><font color="red"><h4>error：予定を追加できませんでした。</h4></font></div>');
+		return;
+	}
 }
