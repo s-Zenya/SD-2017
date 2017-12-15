@@ -1,4 +1,4 @@
-h1 {
+h2 {
 	margin: 20px 0;
 }
 
@@ -8,8 +8,16 @@ h1 {
 	border-bottom-right-radius:0;
 }
 
+@media screen and (min-height: 667px){
 #toDayTodo , #allDayTodo {
-	height: 480px;
+	height: 400px;
+}
+}
+
+@media screen and (max-height: 666px){
+#toDayTodo , #allDayTodo {
+	height : 290px;
+}
 }
 
 #toDayTodo .listCheck , #allDayTodo .listCheck {

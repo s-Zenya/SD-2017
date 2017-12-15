@@ -1,13 +1,21 @@
-h1 {
+h2 {
 	margin : 20px 0;
 }
 
 #tableChangeButton {
-	float: right;
+
 }
 
-#allDayShopping , #toDayShopping {
-	height: 480px;
+@media screen and (min-height: 667px){
+#allDayShopping , #toDayShopping{
+	height: 350px;
+}
+}
+
+@media screen and (max-height: 666px){
+#allDayShopping , #toDayShopping{
+	height : 290px;
+}
 }
 
 #shopping {
@@ -32,7 +40,7 @@ h1 {
 #addShopping #amount {
 	margin: 0;
 	float: left;
-	
+
 	border-style: groove;
 
 	border-radius: 5px;        /* CSS3草案 */
