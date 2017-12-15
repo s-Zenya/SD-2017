@@ -1,6 +1,6 @@
-var headerHTML = '<TABLE border="0" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="0" height="50">';
-headerHTML += '<TR><TD>&nbsp;<FONT color="#000000" size="5">CFT</FONT>';
-headerHTML += '<FONT color="#424242" size="4">.CommunicationFamliyTool<button class="btn btn-primary col-sm-2" onClick="recStart()">rec</button><br></FONT></TD></TR>';
+var headerHTML = '<TABLE border="0" bgcolor="#111" width="100%" cellspacing="0" cellpadding="0" height="50">';
+headerHTML += '<TR><TD>&nbsp;<FONT color="#fff" size="5">CFT</FONT>';
+headerHTML += '<FONT color="#e2e2e2" size="4">.CommunicationFamliyTool<button class="btn btn-primary col-sm-2" onClick="recStart()">rec</button><br></FONT></TD></TR>';
 headerHTML += '<TR bgcolor="#424242" height="2"><TD></TD></TR></TABLE>';
 document.write(headerHTML);
 console.log("hoge");
