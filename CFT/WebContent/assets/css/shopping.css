@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 body {
 	background-color: #f1f1f1;
 	color: #333;
 }
 h1 {
+=======
+h2 {
+>>>>>>> 522a6154216dd1f990b9a32c5d245f09d7b032b6
 	margin : 20px 0;
 }
 .table-content {
@@ -43,12 +47,25 @@ footer {
 	width: 100%;
 }
 #tableChangeButton {
-	float: right;
+
 }
 
+@media screen and (min-height: 667px){
+#allDayShopping , #toDayShopping{
+	height: 350px;
+}
+}
+
+<<<<<<< HEAD
 #allDayShopping , #toDayShopping {
 	height: calc(100vh - 148px);
 
+=======
+@media screen and (max-height: 666px){
+#allDayShopping , #toDayShopping{
+	height : 290px;
+}
+>>>>>>> 522a6154216dd1f990b9a32c5d245f09d7b032b6
 }
 
 #shopping {
