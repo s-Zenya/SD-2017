@@ -24,11 +24,17 @@
 <body>
 	<!-- header読み込み -->
 	<script src="../../assets/javascript/header.js"></script>
-	<!-- ログイン名 -->
-	<div id="groupInfo" class="col-sm-12">
 
+	<div id="topHead">
+		<!-- ログイン名 -->
+		<div id="groupInfo" class="col-sm-12">
+
+		</div>
+		<!-- ログアウト-->
+		<div>
+			<button onclick="logout()">ログアウト</button>
+		</div>
 	</div>
-
 	<!-- メッセージ表示テーブル -->
 
 	<div id="messageHead" class="table-responsive col-md-12">
@@ -118,7 +124,6 @@
 	</div>
 </div>
 
-<input type="button" onclick="session()" value="ログアウト">
 	<!-- footer読み込み -->
 	<SCRIPT src="../../assets/javascript/footer.js"></SCRIPT>
 	<script src="../../assets/javascript/top.js"></script>

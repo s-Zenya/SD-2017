@@ -15,6 +15,7 @@ function groupCreate(){
     		  createErrorCheck(response.status);
 					if(200 == response.status) {
 						document.getElementById("createForm").style.display="none";
+						document.getElementById("inputForm").style.display="block";
 					}
 					return response.text();
     	  })
@@ -29,6 +30,12 @@ function groupLogin(){
 	var id;
 	var tag;
 	var i=0;
+	
+	//idに何も入力していない時にログインできないように処理
+	if(gid == ""){
+		loginErrorCheck(0);
+		return;
+	}
 
 	while(cookie_all.split( '; ' )[ i ] != null){
 		if(cookie_all.split( '; ' )[ i ].split( '=' )[ 0 ] == 'id'){
@@ -55,8 +62,7 @@ function groupLogin(){
     		  console.log(response);
     		  loginErrorCheck(response.status);
 					if(response.status=="200"){
-						 location.href=response.url;
-						 document.getElementById("createForm").style.display="none";
+						location.href=response.url;
 					}
     	    return response.text();
     	  })
@@ -67,7 +73,14 @@ function groupLogin(){
 function groupCreateOpen()
 {
   document.getElementById("createForm").style.display="block";
-
+  document.getElementById("inputForm").style.display="none";
+  return null;
+}
+//グループログイン画面の表示
+function groupInputOpen()
+{
+  document.getElementById("createForm").style.display="none";
+  document.getElementById("inputForm").style.display="block";
   return null;
 }
 
@@ -78,6 +91,9 @@ function loginErrorCheck(responseStatus){
 
 	document.getElementById("loginGroupIdLabel").style.color = "black";
 	document.getElementById("loginGroupPwLabel").style.color = "black";
+	document.getElementById("createGroupIdLabel").style.color = "black";
+	document.getElementById("createGroupPwLabel").style.color = "black";
+	document.getElementById("createGroupNameLabel").style.color = "black";
 	// 成功
 	if(responseStatus == 200){
 //		alert("アカウントを作成しました。");
@@ -104,9 +120,10 @@ function loginErrorCheck(responseStatus){
 
 //入力値チェック（グループアカウント作成）
 function createErrorCheck(responseStatus){
-//	console.log(responseStatus);
 	$("#addComment").remove();
-
+	
+	document.getElementById("loginGroupIdLabel").style.color = "black";
+	document.getElementById("loginGroupPwLabel").style.color = "black";
 	document.getElementById("createGroupIdLabel").style.color = "black";
 	document.getElementById("createGroupPwLabel").style.color = "black";
 	document.getElementById("createGroupNameLabel").style.color = "black";
@@ -119,7 +136,7 @@ function createErrorCheck(responseStatus){
 	// 失敗
 	else{
 		var gid=document.getElementById("createGroupId").value;
-		var gpw=document.getElementById("createGroupPw").value;
+		var gpw=document.getElementById("createGroupPass").value;
 		var gname=document.getElementById("createGroupName").value;
 
 		// 文字数確認
@@ -130,7 +147,6 @@ function createErrorCheck(responseStatus){
 			$('h2').append('<div id="addComment"><font color="red"><h4>error：赤く表示されている欄の文字数を確認してください。</h4></font></div>');
 	        return;
 		}
-
 		$('h2').append('<div id="addComment"><font color="red"><h4>error：アカウントを作成できませんでした。</h4></font></div>');
 		return;
 	}

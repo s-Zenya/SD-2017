@@ -1,7 +1,48 @@
+
+body {
+	background-color: #f1f1f1;
+	color: #333;
+}
 h2 {
 	margin : 20px 0;
 }
+.table-content {
+	border: 1px solid #007bff;
+	border-radius: 8px;
+	margin-top: 50px;
+	background-color: white;
 
+}
+.table-content > table > thead > tr > th{
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+}
+table {
+    /*border-collapse: initial;*/
+		margin-bottom: 0px;
+}
+.table td, .table th {
+    border-top: initial;
+}
+.bg-blue {
+	background-color: #007bff;
+}
+.color-white {
+	color: white;
+}
+.add-button {
+	background-color: #ff4081;
+}
+.form-group {
+	display: flex;
+	margin: 0;
+}
+
+footer {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+}
 #tableChangeButton {
 
 }
@@ -12,10 +53,16 @@ h2 {
 }
 }
 
+<<<<<<< HEAD
+#allDayShopping , #toDayShopping {
+	height: calc(100vh - 148px);
+
+=======
 @media screen and (max-height: 666px){
 #allDayShopping , #toDayShopping{
 	height : 290px;
 }
+>>>>>>> 522a6154216dd1f990b9a32c5d245f09d7b032b6
 }
 
 #shopping {
@@ -27,7 +74,14 @@ h2 {
 }
 
 #addShopping {
-	margin : 20px 0;
+	padding : 1vh 1vw;
+	border: 1px #999 solid;
+	/*background-color: #d3d3d3;*/
+	border-radius: 0.5vw;
+	background-color: #007bff;
+	position: absolute;
+	bottom: 0px;
+
 
 }
 
@@ -61,4 +115,20 @@ h2 {
 
 #allDayShopping {
 	display: none;
+}
+/* ---------------------------------------------------------------------------------------- */
+@media (max-width:576px) {
+	.add {
+		width: 80px;
+	}
+	#addshopping {
+		padding: 0;
+	}
+	#amount {
+		width: 80px;
+		padding: 0 0 0 10px;
+	}
+	#allDayShopping , #toDayShopping {
+		height: calc(100vh - 225px);
+	}
 }

@@ -1,7 +1,14 @@
 
-function session(){
-	unset($_COOKIE['gId']);
-	unset($_COOKIE['id']);
-	unset($_COOKIE['name']);
-	unset($_COOKIE['gName']);
+function logout(){
+
+  fetch('/Logout', {
+    mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
+    credentials: 'include',
+    redirect: 'follow',
+    method: 'GET',
+    headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
+  })  .then(response => {
+      return response.text();
+    })
+
 }
