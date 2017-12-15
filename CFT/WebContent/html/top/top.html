@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script
+	<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 
-<!-- BootstrapのCSS読み込み -->
-<link href="../../assets/bootstrap/css/bootstrap.min.css"
+	<!-- BootstrapのCSS読み込み -->
+	<link href="../../assets/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
-<!-- jQuery読み込み -->
-<!-- BootstrapのJS読み込み -->
-<script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../../assets/css/top.css">
+	<!-- jQuery読み込み -->
+	<!-- BootstrapのJS読み込み -->
+	<script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../assets/css/top.css">
 
-<title>トップページ</title>
+	<title>トップページ</title>
 
 </head>
 <body>
 	<!-- header読み込み -->
-	<SCRIPT src="../../assets/javascript/header.js"></SCRIPT>
+	<script src="../../assets/javascript/header.js"></script>
+	<!-- ログイン名 -->
 	<div id="groupInfo" class="col-sm-12">
-
-
-		<h2>ログイン情報 <br></h2>
-
 
 	</div>
 
 	<!-- メッセージ表示テーブル -->
+
+	<div id="messageHead" class="table-responsive col-md-12">
+		<table>
+			<th class="listName" colspan="3">メッセージ</th>
+		</table>
+	</div>
 	<div id="message" class="table-responsive col-md-12">
 		<table class="table">
 			<thead>
 				<tr>
-					<th class="listName" colspan="3">メッセージ</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="messageContents">
 			</tbody>
 		</table>
 	</div>
@@ -49,19 +51,23 @@
 
 		<div class="form-group">
 			<input type="text" class="form-control col-sm-10" name="Message"
-				id="addMessage" placeholder="追加するメッセージを入力してください">
+			id="addMessage" placeholder="追加するメッセージを入力してください">
 			<button class="btn btn-primary col-sm-2" onClick='addMessage()'>追加</button>
 		</div>
 
 	</div>
 
 	<!-- カレンダー表示テーブル -->
+
+	<div id="calendarHead" class="col-md-12">
+		<table>
+			<th class="listName" >予定</th>
+		</table>
+	</div>
 	<div id="calendar" class="table-responsive col-md-8">
 		<table class="table" id="calendar_table">
 			<thead>
 				<tr>
-					<th class="listDate">予定</th>
-					<th class="listMessage"></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -71,27 +77,34 @@
 
 	<div id="linkBtn" class="col-md-4">
 		<p>各機能ページへ</p>
-		<!-- やることリスト -->
-		<input type="button" onclick="location.href='../todo/todo.html'" value="やる事リスト"
-			class="btn1 btn btn-default col-md-12">
+		<div id="linkBtn-All">
 
-		<!-- カレンダー -->
-		<input type="button" method='GET'
-			onclick="location.href='/Calendar'" value="カレンダー"
-			class="btn2 btn btn-default col-sm-12">
+			<div id="link-TodoCal" class="col-md-12">
+				<!-- やることリスト -->
+				<input type="button" onclick="location.href='../todo/todo.html'" value="やる事リスト"
+				class="btn1 btn btn-default col-sm-12">
 
-		<!-- 買い物リスト -->
-		<input type="button" onclick="location.href='../shopping/shopping.html'" value="買い物リスト"
-			class="btn3 btn btn-default col-sm-12">
+				<!-- カレンダー -->
+				<input type="button" method='GET'
+				onclick="location.href='/Calendar'" value="カレンダー"
+				class="btn2 btn btn-default col-sm-12">
+			</div>
 
-		<!-- グループ管理 -->
-		<input type="button" onclick="location.href='../group/group.html'"
-			value="グループ管理" class="btn4 btn btn-default col-sm-12">
+			<div id="link-ShopGroup" class="col-md-12">
+				<!-- 買い物リスト -->
+				<input type="button" onclick="location.href='../shopping/shopping.html'" value="買い物リスト"
+				class="btn3 btn btn-default col-sm-12">
+
+				<!-- グループ管理 -->
+				<input type="button" onclick="location.href='../group/group.html'"
+				value="グループ管理" class="btn4 btn btn-default col-sm-12">
+			</div>
+		</div>
 
 		<p id="shortcutButtonTitle">ショートカットボタン</p>
 		<!-- 帰りますボタン -->
 		<input type="button" value="帰ります"
-			class="btn4 btn btn-danger col-sm-12" onclick="returnButton('帰りますボタン')">
+		class="btn4 btn btn-danger col-sm-12" onclick="returnButton('帰りますボタン')">
 
 		<!-- 帰りなさいボタン -->
 		<form name="selectBox">
@@ -100,9 +113,9 @@
 			</select>
 		</form>
 		<input type="button" value="帰りなさい"
-			class="btn4 btn btn-danger col-sm-12" onclick="goHomeButton()">
+		class="btn4 btn btn-danger col-sm-12" onclick="goHomeButton()">
 	</div>
-
+</div>
 	<!-- footer読み込み -->
 	<SCRIPT src="../../assets/javascript/footer.js"></SCRIPT>
 	<script src="../../assets/javascript/top.js"></script>
@@ -110,8 +123,8 @@
 	<script src="../../assets/javascript/returnButton.js"></script>
 	<script src="../../assets/javascript/calendar.js"></script>
 	<script>
-		var NowDate=new Date();
-  	var dateStr=NowDate.getFullYear()+'-'+("0"+(NowDate.getMonth()+1)).slice(-2)+'-'+("0"+NowDate.getDate()).slice(-2);
-		getCalendarTop(dateStr);</script>
+	var NowDate=new Date();
+	var dateStr=NowDate.getFullYear()+'-'+("0"+(NowDate.getMonth()+1)).slice(-2)+'-'+("0"+NowDate.getDate()).slice(-2);
+	getCalendarTop(dateStr);</script>
 </body>
 </html>
