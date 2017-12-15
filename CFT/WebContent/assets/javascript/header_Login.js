@@ -1,7 +1,6 @@
-var headerHTML = '<DIV id="header"><TABLE border="0" bgcolor="#111" width="100%" cellspacing="0" cellpadding="0" height="50">';
-headerHTML += '<TR><TD>&nbsp;<A HREF="../../html/top/top.html"><FONT color="#fff" size="5">CFT</FONT></A>';
-headerHTML += '<A HREF="../../html/top/top.html"><FONT color="#e2e2e2" size="4">.CommunicationFamliyTool<br></FONT></A></TD>';
-headerHTML += '<TD id="rec-button" border="0" bgcolor="#ffffff" cellspacing="0" cellpadding="0" height="50"><button id = "head-button" class="btn btn-primary col-sm-12" onClick="recStart()">rec</button></TD>';
+var headerHTML = '<DIV id="header"><TABLE border="0" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="0" height="50">';
+headerHTML += '<TR><TD>&nbsp;<FONT color="#000000" size="5">CFT</FONT>';
+headerHTML += '<FONT color="#424242" size="4">.CommunicationFamliyTool<br></FONT></TD>';
 headerHTML += '<TR bgcolor="#424242" height="2"><TD></TD><TD></TD></TR></TABLE></DIV>';
 document.write(headerHTML);
 // ==音声認識========================================================================
