@@ -118,6 +118,7 @@ recognition.onresult = function(event) {
         speechContent += "買うものは";
         for(let k in dataObj) {
           if (dataObj[k].done == "false") {
+            dataObj[k].contents = dataObj[k].contents.substr(0,dataObj[k].contents.indexOf('登録者'));
             speechContent += dataObj[k].contents+",";
             i = 1;
           }

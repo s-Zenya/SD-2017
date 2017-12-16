@@ -21,21 +21,25 @@ w<!DOCTYPE html>
 <body>
 	<!-- header読み込み -->
 	<SCRIPT src="../../assets/javascript/header.js"></SCRIPT>
-	<h2 class="col-md-12">買い物リスト</h2>
+	<h3 class="col-md-12">買い物リスト</h3>
 	<!-- allDayShopping表示テーブル -->
 	<div id="allDayShopping" class="table-responsive col-sm-12">
-		<button id="tableChangeButton" class="col-sm-5 btn btn-primary" onclick="allDayTableOpen()">今日の買い物一覧表示へ</button>
-		<table class="table">
-			<thead>
-				<tr>
-					<th class="listCheck">未購入一覧</th>
-					<th class="listShopping"></th>
-				</tr>
-			</thead>
-			<tbody>
-			</tbody>
-		</table>
+		<button id="tableChangeButton" class="col-sm-4 btn btn-primary" onclick="allDayTableOpen()">今日の買い物一覧表示へ</button>
+		<div class="table-content">
+			<table class="table">
+				<thead>
+					<tr class="bg-blue">
+						<th colspan="3" class="listCheck color-white">未購入一覧</th>
+						<th class="listShopping"></th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
 	</div>
+
+	<!-- ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・ -->
 	<!-- toDayShopping表示テーブル -->
 	<div id="toDayShopping" class="table-responsive col-sm-12">
 		<button id="tableChangeButton" class="col-sm-4 btn btn-primary" onclick="toDayTableOpen()">未購入一覧表示へ</button>
@@ -44,8 +48,6 @@ w<!DOCTYPE html>
 				<thead>
 					<tr class="bg-blue">
 						<th colspan="3" class="color-white">今日の買い物一覧</th>
-						<!-- <th class="listCheck panel-heading">今日の買い物一覧</th> -->
-						<!-- <th class="listShopping"></th> -->
 					</tr>
 				</thead>
 				<tbody>
@@ -73,5 +75,6 @@ w<!DOCTYPE html>
 	<!-- footer読み込み -->
 	<!-- <SCRIPT src="../../assets/javascript/footer.js"></SCRIPT> -->
 	<script src="../../assets/javascript/shopping.js"></script>
-</body>
-</html>
+
+	</body>
+	</html>
