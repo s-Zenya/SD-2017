@@ -46,7 +46,7 @@ public class Message extends HttpServlet {
 			if (messageDAO.add(id, gid, message)) {
 				response.sendError(HttpServletResponse.SC_OK);
 			} else {
-				response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);;
+				response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 			}
 		}
 	}
