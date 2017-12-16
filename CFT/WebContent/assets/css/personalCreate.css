@@ -11,6 +11,11 @@ h1 {
 #inputForm form div input {
 }
 
-#submit {
-	margin : 10px 0;
+#submit{
+	margin-right:10px;
+}
+
+#createButton{
+	display: flex;
+		margin : 10px 0 0 0 ;
 }

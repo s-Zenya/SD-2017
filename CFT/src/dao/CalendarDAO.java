@@ -35,7 +35,7 @@ public class CalendarDAO {
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM "+dbSchema+"CALENDARTABLE WHERE GROUPID = ? AND DATE >= DATEADD(MONTH,-1,?) AND DATE <= DATEADD(DAY,-1,DATEADD(MONTH,2,?))";
+			String sql = "SELECT * FROM "+dbSchema+"CALENDARTABLE WHERE GROUPID = ? AND DATE >= DATEADD(MONTH,-1,?) AND DATE <= DATEADD(DAY,-1,DATEADD(MONTH,2,?)) ORDER BY DATE";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, groupId);
 			pStmt.setString(2, dateStr);
@@ -116,7 +116,7 @@ public class CalendarDAO {
 	// データ削除
 	public boolean delete(int calendarId) {
 		Connection conn = null;
-//		boolean rt = false;
+		//		boolean rt = false;
 		try {
 			Class.forName("org.h2.Driver");
 
@@ -129,16 +129,16 @@ public class CalendarDAO {
 			pStmt.setInt(1, calendarId);
 
 			int r = pStmt.executeUpdate();
-//
-//			String sql2 = "SELECT * FROM "+dbSchema+"CALENDARTABLE WHERE CALENDARID = ?";
-//			PreparedStatement pStmt2 = conn.prepareStatement(sql2);
-//			pStmt2.setInt(1, calendarId);
-//			ResultSet rs = pStmt.executeQuery();
-//
-//			String contents = rs.getString("CONTENTS");
-//			if(contents == null){
-//				rt = true;
-//			}
+			//
+			//			String sql2 = "SELECT * FROM "+dbSchema+"CALENDARTABLE WHERE CALENDARID = ?";
+			//			PreparedStatement pStmt2 = conn.prepareStatement(sql2);
+			//			pStmt2.setInt(1, calendarId);
+			//			ResultSet rs = pStmt.executeQuery();
+			//
+			//			String contents = rs.getString("CONTENTS");
+			//			if(contents == null){
+			//				rt = true;
+			//			}
 
 			return (r > 0);
 
@@ -157,6 +157,6 @@ public class CalendarDAO {
 				}
 			}
 		}
-//		return rt;
+		//		return rt;
 	}
 }

@@ -15,7 +15,6 @@
 	<!-- jQuery読み込み -->
 	<!-- BootstrapのJS読み込み -->
 	<script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
-		<SCRIPT src="../../assets/javascript/logout.js"></SCRIPT>
 	<link rel="stylesheet" type="text/css" href="../../assets/css/top.css">
 
 	<title>トップページ</title>
@@ -25,14 +24,14 @@
 	<!-- header読み込み -->
 	<script src="../../assets/javascript/header.js"></script>
 
-	<div id="topHead">
+	<div id="topHead" class="col-md-12">
 		<!-- ログイン名 -->
-		<div id="groupInfo" class="col-sm-12">
+		<div id="groupInfo" class="col-sm-8">
 
 		</div>
 		<!-- ログアウト-->
-		<div>
-			<button onclick="logout()">ログアウト</button>
+		<div class ="col-sm-4">
+			<button id="logout" class="btn1 btn btn-default col-sm-12" onClick="location.href='/Logout'">ログアウト</button>
 		</div>
 	</div>
 	<!-- メッセージ表示テーブル -->
@@ -130,6 +129,7 @@
 	<script src="../../assets/javascript/message.js"></script>
 	<script src="../../assets/javascript/returnButton.js"></script>
 	<script src="../../assets/javascript/calendar.js"></script>
+	<SCRIPT src="../../assets/javascript/logout.js"></SCRIPT>
 	<script>
 	var NowDate=new Date();
 	var dateStr=NowDate.getFullYear()+'-'+("0"+(NowDate.getMonth()+1)).slice(-2)+'-'+("0"+NowDate.getDate()).slice(-2);

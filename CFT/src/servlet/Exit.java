@@ -15,18 +15,17 @@ public class Exit extends HttpServlet  {
 
 	@Override
 	protected void doGet(HttpServletRequest request,
-		      HttpServletResponse response)
-		      throws ServletException, IOException {
-		HttpSession session;
-//		セッションを取得
-		session = request.getSession(false);
-//    セッション破棄
-    session.invalidate();
-		if(request.getSession(false) == null){
-			response.sendRedirect("/Login");
-      response.sendError(HttpServletResponse.SC_OK);
-    }else{
-			 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);;
+	HttpServletResponse response)
+	throws ServletException, IOException {
+		//		セッションを取得
+		HttpSession session = request.getSession(false);
+		//    セッション破棄
+		session.invalidate();
+		session = request.getSession(true);
+		if(session == null){
+			response.sendRedirect("html/personal/personalLogin.html");
+		}else{
+			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 		}
 	}
 

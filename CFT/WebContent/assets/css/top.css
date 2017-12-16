@@ -1,5 +1,9 @@
-#header{
+#topHead{
+	display: flex;
+}
 
+#logout{
+	margin:25px 0;
 }
 
 #rec-button{
