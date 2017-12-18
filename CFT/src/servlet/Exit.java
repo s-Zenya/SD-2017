@@ -9,22 +9,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/Login")
-public class Entrance extends HttpServlet  {
+@WebServlet("/Logout")
+public class Exit extends HttpServlet  {
 	private static final long serialVersionUID = 1L;
-
 
 	@Override
 	protected void doGet(HttpServletRequest request,
-		      HttpServletResponse response)
-		      throws ServletException, IOException {
-		HttpSession session;
-//		セッションを取得
-		session = request.getSession(false);
-		if(session != null){//セッションがあればTopにページ遷移
-			response.sendRedirect("html/top/top.html");
-		}else{//セッションがなければLogin画面へ遷移
+	HttpServletResponse response)
+	throws ServletException, IOException {
+		//		セッションを取得
+		HttpSession session = request.getSession(false);
+		//    セッション破棄
+		session.invalidate();
+		session = request.getSession(true);
+		if(session == null){
 			response.sendRedirect("html/personal/personalLogin.html");
+		}else{
+			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 		}
 	}
 

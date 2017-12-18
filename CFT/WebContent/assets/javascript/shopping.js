@@ -1,5 +1,5 @@
 showShopping();
-showShopping_all();
+wshowShopping_all();
 
 function checkChange(shoppingId){
 	var cookie_all = document.cookie;
@@ -50,12 +50,20 @@ function addshopping(){
 		}
 		gid=decodeURIComponent(gid);
 		name=decodeURIComponent(name);
+		console.log(amount);
+		var bodyContent;
+		if('' == amount) {
+			bodyContent = 'gid='+gid+'&contents='+contents+'    登録者:' + name;
+		}
+		else {
+			bodyContent = 'gid='+gid+'&contents='+contents+' '+amount+'個 登録者:'+name;
+		}
 		fetch('/Shopping', {
 			mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
 			credentials: 'include',
 			redirect: 'follow',
 			method: 'POST',
-			body : 'gid='+gid+'&contents='+contents+' '+amount+'個 登録者 '+name,
+			body : bodyContent,
 			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
 		})
 		.then(response => {

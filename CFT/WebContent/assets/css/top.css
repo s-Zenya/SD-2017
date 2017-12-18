@@ -1,5 +1,13 @@
-#header{
-	padding:0 5px 0 5px;
+#topHead{
+	display: flex;
+}
+
+#logout{
+	margin:25px 0;
+}
+
+#rec-button{
+	padding: 0 10px 0 0px;
 }
 
 #groupInfo {

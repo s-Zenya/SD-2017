@@ -19,7 +19,7 @@
 
 <body>
 	<!-- header読み込み -->
-	<SCRIPT src="../../assets/javascript/header_Login.js"></SCRIPT>
+	<SCRIPT src="../../assets/javascript/headerLogin.js"></SCRIPT>
 
 	<h1 class="col-md-12">個人アカウント作成画面</h1>
 
@@ -38,8 +38,13 @@
 				<label class="col-sm-1" id="nameLabel">Name</label>
 				<input type="text" class="form-control col-sm-5" name="name" id="name" placeholder="名前入力欄(30文字以内)">
 			</div>
-			<div id="submit" class="form-grpoup">
-				<button type="button" class="btn btn-primary col-sm-2" onClick="personalCreate();">create</button>
+			<div id="createButton" class="col-md-12">
+				<div id="submit" class="col-sm-12">
+					<button type="button" class="btn btn-primary col-sm-3" onClick="personalCreate();">create</button>
+				</div >
+				<div class="col-sm-12">
+					<button type="button" class="btn btn-defult col-sm-3" onclick="location.href='./personalLogin.html'">Login</button>
+				</div>
 			</div>
 		</form>
 	</div>

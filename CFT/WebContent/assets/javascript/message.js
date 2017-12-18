@@ -19,25 +19,25 @@ function addMessage(){
 		}
 		gid=decodeURIComponent(gid);
 		id=decodeURIComponent(id);
-    	fetch('/Message', {
-    		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
-    		credentials: 'include',
-    		redirect: 'follow',
-    		method: 'POST',
+		fetch('/Message', {
+			mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
+			credentials: 'include',
+			redirect: 'follow',
+			method: 'POST',
 			body : 'id='+id+'&gid='+gid+'&message='+message,
 			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
-    	})
-    	  .then(response => {
-    		  console.log(response);
-//    		  errorCheck(response.status);
-					if(response.status=="200"){
-						//入力欄を空欄にする
-						document.getElementById("addMessage").value=null;
-						//メッセージを更新
-						showMessage();
-					}
-    	    return response.text();
-    	})
+		})
+		.then(response => {
+			console.log(response);
+			//    		  errorCheck(response.status);
+			if(response.status=="200"){
+				//入力欄を空欄にする
+				document.getElementById("addMessage").value=null;
+				//メッセージを更新
+				showMessage();
+			}
+			return response.text();
+		})
 	}
 }
 
@@ -58,39 +58,39 @@ function showMessage(){
 	if(gid != null){
 		gid=decodeURIComponent(gid);
 		var url= '/Message?gid='+gid+'&date='+date;
-    	fetch(url, {
-    		mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
-    		credentials: 'include',
-    		redirect: 'follow',
-    		method: 'GET',
-    		headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
-    	})
-  	  .then(response => {
-  		  console.log(response);
-  		  if(response.status=="200"){
-  		  }
-  	    return response.text();
-  	  }).then(text => {
-//    		  メッセージの書き換え
-  		  writeMessage($.parseJSON(text));
-  	  });
-		}else{
-			$('#message table tbody').append('<tr id="caution"><td></td><td><b>家族グループにログインしてください</b></td></tr>');
-			$('#caution').css('color','#ff0000');
-		}
+		fetch(url, {
+			mode: 'cors', //クロスオリジンリクエストをするのでCORSモードにする
+			credentials: 'include',
+			redirect: 'follow',
+			method: 'GET',
+			headers : new Headers({'Content-type' : 'application/x-www-form-urlencoded;charset=UTF-8' })
+		})
+		.then(response => {
+			console.log(response);
+			if(response.status=="200"){
+			}
+			return response.text();
+		}).then(text => {
+			//    		  メッセージの書き換え
+			writeMessage($.parseJSON(text));
+		});
+	}else{
+		$('#message table tbody').append('<tr id="caution"><td></td><td><b>家族グループにログインしてください</b></td></tr>');
+		$('#caution').css('color','#ff0000');
+	}
 }
 
 //メッセージの書き換え
 function writeMessage(messageObj){
 	console.log("writte");
-//	message要素の削除
+	//	message要素の削除
 	$("#message table tbody").empty();
-//    messageObjを一行ずつ表示
-    for(let k in messageObj) {
-	    $('#message table tbody').append('<tr id='+messageObj[k].messageId+'><td>'+messageObj[k].name+'</td><td>'+messageObj[k].message+'</td></tr>');
-    }
-//  messageTableを一番下までスクロール
-    $("#message").scrollTop($("#message")[0].scrollHeight);
+	//    messageObjを一行ずつ表示
+	for(let k in messageObj) {
+		$('#message table tbody').append('<tr id='+messageObj[k].messageId+'><td>'+messageObj[k].name+'</td><td>'+messageObj[k].message+'</td></tr>');
+	}
+	//  messageTableを一番下までスクロール
+	$("#message").scrollTop($("#message")[0].scrollHeight);
 }
 
 //入力値チェック

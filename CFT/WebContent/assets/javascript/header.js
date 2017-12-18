@@ -1,7 +1,10 @@
+//header.js ヘッダーのロゴを/Loginに遷移するように加筆
+//headerLogin.js ログインがめんなどでは遷移しないよう修正
+
 var headerHTML = '<DIV id="header"><TABLE border="0" bgcolor="#111" width="100%" cellspacing="0" cellpadding="0" height="50">';
-headerHTML += '<TR><TD>&nbsp;<A HREF="../../html/top/top.html"><FONT color="#fff" size="5">CFT</FONT></A>';
-headerHTML += '<A HREF="../../html/top/top.html"><FONT color="#e2e2e2" size="4">.CommunicationFamliyTool<br></FONT></A></TD>';
-headerHTML += '<TD id="rec-button" border="0" bgcolor="#ffffff" cellspacing="0" cellpadding="0" height="50"><button id = "head-button" class="btn btn-primary col-sm-12" onClick="recStart()">rec</button></TD>';
+headerHTML += '<TR><TD>&nbsp;<A HREF="/Login"><FONT color="#fff" size="4">CFT</FONT>';
+headerHTML += '<FONT color="#e2e2e2" size="3">.CommunicationFamliyTool<br></FONT></A></TD>';
+headerHTML += '<TD id="rec-button" border="0" bgcolor="#111" cellspacing="0" cellpadding="0" height="50"><button id = "head-button" class="btn btn-primary col-sm-12" onClick="recStart()">rec</button></TD>';
 headerHTML += '<TR bgcolor="#424242" height="2"><TD></TD><TD></TD></TR></TABLE></DIV>';
 document.write(headerHTML);
 // ==音声認識========================================================================
@@ -115,6 +118,7 @@ recognition.onresult = function(event) {
         speechContent += "買うものは";
         for(let k in dataObj) {
           if (dataObj[k].done == "false") {
+            dataObj[k].contents = dataObj[k].contents.substr(0,dataObj[k].contents.indexOf('登録者'));
             speechContent += dataObj[k].contents+",";
             i = 1;
           }
