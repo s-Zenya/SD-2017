@@ -19,8 +19,6 @@ public class TodoDAO {
 	private String dbUser = DbConnection.getUser();
 	private String dbPass = DbConnection.getPass();
 	private String dbSchema = DbConnection.getSchema();
-	private String dbDriver = DbConnection.getDriver();
-
 
 	// 指定されたgroupIdの全データ取得
 	public  List<Todo> findGroupIdAll() {
@@ -31,7 +29,7 @@ public class TodoDAO {
 		try {
 
 			// JDBC Driver Read
-			Class.forName(dbDriver);
+			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -83,7 +81,7 @@ public class TodoDAO {
 //		Todo todo = new Todo();
 		try{
 			// JDBC Driver Read
-			Class.forName(dbDriver);
+			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -139,7 +137,7 @@ public class TodoDAO {
 //		Todo todo = new Todo();
 		try{
 			// JDBC Driver Read
-			Class.forName(dbDriver);
+			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -192,7 +190,7 @@ public class TodoDAO {
 			int r = 0;
 			boolean rt = false;
 			try {
-				Class.forName(dbDriver);
+				Class.forName("org.h2.Driver");
 
 				// データベースへ接続
 				conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -264,7 +262,7 @@ public class TodoDAO {
 		Connection conn = null;
 
 		try {
-			Class.forName(dbDriver);
+			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);

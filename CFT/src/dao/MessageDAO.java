@@ -19,8 +19,6 @@ public class MessageDAO {
 	private String dbUser = DbConnection.getUser();
 	private String dbPass = DbConnection.getPass();
 	private String dbSchema = DbConnection.getSchema();
-	private String dbDriver = DbConnection.getDriver();
-
 
 	// 指定されたgroupIdの全データ取得
 	public  List<Message> findGroupIdAll(String groupId) {
@@ -31,7 +29,7 @@ public class MessageDAO {
 		try {
 
 			// JDBC Driver Read
-			Class.forName(dbDriver);
+			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -80,7 +78,7 @@ public class MessageDAO {
 		Connection conn = null;
 
 		try {
-			Class.forName(dbDriver);
+			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -124,7 +122,7 @@ public class MessageDAO {
 		try {
 
 			// JDBC Driver Read
-			Class.forName(dbDriver);
+			Class.forName("org.h2.Driver");
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
