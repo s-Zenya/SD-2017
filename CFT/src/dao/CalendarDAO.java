@@ -18,6 +18,7 @@ public class CalendarDAO {
 	private String dbUser = DbConnection.getUser();
 	private String dbPass = DbConnection.getPass();
 	private String dbSchema = DbConnection.getSchema();
+	private String dbDriver = DbConnection.getDriver();
 
 	// 指定されたgroupId,dateの前後1か月の全データ取得
 	public  List<Calendar> findDateGroupIdAll(Date getDate, String groupId) {
@@ -29,7 +30,7 @@ public class CalendarDAO {
 		try {
 
 			// JDBC Driver Read
-			Class.forName("org.h2.Driver");
+			Class.forName(dbDriver);
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -79,7 +80,7 @@ public class CalendarDAO {
 		Connection conn = null;
 
 		try {
-			Class.forName("org.h2.Driver");
+			Class.forName(dbDriver);
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -118,7 +119,7 @@ public class CalendarDAO {
 		Connection conn = null;
 		//		boolean rt = false;
 		try {
-			Class.forName("org.h2.Driver");
+			Class.forName(dbDriver);
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
