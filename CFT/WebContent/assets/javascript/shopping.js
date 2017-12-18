@@ -1,5 +1,5 @@
 showShopping();
-showShopping_all();
+wshowShopping_all();
 
 function checkChange(shoppingId){
 	var cookie_all = document.cookie;
