@@ -19,6 +19,8 @@ public class ShoppingDAO {
 	private String dbUser = DbConnection.getUser();
 	private String dbPass = DbConnection.getPass();
 	private String dbSchema = DbConnection.getSchema();
+	private String dbDriver = DbConnection.getDriver();
+
 
 	// 指定されたgroupIdの全データ取得
 	public List<Shopping> findGroupIdAll(String groupId) {
@@ -29,7 +31,7 @@ public class ShoppingDAO {
 		try {
 
 			// JDBC Driver Read
-			Class.forName("org.h2.Driver");
+			Class.forName(dbDriver);
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -82,7 +84,7 @@ public class ShoppingDAO {
 		try {
 
 			// JDBC Driver Read
-			Class.forName("org.h2.Driver");
+			Class.forName(dbDriver);
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -136,7 +138,7 @@ public class ShoppingDAO {
 		try {
 
 			// JDBC Driver Read
-			Class.forName("org.h2.Driver");
+			Class.forName(dbDriver);
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -186,7 +188,7 @@ public class ShoppingDAO {
 		int r = 0;
 		boolean rt = false;
 		try {
-			Class.forName("org.h2.Driver");
+			Class.forName(dbDriver);
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -258,7 +260,7 @@ public class ShoppingDAO {
 		Connection conn = null;
 
 		try {
-			Class.forName("org.h2.Driver");
+			Class.forName(dbDriver);
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);

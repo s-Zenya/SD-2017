@@ -217,7 +217,7 @@ function getCalendarTop(date){
       return response.text();
     }).then(text => {
       //    		  予定の書き換え
-      // console.log(text);
+       console.log(text);
       showCalendarTop($.parseJSON(text),date);
     });
   }
