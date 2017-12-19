@@ -1,5 +1,10 @@
 h2 {
 	margin: 20px 0;
+	font-size:calc(20px + 3vw);
+}
+
+#rec-button{
+	padding: 0 10px 0 0px;
 }
 
 #tableChangeButton {
@@ -17,11 +22,13 @@ h2 {
 @media screen and (max-height: 666px){
 #toDayTodo , #allDayTodo {
 	height : 290px;
+	font-size:calc(2px + 3vw); 
 }
 }
 
 #toDayTodo .listCheck , #allDayTodo .listCheck {
 	width: 60px;
+
 }
 
 #allDayTodo {

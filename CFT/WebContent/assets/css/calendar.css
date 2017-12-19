@@ -2,6 +2,10 @@ h1 {
 	margin: 20px 0;
 }
 
+#rec-button{
+	padding: 0 10px 0 0px;
+}
+
 .btn-mini {
 	margin: 3px;
 	line-height: 1.2;

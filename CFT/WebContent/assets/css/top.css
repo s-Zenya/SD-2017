@@ -12,6 +12,7 @@
 
 #groupInfo {
 	margin: 20px 0;
+	font-size: calc(3px+1vw);
 }
 
 @media screen and (max-width: 766px){
@@ -36,16 +37,34 @@
 	}
 }
 
+@media screen and (min-width: 767px){
 #message {
 	max-height: 200px;
-	font-size: 50px;
+	font-size: calc(10px + 2vw);
 	marign-bottom: 0;
 	width: 200px + 10vw;
+	}
+}
+@media screen and (max-width: 766px){
+	#message {
+		max-height: 200px;
+		font-size: calc(10px + 3vw);
+		marign-bottom: 0;
+		width: 200px + 10vw;
+		}
 }
 
+@media screen and (min-width: 767px){
 #message table {
-	font-size: 20px;
+	font-size: calc(10px + 1.5vw);
 	width: 100%;
+}
+}
+@media screen and (max-width: 766px){
+#message table {
+	font-size: calc(10px + 1.5vw);
+	width: 100%;
+}
 }
 
 #message td:nth-child(1) {
@@ -76,7 +95,7 @@
 	#calendar {
 		margin-bottom: 20px;
 		max-height: 500px;
-		font-size: 20px;
+		font-size: calc(10px + 1.5vw);
 		float: left;
 
 	}
@@ -87,18 +106,18 @@
 	#calendar {
 		margin-bottom: 20px;
 		max-height: 200px;
-		font-size: 20px;
+		font-size: calc(15px+3vw);
 		float: left;
 
 	}
 }
 
 #calendar .listDate {
-	font-size: 20px;
+	font-size: calc(10px+2vw);
 }
 
 #calendar td:nth-child(1) {
-	font-size:20px;
+	font-size:CALC(10px+2vw);
 	width: 130px;
 }
 
@@ -136,7 +155,7 @@ p {
 /* スマホだけに適用するCSS */
 @media screen and ( max-width:530px ) {
 	#message table {
-		font-size: 20px;
+		font-size: calc(10px+2vw);
 		width: 500px;
 	}
 	#message td {
@@ -150,7 +169,7 @@ p {
 	}
 
 	#calendar table {
-		font-size: 20px;
+		font-size: calc(10px+2vw);
 		width: 500px;
 		heigit: 200px;
 	}
