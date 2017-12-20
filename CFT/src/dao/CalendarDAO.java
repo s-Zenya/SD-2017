@@ -18,6 +18,7 @@ public class CalendarDAO {
 	private String dbUser = DbConnection.getUser();
 	private String dbPass = DbConnection.getPass();
 	private String dbSchema = DbConnection.getSchema();
+	private String dbDriver = DbConnection.getDriver();
 
 	// 指定されたgroupId,dateの前後1か月の全データ取得
 	public  List<Calendar> findDateGroupIdAll(Date getDate, String groupId) {
@@ -29,13 +30,13 @@ public class CalendarDAO {
 		try {
 
 			// JDBC Driver Read
-			Class.forName("org.h2.Driver");
+			Class.forName(dbDriver);
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
 
 			// SELECT文を準備
-			String sql = "SELECT * FROM "+dbSchema+"CALENDARTABLE WHERE GROUPID = ? AND DATE >= DATEADD(MONTH,-1,?) AND DATE <= DATEADD(DAY,-1,DATEADD(MONTH,2,?)) ORDER BY DATE";
+			String sql = "SELECT * FROM "+dbSchema+"CALENDARTABLE WHERE GROUPID = ? AND DATE >= (to_date((?),'yyyy-mm-dd') + interval '-1 months') AND DATE <= ((to_date((?),'yyyy-mm-dd') + interval '2 months') + interval '-1 days') ORDER BY DATE";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, groupId);
 			pStmt.setString(2, dateStr);
@@ -79,7 +80,7 @@ public class CalendarDAO {
 		Connection conn = null;
 
 		try {
-			Class.forName("org.h2.Driver");
+			Class.forName(dbDriver);
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -118,7 +119,7 @@ public class CalendarDAO {
 		Connection conn = null;
 		//		boolean rt = false;
 		try {
-			Class.forName("org.h2.Driver");
+			Class.forName(dbDriver);
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);

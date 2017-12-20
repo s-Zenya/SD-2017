@@ -17,6 +17,7 @@ public class GroupDAO {
 	private String dbUser = DbConnection.getUser();
 	private String dbPass = DbConnection.getPass();
 	private String dbSchema = DbConnection.getSchema();
+	private String dbDriver = DbConnection.getDriver();
 
 	public List<Group> findAll() {
 
@@ -26,7 +27,7 @@ public class GroupDAO {
 		try {
 
 			// JDBC Driver Read
-			Class.forName("org.h2.Driver");
+			Class.forName(dbDriver);
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -71,7 +72,7 @@ public class GroupDAO {
 		Connection conn = null;
 
 		try {
-			Class.forName("org.h2.Driver");
+			Class.forName(dbDriver);
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -114,7 +115,7 @@ public class GroupDAO {
 		try {
 
 			// JDBC Driver Read
-			Class.forName("org.h2.Driver");
+			Class.forName(dbDriver);
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
@@ -171,7 +172,7 @@ public class GroupDAO {
 		try {
 
 			// JDBC Driver Read
-			Class.forName("org.h2.Driver");
+			Class.forName(dbDriver);
 
 			// データベースへ接続
 			conn = DriverManager.getConnection(connectionString, dbUser, dbPass);
