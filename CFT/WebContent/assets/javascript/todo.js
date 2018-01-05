@@ -177,10 +177,10 @@ function writeTodo(todoObj){
 //    messageObjを一行ずつ表示
     for(let k in todoObj) {
     	if(todoObj[k].done == "false"){
-    	    $('#toDayTodo table tbody').prepend('<tr id='+todoObj[k].todoId+'><td><input type="checkbox" name="" id="todoId" value="'+todoObj[k].todoId+'" onClick="checkChange('+todoObj[k].todoId+')"></td><td>'+todoObj[k].date+'</td><td>'+todoObj[k].contents+'</td></tr>');
+    	    $('#toDayTodo table tbody').prepend('<tr style="border-bottom: solid 1px #eee;" id='+todoObj[k].todoId+'><td><input type="checkbox" name="" id="todoId" value="'+todoObj[k].todoId+'" onClick="checkChange('+todoObj[k].todoId+')"></td><td>'+todoObj[k].date+'</td><td>'+todoObj[k].contents+'</td></tr>');
     	}
     	else{
-    	    $('#toDayTodo table tbody').prepend('<tr id='+todoObj[k].todoId+'><td><input type="checkbox" checked = "checked"  name="" id="todoId" value="'+todoObj[k].todoId+'" onClick="checkChange('+todoObj[k].todoId+')"></td><td>'+todoObj[k].date+'</td><td>'+todoObj[k].contents+'</td></tr>');
+    	    $('#toDayTodo table tbody').prepend('<tr style="border-bottom: solid 1px #eee;" id='+todoObj[k].todoId+'><td><input type="checkbox" checked = "checked"  name="" id="todoId" value="'+todoObj[k].todoId+'" onClick="checkChange('+todoObj[k].todoId+')"></td><td>'+todoObj[k].date+'</td><td>'+todoObj[k].contents+'</td></tr>');
     	}
 
     }
@@ -197,7 +197,7 @@ function writeTodo_false(todoObj_false){
 
     for(let s in todoObj_false) {
 //    	console.log(todoObj_false[s].contents);
-	    $('#allDayTodo table tbody').prepend('<tr id='+todoObj_false[s].todoId+'><td><input type="checkbox" name="" id="todoId" value="'+todoObj_false[s].todoId+'" onClick="checkChange('+todoObj_false[s].todoId+')"></td><td>'+todoObj_false[s].date+'</td><td>'+todoObj_false[s].contents+'</td></tr>');
+	    $('#allDayTodo table tbody').prepend('<tr style="border-bottom: solid 1px #eee;" id='+todoObj_false[s].todoId+'><td><input type="checkbox" name="" id="todoId" value="'+todoObj_false[s].todoId+'" onClick="checkChange('+todoObj_false[s].todoId+')"></td><td>'+todoObj_false[s].date+'</td><td>'+todoObj_false[s].contents+'</td></tr>');
     }
 //  messageTableを一番下までスクロール
 //    $("#allDayTodo").scrollTop($("#allDayTodo")[0].scrollHeight);
