@@ -13,6 +13,7 @@
 <!-- BootstrapのJS読み込み -->
 <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../../assets/css/todo.css">
+<link rel="stylesheet" type="text/css" href="../../assets/css/summary.css">
 
 
 <title>やる事リスト画面</title>
@@ -27,15 +28,13 @@
 	<!-- toDayTodo表示テーブル -->
 	<div id="toDayTodo" class="table-responsive col-sm-12">
 	<button id="tableChangeButton" class="col-sm-5 btn btn-primary" onclick="allDayTableOpen()">未完了のやること一覧表示</button>
-		<table class="table">
+		<table class="table toDoTable">
 			<thead>
 				<tr>
-					<th class="listCheck" colspan="2">今日のやること一覧</th>
-					<th></th>
+					<th class="listCheck bg-blue" colspan="3">今日のやること一覧</th>
 				</tr>
 			</thead>
-			<tbody>
-
+			<tbody class="bg-white">
 			</tbody>
 		</table>
 	</div>
@@ -43,11 +42,10 @@
 	<!-- allDayTodo表示テーブル -->
 	<div id="allDayTodo" class="table-responsive col-sm-12">
 		<button id="tableChangeButton" class="col-sm-4 btn btn-primary" onclick="toDayTableOpen()">今日のやること一覧表示</button>
-		<table class="table">
+		<table class="table allDayTodoTable">
 			<thead>
 				<tr>
-					<th class="listCheck" colspan="2">未完了のやること一覧</th>
-					<th></th>
+					<th class="listCheck bg-blue" colspan="3">未完了のやること一覧</th>
 				</tr>
 			</thead>
 			<tbody>
