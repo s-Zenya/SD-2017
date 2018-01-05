@@ -1,12 +1,25 @@
 h2 {
 	margin: 20px 0;
 }
+.toDoTable , .allDayTodoTable {
+	margin-top: 50px;
+	border-radius: 8px;
+	border-collapse: separate;
+	background-color: #fff;
+	border-spacing: 0;
+	padding-bottom: 6px;
+	border: solid 1px #007bff;
+}
+.toDoTable > thead > tr >th ,.allDayTodoTable > thead > tr > th {
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+}
+
 
 #tableChangeButton {
 	float:right;
-	border-bottom-left-radius:0;
-	border-bottom-right-radius:0;
 }
+
 
 @media screen and (min-height: 667px){
 #toDayTodo , #allDayTodo {
