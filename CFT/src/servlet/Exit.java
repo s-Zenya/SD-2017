@@ -21,7 +21,8 @@ public class Exit extends HttpServlet  {
 		HttpSession session = request.getSession(false);
 		//    セッション破棄
 		session.invalidate();
-		if(session != null){
+		session = request.getSession(false);
+		if(session == null){
 			response.sendRedirect("/Login");
 		}else{
 			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
