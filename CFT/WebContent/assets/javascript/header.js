@@ -5,7 +5,9 @@ var headerHTML = '<DIV id="header"><TABLE border="0" bgcolor="#111" width="100%"
 headerHTML += '<TR><TD>&nbsp;<A HREF="/Login"><FONT color="#fff" size="4">CFT</FONT>';
 headerHTML += '<FONT color="#e2e2e2" size="3">.CommunicationFamliyTool<br></FONT></A></TD>';
 headerHTML += '<TD id="rec-button" border="0" bgcolor="#111" cellspacing="0" cellpadding="0" height="50"><button id = "head-button" class="btn btn-primary col-sm-12" onClick="recStart()">rec</button></TD>';
+headerHTML += '<TR><TD><FONT color="#e2e2e2" size="1">※このサイトは正式なサービスを行っていません。授業の一環で使用するためのサイトです。</FONT></TD></TR>';
 headerHTML += '<TR bgcolor="#424242" height="2"><TD></TD><TD></TD></TR></TABLE></DIV>';
+
 document.write(headerHTML);
 // ==音声認識========================================================================
 var grammar = '#JSGF V1.0; grammar colors; public <color> = aqua | azure | beige | bisque | black | blue | brown | chocolate | coral | crimson | cyan | fuchsia | ghostwhite | gold | goldenrod | gray | green | indigo | ivory | khaki | lavender | lime | linen | magenta | maroon | moccasin | navy | olive | orange | orchid | peru | pink | plum | purple | red | salmon | sienna | silver | snow | tan | teal | thistle | tomato | turquoise | violet | white | yellow ;'
