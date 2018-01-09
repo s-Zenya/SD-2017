@@ -1,8 +1,3 @@
-body {
-	background-image: url("../picture/main_backgroundimage.jpg");
-	background-size:cover;
-
-}
 #topHead{
 	display: flex;
 }
@@ -87,6 +82,9 @@ body {
 		font-size: 20px;
 		float: left;
 
+	}
+	#calendarHead {
+		width: 66.67%
 	}
 }
 

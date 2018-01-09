@@ -42,7 +42,13 @@ h2 {
 }
 
 #addTodo {
-	margin: 20px 0;
+	margin: 0;
+	padding: 10px 1vw;
+	border-radius: 5px;
+	border: 1px #999 solid;
+	position: absolute;
+  bottom: 0px;
+
 }
 
 #addTodo input {

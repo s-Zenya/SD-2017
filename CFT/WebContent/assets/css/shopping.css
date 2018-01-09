@@ -23,9 +23,7 @@ table {
 .color-white {
 	color: white;
 }
-.add-button {
-	background-color: #ff4081;
-}
+
 .form-group {
 	display: flex;
 	margin: 0;
