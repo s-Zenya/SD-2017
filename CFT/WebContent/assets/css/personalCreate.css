@@ -17,5 +17,17 @@ h1 {
 
 #createButton{
 	display: flex;
-		margin : 10px 0 0 0 ;
+	margin : 10px 0 0 0 ;
+}
+
+.outLineGroup {
+	padding: 0.5em 1em;
+    color: #000000;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+.title {
+	margin: 1em 0;
+	text-align: center;
 }

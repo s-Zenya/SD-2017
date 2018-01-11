@@ -13,6 +13,7 @@
 	<!-- BootstrapのJS読み込み -->
 	<script src="../../assets/bootstrap/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../../assets/css/personalLogin.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/css/summary.css">
 	<script type="text/javascript" src="../../assets/javascript/personalLogin.js"></script>
 	<title>ログイン画面</title>
 </head>
@@ -24,29 +25,37 @@
 	<h1 class="col-md-12">ログイン画面</h1>
 
 	<!-- ID PW 入力フォーム -->
-	<div id="inputForm" class="container col-sm-12">
+	<div id="inputForm" class="container col-sm-11 outLineGroup">
+		<div>
+			<label class="col-sm-12 title">ログインするアカウント情報を入力してください。</label>
+		</div>
 		<form action="/PersonalLogin" method="post">
 			<div class="form-group">
-				<label class="col-sm-1" id="idLabel">ID</label>
-				<input type="text" class="form-control col-sm-5" name="id" id="id" placeholder="IDを入力してください">
+				<label class="col-sm-2" id="idLabel">ID</label>
+				<input type="text" class="form-control col-sm-9" name="id" id="id" placeholder="IDを入力してください">
 			</div>
 			<div class="form-group">
-				<label class="col-sm-1" id="pwLabel">PW</label>
-				<input type="password" class="form-control col-sm-5" name="pw" id="pw" placeholder="PWを入力してください">
+				<label class="col-sm-2" id="pwLabel">PW</label>
+				<input type="password" class="form-control col-sm-9" name="pw" id="pw" placeholder="PWを入力してください">
 			 </div>
 		</form>
-	</div>
-
 		<div id="LoginBtn" class="col-md-12">
+			<div class="col-sm-2">
+			</div>
 			<div id="submit" class="col-sm-3">
-					<button type="button" class="btn btn-primary col-sm-12" onClick="personalLogin();">in</button>
+				<button type="button" class="btn btn-primary col-sm-12" onClick="personalLogin();">ログイン</button>
+			</div>
+			<div class="col-sm-2">
 			</div>
 			<div id="linkCreate" class="col-sm-3">
-				<button onClick="location.href='../personal/personalCreate.html'" class="btn btn-defult col-sm-12">Create</button>
+				<button onClick="location.href='../personal/personalCreate.html'" class="btn btn-defult col-sm-12">アカウント作成</button>
+			</div>
+			<div class="col-sm-2">
 			</div>
 		</div>
+	</div>
 
 	<!-- footer読み込み -->
-	<SCRIPT src="../../assets/javascript/footerLogin.js"></SCRIPT>
+	<!-- <SCRIPT src="../../assets/javascript/footerLogin.js"></SCRIPT> -->
 </body>
 </html>
