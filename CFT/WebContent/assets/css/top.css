@@ -21,10 +21,19 @@
 		width: calc(100% - 10px);
 
 }
+@media screen and (max-width: 766px){
 #calendarHead , #calendar{
 		margin: 0  0 0 5px;
 		border-radius: 5px;
-		width: calc(66%);
+		width: calc(100% - 10px);
+}
+}
+@media screen and (min-width: 767px){
+	#calendarHead , #calendar{
+			margin: 0  0 0 5px;
+			border-radius: 5px;
+			width: calc(66%);
+	}
 }
 
 #calendar_table{
@@ -122,7 +131,7 @@
 	#calendar {
 		margin-bottom: 20px;
 		max-height: 500px;
-		font-size: calc(4px + 1.5vw);
+		font-size: calc(4px + 1vw);
 		float: left;
 
 	}
@@ -136,18 +145,18 @@
 	#calendar {
 		margin-bottom: 20px;
 		max-height: 200px;
-		font-size: calc(4px+1vw);
+		font-size: calc(4px + 1vw);
 		float: left;
 
 	}
 }
 
 #calendar .listDate {
-	font-size: calc(4px+1vw);
+	font-size: calc(4px + 1vw);
 }
 
 #calendar td:nth-child(1) {
-	font-size:CALC(4px+1vw);
+	font-size:CALC(4px + 1vw);
 	width: 130px;
 }
 
@@ -203,7 +212,7 @@ p {
 	}
 
 	#message table {
-		font-size: calc(10px + 2vw);
+		font-size: calc(1px + 3vw);
 		width: 500px;
 	}
 	#message td {
@@ -217,7 +226,7 @@ p {
 	}
 
 	#calendar table {
-		font-size: calc(10px+2vw);
+		font-size: calc(1px + 3vw);
 		width: 500px;
 		heigit: 200px;
 	}

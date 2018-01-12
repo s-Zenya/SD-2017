@@ -3,6 +3,10 @@ h2 {
 	font-size:calc(20px + 3vw);
 }
 
+.listCheck{
+	color : white;
+}
+
 #rec-button{
 	padding: 0 10px 0 0px;
 }
@@ -28,14 +32,14 @@ h2 {
 
 @media screen and (min-height: 667px){
 #toDayTodo , #allDayTodo {
-	height: 400px;
+	height: calc(100vh - 200px);
 	font-size: calc(1px + 2vw);
 }
 }
 
 @media screen and (max-height: 666px){
 #toDayTodo , #allDayTodo {
-	height : 290px;
+	height: calc(100vh - 200px);
 	font-size:calc(1px + 2vw);
 }
 }
