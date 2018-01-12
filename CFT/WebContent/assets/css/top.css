@@ -31,6 +31,9 @@
 	overflow: hidden;
 }
 
+#calendar {
+	padding: 0;
+}
 @media screen and (max-width: 766px){
 	#messageHead , #calendarHead{
 		border-top: solid 1px #bbb;
