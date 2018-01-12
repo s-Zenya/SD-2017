@@ -24,9 +24,13 @@
 #calendarHead , #calendar{
 		margin: 0  0 0 5px;
 		border-radius: 5px;
-		width: calc(100% - 10px);
-
+		width: calc(66%);
 }
+
+#calendar_table{
+	border-radius : 5px;
+}
+
 #messageHead , #calendarHead{
 	overflow: hidden;
 }
@@ -123,7 +127,7 @@
 
 	}
 	#calendarHead {
-		width: 66.67%
+		width: 66%
 	}
 }
 
