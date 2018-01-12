@@ -1,7 +1,7 @@
-var headerHTML = '<DIV id="header"><TABLE border="0" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="0" height="50">';
-headerHTML += '<TR><TD>&nbsp;<FONT color="#000000" size="5">CFT</FONT>';
-headerHTML += '<FONT color="#424242" size="4">.CommunicationFamliyTool<br></FONT></TD>';
-headerHTML += '<TR><TD><FONT color="#424242" size="1">※このサイトは正式なサービスを行っていません。授業の一環で使用するためのサイトです。</FONT></TD></TR>';
+var headerHTML = '<DIV id="header"><TABLE border="0" bgcolor="#000000" width="100%" cellspacing="0" cellpadding="0" height="50">';
+headerHTML += '<TR><TD>&nbsp;<FONT color="#fff" size="4">CFT</FONT>';
+headerHTML += '<FONT color="#e2e2e2" size="3">.CommunicationFamliyTool<br></FONT></TD>';
+headerHTML += '<TR><TD><FONT color="#e2e2e2" size="1">※このサイトは正式なサービスを行っていません。授業の一環で使用するためのサイトです。</FONT></TD></TR>';
 headerHTML += '<TR bgcolor="#424242" height="2"><TD></TD><TD></TD></TR></TABLE></DIV>';
 document.write(headerHTML);
 // ==音声認識========================================================================
