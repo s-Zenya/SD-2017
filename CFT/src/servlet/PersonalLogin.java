@@ -37,7 +37,6 @@ public class PersonalLogin extends HttpServlet {
 		PersonalDAO personalDAO = new PersonalDAO();
 
 		if (personalDAO.loginCheck(id,pw)) {
-
 			//cookieにid,nameを追加
 			Personal personal = new Personal();
 			personal = personalDAO.findSearch(id);
@@ -78,7 +77,7 @@ public class PersonalLogin extends HttpServlet {
 			}
 			//セッションを開始
 			session = request.getSession(true);
-			
+
 			response.sendRedirect("html/top/top.html");
 			return;
 		} else {
