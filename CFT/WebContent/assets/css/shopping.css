@@ -5,7 +5,7 @@ h1 {
 .table-content {
 	border: 1px solid #007bff;
 	border-radius: 8px;
-	margin-top: 50px;
+	margin: 0;
 	background-color: white;
 }
 .table-content > table > thead > tr > th{
