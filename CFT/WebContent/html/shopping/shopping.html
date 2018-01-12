@@ -14,8 +14,8 @@
 	<!-- jQuery読み込み -->
 	<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css"
-	href="../../assets/css/shopping.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/css/summary.css">
+	<link rel="stylesheet" type="text/css" href="../../assets/css/shopping.css">
 	<title>買い物リスト画面</title>
 </head>
 <body>
@@ -30,7 +30,7 @@
 				<thead>
 					<tr class="bg-blue">
 						<th colspan="3" class="listCheck color-white">未購入一覧</th>
-						<th class="listShopping"></th>
+						<!-- <th class="listShopping"></th> -->
 					</tr>
 				</thead>
 				<tbody>
@@ -56,7 +56,7 @@
 		</div>
 	</div>
 	<!-- Shopping追加フォーム -->
-	<div id="addShopping" class="container col-sm-12">
+	<div id="addShopping" class="container col-sm-12 bg-blue">
 		<div class="form-group">
 			<input type="text" class="form-control col-sm-8" name="" id="addshopping"
 			placeholder="追加する購入予定の物を入力してください">
@@ -69,7 +69,7 @@
 				<option value="4"></option>
 				<option value="5"></option>
 			</datalist>
-			<button class="add btn btn-primary col-sm-2 add-button" onclick="addshopping()">追加</button>
+			<button class="add btn btn-primary col-sm-2 bg-red" onclick="addshopping()">追加</button>
 		</div>
 	</div>
 	<!-- footer読み込み -->

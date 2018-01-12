@@ -23,7 +23,7 @@ public class Exit extends HttpServlet  {
 		session.invalidate();
 		session = request.getSession(false);
 		if(session == null){
-			response.sendRedirect("html/personal/personalLogin.html");
+			response.sendRedirect("/Login");
 		}else{
 			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 		}

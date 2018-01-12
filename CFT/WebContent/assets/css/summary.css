@@ -1,0 +1,24 @@
+.bg-blue {
+	/* background-color: #007bff; */
+	background-color: #10B0A0;
+
+}
+.bg-black {
+	background-color: #000;
+}
+.bg-white {
+	background-color: #fff;
+}
+.color-primary {
+
+}
+.bg-red {
+	background-color: #ff4081;
+}
+
+body {
+	/* background-color: #f1f1f1;
+	color: #333; */
+	background-image: url("../picture/main_backgroundimage.jpg");
+	background-size:cover;
+}

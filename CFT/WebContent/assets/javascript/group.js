@@ -97,7 +97,7 @@ function loginErrorCheck(responseStatus){
 	// 成功
 	if(responseStatus == 200){
 //		alert("アカウントを作成しました。");
-		$('h2').append('<div id="addComment"><font color="green"><h4>グループにログインしました。</h4></font></div>');
+		$('h2').append('<div id="addComment"><font color="green"><h4>グループに所属しました。</h4></font></div>');
 		return;
 	}
 	// 失敗
@@ -113,7 +113,7 @@ function loginErrorCheck(responseStatus){
 	        return;
 		}
 
-		$('h2').append('<div id="addComment"><font color="red"><h4>error：ログインできませんでした。<br>IDまたはPWを確認してください。</h4></font></div>');
+		$('h2').append('<div id="addComment"><font color="red"><h4>error：所属できませんでした。<br>IDまたはPWを確認してください。</h4></font></div>');
 		return;
 	}
 }
@@ -130,7 +130,7 @@ function createErrorCheck(responseStatus){
 	// 成功
 	if(responseStatus == 200){
 //		alert("アカウントを作成しました。");
-		$('h2').append('<div id="addComment"><font color="green"><h4>アカウントを作成しました。</h4></font></div>');
+		$('h2').append('<div id="addComment"><font color="green"><h4>グループを作成しました。</h4></font></div>');
 		return;
 	}
 	// 失敗
@@ -147,7 +147,7 @@ function createErrorCheck(responseStatus){
 			$('h2').append('<div id="addComment"><font color="red"><h4>error：赤く表示されている欄の文字数を確認してください。</h4></font></div>');
 	        return;
 		}
-		$('h2').append('<div id="addComment"><font color="red"><h4>error：アカウントを作成できませんでした。</h4></font></div>');
+		$('h2').append('<div id="addComment"><font color="red"><h4>error：グループを作成できませんでした。</h4></font></div>');
 		return;
 	}
 }

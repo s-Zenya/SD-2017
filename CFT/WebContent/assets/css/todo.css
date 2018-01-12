@@ -6,12 +6,25 @@ h2 {
 #rec-button{
 	padding: 0 10px 0 0px;
 }
+.toDoTable , .allDayTodoTable {
+	margin-top: 50px;
+	border-radius: 8px;
+	border-collapse: separate;
+	background-color: #fff;
+	border-spacing: 0;
+	padding-bottom: 6px;
+	border: solid 1px #007bff;
+}
+.toDoTable > thead > tr >th ,.allDayTodoTable > thead > tr > th {
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+}
+
 
 #tableChangeButton {
 	float:right;
-	border-bottom-left-radius:0;
-	border-bottom-right-radius:0;
 }
+
 
 @media screen and (min-height: 667px){
 #toDayTodo , #allDayTodo {
@@ -36,7 +49,13 @@ h2 {
 }
 
 #addTodo {
-	margin: 20px 0;
+	margin: 0;
+	padding: 10px 1vw;
+	border-radius: 5px;
+	border: 1px #999 solid;
+	position: absolute;
+  bottom: 0px;
+
 }
 
 #addTodo input {

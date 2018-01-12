@@ -1,9 +1,6 @@
-body {
-	background-color: #f1f1f1;
-	color: #333;
-}
-h3 {
-		font-size:calc(20px + 3vw);
+
+h1 {
+	margin : 20px 0;
 }
 
 .table-content {
@@ -11,7 +8,6 @@ h3 {
 	border-radius: 8px;
 	margin-top: 50px;
 	background-color: white;
-
 }
 .table-content > table > thead > tr > th{
 	border-top-right-radius: 6px;
@@ -24,15 +20,11 @@ table {
 .table td, .table th {
     border-top: initial;
 }
-.bg-blue {
-	background-color: #007bff;
-}
+
 .color-white {
 	color: white;
 }
-.add-button {
-	background-color: #ff4081;
-}
+
 .form-group {
 	display: flex;
 	margin: 0;
@@ -54,7 +46,7 @@ footer {
 
 #allDayShopping , #toDayShopping {
 	height: calc(100vh - 148px);
-	font-size:calc(2px + 3vw); 
+	font-size:calc(2px + 3vw);
 
 }
 
@@ -72,7 +64,7 @@ footer {
 	border: 1px #999 solid;
 	/*background-color: #d3d3d3;*/
 	border-radius: 0.5vw;
-	background-color: #007bff;
+	/* background-color: #007bff; */
 	position: absolute;
 	bottom: 0px;
 
