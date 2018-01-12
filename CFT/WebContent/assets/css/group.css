@@ -2,6 +2,10 @@ h2 {
 	margin: 20px 0;
 }
 
+#rec-button{
+	padding: 0 10px 0 0px;
+}
+
 #inputForm form div label {
 	font-size: 20px;
 	float: left;
@@ -43,5 +47,5 @@ h2 {
 
 /* スマホだけに適用するCSS */
 @media screen and ( max-width:530px ) {
-	
+
 }

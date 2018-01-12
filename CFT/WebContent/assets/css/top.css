@@ -12,6 +12,23 @@
 
 #groupInfo {
 	margin: 20px 0;
+	font-size: calc(3px+1vw);
+}
+
+#messageHead , #message{
+		margin: 0 auto;
+		border-radius: 5px;
+		width: calc(100% - 10px);
+
+}
+#calendarHead , #calendar{
+		margin: 0  0 0 5px;
+		border-radius: 5px;
+		width: calc(100% - 10px);
+
+}
+#messageHead , #calendarHead{
+	overflow: hidden;
 }
 
 #calendar {
@@ -21,7 +38,7 @@
 	#messageHead , #calendarHead{
 		border-top: solid 1px #bbb;
 		border-bottom: solid 1px #777;
-		font-size: calc(5px + 2vw);
+		font-size: calc(4px + 1vw);
 		padding: 5px 10px 5px 10px;
 		color: #fff;
 	}
@@ -36,22 +53,41 @@
 	#messageHead , #calendarHead{
 		border-top: solid 1px #bbb;
 		border-bottom: solid 1px #777;
-		font-size: calc(8px + 2vw);
+		font-size: calc(7px + 1vw);
 		color: #fff;
 	}
 }
 
+
+@media screen and (min-width: 767px){
 #message {
 	max-height: 200px;
-	font-size: 50px;
+	font-size: calc(4px + 1vw);
 	marign-bottom: 0;
 	width: 200px + 10vw;
+	}
+}
+@media screen and (max-width: 766px){
+	#message {
+		max-height: 200px;
+		font-size: calc(4px + 1vw);
+		marign-bottom: 0;
+		width: 200px + 10vw;
+		}
 }
 
+@media screen and (min-width: 767px){
 #message table {
-	font-size: 20px;
+	font-size: calc(4px + 1vw);
 	width: 100%;
 	margin: 0;
+}
+}
+@media screen and (max-width: 766px){
+#message table {
+	font-size: calc(4px + 1vw);
+	width: 100%;
+}
 }
 
 #message td:nth-child(1) {
@@ -82,7 +118,7 @@
 	#calendar {
 		margin-bottom: 20px;
 		max-height: 500px;
-		font-size: 20px;
+		font-size: calc(4px + 1.5vw);
 		float: left;
 
 	}
@@ -96,23 +132,35 @@
 	#calendar {
 		margin-bottom: 20px;
 		max-height: 200px;
-		font-size: 20px;
+		font-size: calc(4px+1vw);
 		float: left;
 
 	}
 }
 
 #calendar .listDate {
-	font-size: 20px;
+	font-size: calc(4px+1vw);
 }
 
 #calendar td:nth-child(1) {
-	font-size:20px;
+	font-size:CALC(4px+1vw);
 	width: 130px;
 }
 
-#linkBtn {
-	float: right;
+@media screen and (min-width: 767px){
+
+	#linkBtn {
+		float: right;
+		position: relative;
+		bottom : 50px;
+	}
+}
+
+@media screen and (max-width: 766px){
+
+	#linkBtn {
+		float: right;
+	}
 }
 
 #linkBtn input {
@@ -138,14 +186,20 @@
 }
 
 p {
-	font-size: calc(1.8vw + 10px);
+	font-size: calc(1.8vw + 5px);
 	text-decoration: underline;
 }
 
 /* スマホだけに適用するCSS */
 @media screen and ( max-width:530px ) {
+
+	#groupInfo {
+		margin: 20px 0;
+		font-size: calc(1px + 3vw);
+	}
+
 	#message table {
-		font-size: 20px;
+		font-size: calc(10px + 2vw);
 		width: 500px;
 	}
 	#message td {
@@ -159,7 +213,7 @@ p {
 	}
 
 	#calendar table {
-		font-size: 20px;
+		font-size: calc(10px+2vw);
 		width: 500px;
 		heigit: 200px;
 	}
