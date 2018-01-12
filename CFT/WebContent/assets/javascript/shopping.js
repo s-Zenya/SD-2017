@@ -175,6 +175,8 @@ function allDayTableOpen()
 	//	console.log("1111");
 	document.getElementById("toDayShopping").style.display="block";
 	document.getElementById("allDayShopping").style.display="none";
+	document.getElementsByClassName("dayBtn")[0].style.display="block";
+	document.getElementsByClassName("allBtn")[0].style.display="none";
 	return null;
 }
 
@@ -183,6 +185,8 @@ function toDayTableOpen()
 	//	console.log("222");
 	document.getElementById("allDayShopping").style.display="block";
 	document.getElementById("toDayShopping").style.display="none";
+	document.getElementsByClassName("dayBtn")[0].style.display="none";
+	document.getElementsByClassName("allBtn")[0].style.display="block";
 	return null;
 }
 

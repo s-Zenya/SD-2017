@@ -26,8 +26,8 @@
 	<h2 class="col-sm-12">やる事リスト</h2>
 
 	<!-- toDayTodo表示テーブル -->
+  <button id="tableChangeButton" class="col-sm-5 btn btn-primary" onclick="allDayTableOpen()">未完了のやること一覧表示</button>
 	<div id="toDayTodo" class="table-responsive col-sm-12">
-	<button id="tableChangeButton" class="col-sm-5 btn btn-primary" onclick="allDayTableOpen()">未完了のやること一覧表示</button>
 		<table class="table toDoTable">
 			<thead>
 				<tr>
@@ -40,8 +40,8 @@
 	</div>
 
 	<!-- allDayTodo表示テーブル -->
+  <button id="tableChangeButton" class="col-sm-4 btn btn-primary" onclick="toDayTableOpen()">今日のやること一覧表示</button>
 	<div id="allDayTodo" class="table-responsive col-sm-12">
-		<button id="tableChangeButton" class="col-sm-4 btn btn-primary" onclick="toDayTableOpen()">今日のやること一覧表示</button>
 		<table class="table allDayTodoTable">
 			<thead>
 				<tr>
