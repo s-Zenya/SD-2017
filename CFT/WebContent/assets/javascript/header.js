@@ -3,9 +3,8 @@
 
 var headerHTML = '<DIV id="header"><TABLE border="0" bgcolor="#111" width="100%" cellspacing="0" cellpadding="0" height="50">';
 headerHTML += '<TR><TD>&nbsp;<A HREF="/Login"><FONT color="#fff" size="4">CFT</FONT>';
-headerHTML += '<FONT color="#e2e2e2" size="3">.CommunicationFamliyTool<br></FONT></A></TD>';
+headerHTML += '</A></TD><TD><FONT color="#e2e2e2" size="0.5" style="line-height:10px">※このサイトは正式なサービスを行っていません。授業の一環で使用するためのサイトです。</FONT></TD>';
 headerHTML += '<TD id="rec-button" border="0" bgcolor="#111" cellspacing="0" cellpadding="0" height="50"><button id = "head-button" class="btn btn-primary col-sm-12" onClick="recStart()">rec</button></TD>';
-headerHTML += '<TR><TD><FONT color="#e2e2e2" size="1">※このサイトは正式なサービスを行っていません。授業の一環で使用するためのサイトです。</FONT></TD></TR>';
 headerHTML += '<TR bgcolor="#424242" height="2"><TD></TD><TD></TD></TR></TABLE></DIV>';
 
 document.write(headerHTML);
