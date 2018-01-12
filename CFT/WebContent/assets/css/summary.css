@@ -7,7 +7,7 @@
 	background-color: #000;
 }
 .bg-white {
-	background-color: #fff;
+	background-color: rgba(255,255,255,0.3);
 }
 .color-primary {
 
