@@ -2,6 +2,7 @@
 h1 {
 	margin : 20px 0;
 }
+
 .table-content {
 	border: 1px solid #007bff;
 	border-radius: 8px;
@@ -34,12 +35,18 @@ footer {
 	bottom: 0px;
 	width: 100%;
 }
+
+#rec-button{
+	padding: 0 10px 0 0px;
+}
+
 #tableChangeButton {
 	float: right;
 }
 
 #allDayShopping , #toDayShopping {
 	height: calc(100vh - 148px);
+	font-size:calc(2px + 3vw);
 
 }
 
