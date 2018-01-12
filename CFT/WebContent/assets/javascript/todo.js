@@ -210,7 +210,8 @@ function allDayTableOpen()
 {
   document.getElementById("toDayTodo").style.display="none";
   document.getElementById("allDayTodo").style.display="block";
-
+	document.getElementsByClassName("dayBtn")[0].style.display="block";
+  document.getElementsByClassName("allBtn")[0].style.display="none";
   return null;
 }
 
@@ -218,6 +219,8 @@ function toDayTableOpen()
 {
   document.getElementById("allDayTodo").style.display="none";
   document.getElementById("toDayTodo").style.display="block";
+	document.getElementsByClassName("allBtn")[0].style.display="block";
+  document.getElementsByClassName("dayBtn")[0].style.display="none";
 
   return null;
 }

@@ -82,7 +82,6 @@ function showMessage(){
 
 //メッセージの書き換え
 function writeMessage(messageObj){
-	console.log("writte");
 	//	message要素の削除
 	$("#message table tbody").empty();
 	//    messageObjを一行ずつ表示
@@ -92,30 +91,3 @@ function writeMessage(messageObj){
 	//  messageTableを一番下までスクロール
 	$("#message").scrollTop($("#message")[0].scrollHeight);
 }
-
-//入力値チェック
-//更新のタイミング的に使えないのでなかったことに！！！
-//function errorCheck(responseStatus){
-//	console.log(responseStatus);
-//	$("#addMessageComment").remove();
-//
-//	// 成功
-//	if(responseStatus == 200){
-//		console.log("追加");
-//		$('#addMessage_form').append('<div id="addMessageComment"><font color="green"><h5>メッセージを追加しました。</h5></font></div>');
-//		return;
-//	}
-//	// 失敗
-//	else{
-//		var addMessage=document.getElementById("addMessage").value
-//
-//		// 文字数確認
-//		if(addMessage.length >= 101 || addMessage.length == 0){
-//			$('#addMessage_form').append('<div id="addMessageComment"><font color="red"><h5>error：赤く表示されている欄の文字数を確認してください。</h5></font></div>');
-//	        return;
-//		}
-//
-//		$('#addMessage_form').append('<div id="addMessageComment"><font color="red"><h5>error：メッセージを追加できませんでした。</h5></font></div>');
-//		return;
-//	}
-//}

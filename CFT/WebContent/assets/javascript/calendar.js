@@ -57,31 +57,11 @@ function showCalendar(planObj,dateMain){
 
 // Topページでのカレンダー描画-
 function showCalendarTop(planObj,dateMain){
-  // var displayYear = [];//先月、今月、来月の西暦が入る
-  // var displayMon = [];//先月、今月、来月の月が入る
-  // var startMon = dateMain.substr(5,2)-1;
-  // for(var i=0;i<3;i++){
-  // 	displayYear[i]=dateMain.substr(0,4);
-  // 	displayMon[i]=startMon+i%13;
-  // 	if(displayMon[i]==0){//月の繰り下がりの処理
-  // 		displayYear[i]--;
-  // 		displayMon[i]=12;
-  // 	}else if(displayMon[i]==13){//月の繰り上がりの処理
-  // 		displayYear[i]++;
-  // 		displayMon[i]=1;
-  // 	}
-  // }
-  // //データの削除
-  // for(var i=0;i<3;i++){
-  // 	for(var j=1;j<=31;j++){
-  // 		$('#'+displayYear[i]+'-'+("0"+displayMon[i]).slice(-2)+'-'+("0"+j).slice(-2)).empty();
-  // 	}
-  // }
   var countPlan = 0;
   //htmlへ書き込み
   for(let k in planObj) {
     var addCalendarHtml="";
-    addCalendarHtml+='<tr>';
+    addCalendarHtml+='<tr class="bg-white">';
     addCalendarHtml+='<td>'+planObj[k].date+'</td>';
     addCalendarHtml+='<td>'+planObj[k].content+'</td>';
     addCalendarHtml+='</tr>';
@@ -183,13 +163,10 @@ function getCalendar(date){
       return response.text();
     }).then(text => {
       //    		  予定の書き換え
-      // console.log(text);
       showCalendar($.parseJSON(text),date);
     });
   }
 }
-
-
 
 //Top画面用予定の取得
 function getCalendarTop(date){
@@ -223,12 +200,10 @@ function getCalendarTop(date){
   }
 }
 
-
 //入力値チェック
 function errorCheck(responseStatus,year,mon,day){
 	// console.log(responseStatus);
 	$("#addComment").remove();
-
 	// 成功
 	if(responseStatus == 200){
 		$('h1').append('<div id="addComment"><font color="green"><h4>予定を追加しました。</h4></font></div>');
@@ -237,13 +212,11 @@ function errorCheck(responseStatus,year,mon,day){
 	else{
 		var date = year+"-"+("0"+mon).slice(-2)+"-"+("0"+day).slice(-2);//ここで日付を取得
 		var content=$("#calendar_content_form_"+date).val();
-
 		// 文字数確認
 		if(content.length >= 101 || content.length == 0){
 			$('h1').append('<div id="addComment"><font color="red"><h4>error：入力した文字数を確認してください。</h4></font></div>');
 	        return;
 		}
-
 		$('h1').append('<div id="addComment"><font color="red"><h4>error：予定を追加できませんでした。</h4></font></div>');
 		return;
 	}

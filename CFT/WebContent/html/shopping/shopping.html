@@ -23,8 +23,8 @@
 	<SCRIPT src="../../assets/javascript/header.js"></SCRIPT>
 	<h3 class="col-md-12">買い物リスト</h3>
 	<!-- allDayShopping表示テーブル -->
+	<button id="tableChangeButton" class="col-sm-4 btn btn-primary allBtn" onclick="allDayTableOpen()" style="display:none">今日の買い物一覧表示へ</button>
 	<div id="allDayShopping" class="table-responsive col-sm-12">
-		<button id="tableChangeButton" class="col-sm-4 btn btn-primary" onclick="allDayTableOpen()">今日の買い物一覧表示へ</button>
 		<div class="table-content">
 			<table class="table">
 				<thead>
@@ -40,9 +40,10 @@
 	</div>
 
 	<!-- ・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・ -->
+
 	<!-- toDayShopping表示テーブル -->
+	<button id="tableChangeButton" class="col-sm-4 btn btn-primary dayBtn" onclick="toDayTableOpen()">未購入一覧表示へ</button>
 	<div id="toDayShopping" class="table-responsive col-sm-12">
-		<button id="tableChangeButton" class="col-sm-4 btn btn-primary" onclick="toDayTableOpen()">未購入一覧表示へ</button>
 		<div class="table-content">
 			<table class="table">
 				<thead>
@@ -69,7 +70,7 @@
 				<option value="4"></option>
 				<option value="5"></option>
 			</datalist>
-			<button class="add btn btn-primary col-sm-2 add-button" onclick="addshopping()">追加</button>
+			<button class="add btn btn-primary col-sm-2 bg-red" onclick="addshopping()">追加</button>
 		</div>
 	</div>
 	<!-- footer読み込み -->

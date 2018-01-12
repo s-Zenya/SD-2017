@@ -1,8 +1,17 @@
 h2 {
 	margin: 20px 0;
+	font-size:calc(20px + 3vw);
+}
+
+.listCheck{
+	color : white;
+}
+
+#rec-button{
+	padding: 0 10px 0 0px;
 }
 .toDoTable , .allDayTodoTable {
-	margin-top: 50px;
+	margin-top: 0;
 	border-radius: 8px;
 	border-collapse: separate;
 	background-color: #fff;
@@ -23,18 +32,21 @@ h2 {
 
 @media screen and (min-height: 667px){
 #toDayTodo , #allDayTodo {
-	height: 400px;
+	height: calc(100vh - 200px);
+	font-size: calc(1px + 2vw);
 }
 }
 
 @media screen and (max-height: 666px){
 #toDayTodo , #allDayTodo {
-	height : 290px;
+	height: calc(100vh - 200px);
+	font-size:calc(1px + 2vw);
 }
 }
 
 #toDayTodo .listCheck , #allDayTodo .listCheck {
 	width: 60px;
+
 }
 
 #allDayTodo {
@@ -42,7 +54,13 @@ h2 {
 }
 
 #addTodo {
-	margin: 20px 0;
+	margin: 0;
+	padding: 10px 1vw;
+	border-radius: 5px;
+	border: 1px #999 solid;
+	position: absolute;
+  bottom: 0px;
+
 }
 
 #addTodo input {

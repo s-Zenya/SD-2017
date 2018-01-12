@@ -2,10 +2,11 @@
 h1 {
 	margin : 20px 0;
 }
+
 .table-content {
 	border: 1px solid #007bff;
 	border-radius: 8px;
-	margin-top: 50px;
+	margin: 0;
 	background-color: white;
 }
 .table-content > table > thead > tr > th{
@@ -23,9 +24,7 @@ table {
 .color-white {
 	color: white;
 }
-.add-button {
-	background-color: #ff4081;
-}
+
 .form-group {
 	display: flex;
 	margin: 0;
@@ -36,12 +35,18 @@ footer {
 	bottom: 0px;
 	width: 100%;
 }
+
+#rec-button{
+	padding: 0 10px 0 0px;
+}
+
 #tableChangeButton {
 	float: right;
 }
 
 #allDayShopping , #toDayShopping {
-	height: calc(100vh - 148px);
+	height: calc(100vh - 200px);
+	font-size:calc(1px + 2vw);
 
 }
 
